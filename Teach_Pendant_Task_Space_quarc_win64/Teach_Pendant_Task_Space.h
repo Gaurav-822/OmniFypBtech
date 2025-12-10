@@ -1,11 +1,15 @@
 /*
  * Teach_Pendant_Task_Space.h
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.468
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Wed Dec 10 23:22:13 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -221,8 +225,8 @@ typedef struct {
 
   uint32_T method;                     /* '<Root>/pid auto tuner' */
   uint32_T state;                      /* '<Root>/pid auto tuner' */
-  uint32_T state_g[2];                 /* '<Root>/pid auto tuner' */
-  uint32_T state_k[625];               /* '<Root>/pid auto tuner' */
+  uint32_T state_k[2];                 /* '<Root>/pid auto tuner' */
+  uint32_T state_j[625];               /* '<Root>/pid auto tuner' */
   int_T Integrator1_IWORK;             /* '<S20>/Integrator1' */
   uint16_T Output_DSTATE;              /* '<S29>/Output' */
   uint16_T Output_DSTATE_j;            /* '<S32>/Output' */
@@ -282,15 +286,15 @@ struct P_Teach_Pendant_Task_Space_T_ {
                                         *   '<Root>/Constant'
                                         *   '<Root>/Constant1'
                                         */
-  real_T TrajectoryJoint1_OutValues[1994];
+  real_T TrajectoryJoint1_OutValues[4015];
                                    /* Mask Parameter: TrajectoryJoint1_OutValues
                                     * Referenced by: '<S26>/Vector'
                                     */
-  real_T TrajectoryJoint2_OutValues[1994];
+  real_T TrajectoryJoint2_OutValues[4015];
                                    /* Mask Parameter: TrajectoryJoint2_OutValues
                                     * Referenced by: '<S27>/Vector'
                                     */
-  real_T TrajectoryJoint3_OutValues[1994];
+  real_T TrajectoryJoint3_OutValues[4015];
                                    /* Mask Parameter: TrajectoryJoint3_OutValues
                                     * Referenced by: '<S28>/Vector'
                                     */

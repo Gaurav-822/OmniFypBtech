@@ -83,12 +83,12 @@ BUILD_SUCCESS	    = ^#^#^# Created
 MODEL                = Teach_Points
 MODULES              = Teach_Points_data.c Teach_Points_main.c rt_i32zcfcn.c rt_sim.c
 MAKEFILE             = Teach_Points.mk
-MATLAB_ROOT          = C:\Program Files\Polyspace\R2020a
-ALT_MATLAB_ROOT      = C:\PROGRA~1\POLYSP~1\R2020a
-MATLAB_BIN           = C:\Program Files\Polyspace\R2020a\bin
-ALT_MATLAB_BIN       = C:\PROGRA~1\POLYSP~1\R2020a\bin
+MATLAB_ROOT          = C:\Program Files\MATLAB\R2020a
+ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2020a
+MATLAB_BIN           = C:\Program Files\MATLAB\R2020a\bin
+ALT_MATLAB_BIN       = C:\PROGRA~1\MATLAB\R2020a\bin
 #-- Support for parallel builds
-START_DIR            = E:\OmniFypBtech\Omni NITS\Omni\Product Resources\Instructor Resources\Software\06 Teach Pendant in Task Space
+START_DIR            = D:\OmniFypBtech\OmniFypBtech
 S_FUNCTIONS_LIB      = C:\PROGRA~1\Quanser\QUARC\lib\win64\QUA50B~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUCD81~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUDCFC~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUANSE~4.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUANSE~1.LIB
 NUMST                = 1
 TID01EQ              = 0

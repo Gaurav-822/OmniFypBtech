@@ -1,41 +1,62 @@
-%Maximum velocity of each direction
-pos_dot = [0.2 0.15 0.12];
+% ================================
+% NON-UNIFORM TRAJECTORY GENERATOR
+% (dense ends, uniform middle)
+% ================================
 
-%Sampling time of simulink model
-sampling_time = .001;
+pos_dot = [0.2 0.15 0.12]/2;
+sampling_time = 0.001;
 
-%Define varaibles
+nonuniform_alpha = 2;
+
 clear traj;
 traj_pos = [];
 
-% Store the starting point in workspace
 starting_point = pos(1,:);
 
-%Make pos_current the first value in the array and pos_next the second value
-%Increment indices for both
-%When pos_current is the last entry in the array, make pos_next the first 
-for i =1:size(pos,1)
+for i = 1:size(pos,1)
+
     pos_current = pos(i,:);
+    
     if i < size(pos,1)
         pos_next = pos(i+1,:);
     else
         pos_next = pos(1,:);
     end
     
-    %determine the direction that will take the longest to finish its path
-    %and use that speed of that direction to scale the speed of the rest
-    %so that the overall path is linear
-    delta = abs(pos_next-pos_current);
-    time = delta./pos_dot;
+    delta = abs(pos_next - pos_current);
+    time = delta ./ pos_dot;
     max_time = max(time);
-    pos_dot_modified = delta/max_time;
-    step_size = pos_dot_modified*sampling_time;
-   
-    %Call LinearTrajectory with pos_current,pos_next and step_size to get
-    %the trajectory between these two points.
-    traj= LinearTrajectory(pos_current, pos_next, step_size);
-    traj_pos = cat(1,traj_pos,traj);
+
+    N = max(2, ceil(max_time / sampling_time));
+
+    % ===== Non-uniform: dense ends, uniform middle =====
+    t = linspace(0,1,N)';
+
+    if nonuniform_alpha == 0
+        s = t;
+    else
+        a = 0.2;  % 20% segment at each end
+
+        s = zeros(size(t));
+
+        % start dense
+        idx1 = t <= a;
+        u1 = t(idx1)/a;
+        s(idx1) = a * (u1.^nonuniform_alpha);
+
+        % middle uniform
+        idx2 = t > a & t < (1-a);
+        s(idx2) = t(idx2);
+
+        % end dense
+        idx3 = t >= (1-a);
+        u3 = (t(idx3)-(1-a))/a;
+        s(idx3) = (1-a) + a*(1 - (1-u3).^nonuniform_alpha);
+    end
+
+    traj = pos_current + (pos_next - pos_current).*s;
+    traj_pos = cat(1, traj_pos, traj);
+
 end
 
-% The first entry of traj_pos is the the first entry in pos (the first point)
-traj_pos = cat(1,pos(1,:),traj_pos);
+traj_pos = cat(1, pos(1,:), traj_pos);

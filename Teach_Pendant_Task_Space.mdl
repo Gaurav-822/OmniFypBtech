@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.464"
+    ComputedModelVersion    "1.468"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -156,7 +156,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1382.0, 744.0]
+      Location		      [-8.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -172,7 +172,7 @@ Model {
 	$PropName		"ExplorerBarInfo"
 	$ObjectID		4
 	$ClassName		"Simulink.ExplorerBarInfo"
-	Visible			[0]
+	Visible			[1]
       }
       Array {
 	Type			"Simulink.EditorInfo"
@@ -183,10 +183,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1328.0, 509.0]
+	  Extents		  [1882.0, 791.0]
 	  ZoomFactor		  [1.5]
-	  Offset		  [875.11426393618262, 523.2534321231517]
-	  SceneRectInView	  [875.11426393618262, 523.2534321231517, 885.33333333333337, 339.33333333333331]
+	  Offset		  [-311.80429546023231, 138.24986476608288]
+	  SceneRectInView	  [-311.80429546023231, 138.24986476608288, 1254.6666666666667, 527.33333333333337]
 	}
 	Object {
 	  $ObjectID		  6
@@ -264,7 +264,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAABrAD///8AAAVWAAACHAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAB/////wEAAAAA/////wAAAAAAAAAA"
+      "QBjAHQAbwByAAAAAAD/////AAABrAD///8AAAeAAAADVAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAB/////wEAAAAA/////wAAAAAAAAAA"
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -280,11 +280,11 @@ Model {
   Creator		  "RSamra"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "USER"
+  LastModifiedBy	  "EE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Dec 09 18:26:47 2025"
-  RTWModifiedTimeStamp	  687205606
-  ModelVersionFormat	  "1.%<AutoIncrement:464>"
+  LastModifiedDate	  "Wed Dec 10 23:08:42 2025"
+  RTWModifiedTimeStamp	  687308922
+  ModelVersionFormat	  "1.%<AutoIncrement:468>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1665,7 +1665,7 @@ Model {
   }
   System {
     Name		    "Teach_Pendant_Task_Space"
-    Location		    [-8, -8, 1374, 736]
+    Location		    [-8, -8, 1928, 1048]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1756,7 +1756,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"22"
+	SIDHighWatermark	"25"
 	SIDPrevWatermark	"15"
 	SimulinkSubDomain	"Simulink"
 	Block {
@@ -1777,20 +1777,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "2::21"
+	  SID			  "2::24"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  6
+	  ZOrder		  9
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "2::20"
+	  SID			  "2::23"
 	  Tag			  "Stateflow S-Function 9"
 	  Ports			  [2, 3]
 	  Position		  [180, 100, 230, 180]
-	  ZOrder		  5
+	  ZOrder		  8
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[2 3]"
 	  SFunctionDeploymentMode off
@@ -1808,9 +1808,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "2::22"
+	  SID			  "2::25"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  7
+	  ZOrder		  10
 	}
 	Block {
 	  BlockType		  Outport
@@ -1828,7 +1828,7 @@ Model {
 	  Port			  "2"
 	}
 	Line {
-	  ZOrder		  7
+	  ZOrder		  13
 	  SrcBlock		  "q"
 	  SrcPort		  1
 	  Points		  [120, 0]
@@ -1836,7 +1836,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  14
 	  SrcBlock		  "tool_offset"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1844,7 +1844,7 @@ Model {
 	}
 	Line {
 	  Name			  "pos"
-	  ZOrder		  9
+	  ZOrder		  15
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1853,7 +1853,7 @@ Model {
 	}
 	Line {
 	  Name			  "rot"
-	  ZOrder		  10
+	  ZOrder		  16
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
@@ -1861,14 +1861,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  11
+	  ZOrder		  17
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  12
+	  ZOrder		  18
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1971,7 +1971,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"24"
+	SIDHighWatermark	"27"
 	SIDPrevWatermark	"17"
 	SimulinkSubDomain	"Simulink"
 	Block {
@@ -2000,20 +2000,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "20::23"
+	  SID			  "20::26"
 	  Ports			  [1, 1]
 	  Position		  [270, 245, 320, 285]
-	  ZOrder		  6
+	  ZOrder		  9
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "20::22"
+	  SID			  "20::25"
 	  Tag			  "Stateflow S-Function 10"
 	  Ports			  [3, 4]
 	  Position		  [180, 102, 230, 203]
-	  ZOrder		  5
+	  ZOrder		  8
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 4]"
 	  SFunctionDeploymentMode off
@@ -2035,9 +2035,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "20::24"
+	  SID			  "20::27"
 	  Position		  [460, 256, 480, 274]
-	  ZOrder		  7
+	  ZOrder		  10
 	}
 	Block {
 	  BlockType		  Outport
@@ -2063,21 +2063,21 @@ Model {
 	  Port			  "3"
 	}
 	Line {
-	  ZOrder		  9
+	  ZOrder		  17
 	  SrcBlock		  "pos"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  10
+	  ZOrder		  18
 	  SrcBlock		  "rot"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  11
+	  ZOrder		  19
 	  SrcBlock		  "tool_offset"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -2085,7 +2085,7 @@ Model {
 	}
 	Line {
 	  Name			  "q1"
-	  ZOrder		  12
+	  ZOrder		  20
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -2094,7 +2094,7 @@ Model {
 	}
 	Line {
 	  Name			  "q2"
-	  ZOrder		  13
+	  ZOrder		  21
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
@@ -2103,7 +2103,7 @@ Model {
 	}
 	Line {
 	  Name			  "q3"
-	  ZOrder		  14
+	  ZOrder		  22
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  4
@@ -2111,14 +2111,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  23
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  24
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -2211,7 +2211,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"23"
+	SIDHighWatermark	"26"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2239,20 +2239,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "283::20"
+	  SID			  "283::25"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  11
+	  ZOrder		  16
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "283::19"
+	  SID			  "283::24"
 	  Tag			  "Stateflow S-Function 6"
 	  Ports			  [3, 2]
 	  Position		  [180, 100, 230, 180]
-	  ZOrder		  10
+	  ZOrder		  15
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 2]"
 	  SFunctionDeploymentMode off
@@ -2266,9 +2266,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "283::21"
+	  SID			  "283::26"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  12
+	  ZOrder		  17
 	}
 	Block {
 	  BlockType		  Outport
@@ -2278,51 +2278,47 @@ Model {
 	  ZOrder		  -5
 	}
 	Line {
-	  ZOrder		  14
+	  ZOrder		  20
 	  SrcBlock		  "start_pos"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 5]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  21
 	  SrcBlock		  "curr_pos"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, -5]
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  22
 	  SrcBlock		  "cost_input"
 	  SrcPort		  1
-	  Points		  [69, 0; 0, -15]
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "total_cost"
-	  ZOrder		  17
+	  ZOrder		  23
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  Points		  [115, 0; 0, -50]
 	  DstBlock		  "total_cost"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  18
+	  ZOrder		  24
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  19
+	  ZOrder		  25
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
-	  Points		  [16, 0; 0, 130]
+	  Points		  [20, 0]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -2359,32 +2355,32 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"24"
+	SIDHighWatermark	"28"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "288::20"
+	  SID			  "288::26"
 	  Ports			  [1, 1]
 	  Position		  [270, 245, 320, 285]
-	  ZOrder		  11
+	  ZOrder		  17
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  Ground
 	  Name			  " Ground "
-	  SID			  "288::22"
+	  SID			  "288::28"
 	  Position		  [20, 141, 40, 159]
-	  ZOrder		  13
+	  ZOrder		  19
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "288::19"
+	  SID			  "288::25"
 	  Tag			  "Stateflow S-Function 7"
 	  Ports			  [1, 4]
 	  Position		  [180, 102, 230, 203]
-	  ZOrder		  10
+	  ZOrder		  16
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 4]"
 	  SFunctionDeploymentMode off
@@ -2406,9 +2402,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "288::21"
+	  SID			  "288::27"
 	  Position		  [460, 256, 480, 274]
-	  ZOrder		  12
+	  ZOrder		  18
 	}
 	Block {
 	  BlockType		  Outport
@@ -2435,54 +2431,49 @@ Model {
 	}
 	Line {
 	  Name			  "Kp"
-	  ZOrder		  22
+	  ZOrder		  28
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  Points		  [55, 0; 0, -30]
 	  DstBlock		  "Kp"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "Ki"
-	  ZOrder		  23
+	  ZOrder		  29
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
-	  Points		  [111, 0; 0, -20]
 	  DstBlock		  "Ki"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "Kd"
-	  ZOrder		  24
+	  ZOrder		  30
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  4
-	  Points		  [166, 0; 0, -10]
 	  DstBlock		  "Kd"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  31
 	  SrcBlock		  " Ground "
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 5]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  26
+	  ZOrder		  32
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  33
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
-	  Points		  [16, 0; 0, 150]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -2519,7 +2510,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"23"
+	SIDHighWatermark	"26"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -2547,20 +2538,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "289::20"
+	  SID			  "289::25"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  11
+	  ZOrder		  16
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "289::19"
+	  SID			  "289::24"
 	  Tag			  "Stateflow S-Function 11"
 	  Ports			  [3, 2]
 	  Position		  [180, 100, 230, 180]
-	  ZOrder		  10
+	  ZOrder		  15
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 2]"
 	  SFunctionDeploymentMode off
@@ -2574,9 +2565,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "289::21"
+	  SID			  "289::26"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  12
+	  ZOrder		  17
 	}
 	Block {
 	  BlockType		  Outport
@@ -2586,51 +2577,47 @@ Model {
 	  ZOrder		  -5
 	}
 	Line {
-	  ZOrder		  14
+	  ZOrder		  20
 	  SrcBlock		  "const"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 5]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  21
 	  SrcBlock		  "signal1"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, -5]
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  22
 	  SrcBlock		  "signal2"
 	  SrcPort		  1
-	  Points		  [68, 0; 0, -15]
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "out"
-	  ZOrder		  17
+	  ZOrder		  23
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  Points		  [121, 0; 0, -50]
 	  DstBlock		  "out"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  18
+	  ZOrder		  24
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  19
+	  ZOrder		  25
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
-	  Points		  [16, 0; 0, 130]
+	  Points		  [20, 0]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -2848,7 +2835,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"20"
+		SIDHighWatermark	"23"
 		SimulinkSubDomain	"Simulink"
 		Block {
 		  BlockType		  Inport
@@ -2860,20 +2847,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "207::19"
+		  SID			  "207::22"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  6
+		  ZOrder		  9
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "207::18"
+		  SID			  "207::21"
 		  Tag			  "Stateflow S-Function 8"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  5
+		  ZOrder		  8
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
@@ -2887,9 +2874,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "207::20"
+		  SID			  "207::23"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  7
+		  ZOrder		  10
 		}
 		Block {
 		  BlockType		  Outport
@@ -2899,7 +2886,7 @@ Model {
 		  ZOrder		  -5
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  9
 		  SrcBlock		  "m"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -2907,7 +2894,7 @@ Model {
 		}
 		Line {
 		  Name			  "q"
-		  ZOrder		  6
+		  ZOrder		  10
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -2915,14 +2902,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  11
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  12
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -3495,7 +3482,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "24"
+	    SIDHighWatermark	    "27"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
 	      BlockType		      Inport
@@ -3507,20 +3494,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "104::23"
+	      SID		      "104::26"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      6
+	      ZOrder		      9
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "104::22"
+	      SID		      "104::25"
 	      Tag		      "Stateflow S-Function 2"
 	      Ports		      [1, 2]
 	      Position		      [180, 100, 230, 160]
-	      ZOrder		      5
+	      ZOrder		      8
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[1 2]"
 	      SFunctionDeploymentMode off
@@ -3534,9 +3521,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "104::24"
+	      SID		      "104::27"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      7
+	      ZOrder		      10
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -3546,7 +3533,7 @@ Model {
 	      ZOrder		      -5
 	    }
 	    Line {
-	      ZOrder		      5
+	      ZOrder		      9
 	      SrcBlock		      "Encoders"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -3554,7 +3541,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "tool_offset"
-	      ZOrder		      6
+	      ZOrder		      10
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -3562,14 +3549,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      7
+	      ZOrder		      11
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      8
+	      ZOrder		      12
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -3912,38 +3899,38 @@ Model {
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('Mi"
-      "nYLimReal','-0.0287','MaxYLimReal','0.02391','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.0287','Legen"
-      "dVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.6862745"
-      "09803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941"
-      "1764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.71764705"
-      "8823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabe"
-      "l>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true"
-      ",'Placement',1),struct('MinYLimReal','-0.02313','MaxYLimReal','0.01788','YLabelReal','','MinYLimMag','0','MaxYLi"
-      "mMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTick"
-      "Color',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039"
-      "215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039"
-      "215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Tit"
-      "le','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'"
-      "ShowContent',true,'Placement',2),struct('MinYLimReal','-0.0243','MaxYLimReal','0.04039','YLabelReal','','MinYLim"
-      "Mag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',["
-      "0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666"
-      "667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019"
-      "608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098"
-      "0392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'Lin"
-      "eNames',{{[]}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.09979','MaxYLimReal','0.89809','YLabel"
-      "Real','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',fa"
-      "lse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 "
-      "1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.3921568627450"
-      "98 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098"
-      "039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},"
-      "'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal'"
-      ",'','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',"
-      "[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0"
-      ".411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098"
-      " 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLa"
-      "youtDimensions',[4 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode'"
-      ",'Pan'),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')),'Version','2020a','Position',[1 41 "
-      "1366 651])"
+      "nYLimReal','-0.07259','MaxYLimReal','0.05274','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.07259','Leg"
+      "endVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+      "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
+      "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647"
+      "058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLa"
+      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Demux/1'}},'ShowCont"
+      "ent',true,'Placement',1),struct('MinYLimReal','-0.07791','MaxYLimReal','0.05668','YLabelReal','','MinYLimMag','0"
+      "','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],"
+      "'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0"
+      "745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
+      "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156"
+      "863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames'"
+      ",{{'Demux/2'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.047','MaxYLimReal','0.05005','YLabelRe"
+      "al','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',fals"
+      "e,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 "
+      "0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098"
+      " 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803"
+      "9215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'N"
+      "umLines',1,'LineNames',{{'Demux/3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.25959','MaxYLimR"
+      "eal','2.33629','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',"
+      "true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980"
+      "3922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431"
+      "372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294"
+      "117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefi"
+      "nedChannelNames',{{}},'NumLines',1,'LineNames',{{'MATLAB Function'}},'ShowContent',true,'Placement',4)},'Display"
+      "PropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false"
+      ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.074"
+      "5098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 "
+      "0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039"
+      "215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1]),extmgr.Configuration('Tools','Plot Navigation',true,"
+      "'OnceAtStop',false,'PreviousZoomMode','Pan'),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')"
+      "),'Version','2020a','Position',[1 41 1920 963],'VisibleAtModelOpen','on')"
       NumInputPorts	      "4"
       Floating		      off
     }
@@ -4047,7 +4034,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "22"
+	    SIDHighWatermark	    "25"
 	    SIDPrevWatermark	    "15"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
@@ -4068,20 +4055,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "161::21"
+	      SID		      "161::24"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      6
+	      ZOrder		      9
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "161::20"
+	      SID		      "161::23"
 	      Tag		      "Stateflow S-Function 1"
 	      Ports		      [2, 3]
 	      Position		      [180, 100, 230, 180]
-	      ZOrder		      5
+	      ZOrder		      8
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[2 3]"
 	      SFunctionDeploymentMode off
@@ -4099,9 +4086,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "161::22"
+	      SID		      "161::25"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      7
+	      ZOrder		      10
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -4119,7 +4106,7 @@ Model {
 	      Port		      "2"
 	    }
 	    Line {
-	      ZOrder		      7
+	      ZOrder		      13
 	      SrcBlock		      "q"
 	      SrcPort		      1
 	      Points		      [120, 0]
@@ -4127,7 +4114,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      8
+	      ZOrder		      14
 	      SrcBlock		      "tool_offset"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -4135,7 +4122,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "pos"
-	      ZOrder		      9
+	      ZOrder		      15
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -4144,7 +4131,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "rot"
-	      ZOrder		      10
+	      ZOrder		      16
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -4152,14 +4139,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      11
+	      ZOrder		      17
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      12
+	      ZOrder		      18
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -4279,7 +4266,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"23"
+		SIDHighWatermark	"26"
 		SimulinkSubDomain	"Simulink"
 		Block {
 		  BlockType		  Inport
@@ -4315,20 +4302,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "183::22"
+		  SID			  "183::25"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  6
+		  ZOrder		  9
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "183::21"
+		  SID			  "183::24"
 		  Tag			  "Stateflow S-Function 3"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  5
+		  ZOrder		  8
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
@@ -4342,9 +4329,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "183::23"
+		  SID			  "183::26"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  7
+		  ZOrder		  10
 		}
 		Block {
 		  BlockType		  Outport
@@ -4354,28 +4341,28 @@ Model {
 		  ZOrder		  -8
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  15
 		  SrcBlock		  "final"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  9
+		  ZOrder		  16
 		  SrcBlock		  "current"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  10
+		  ZOrder		  17
 		  SrcBlock		  "speed"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  11
+		  ZOrder		  18
 		  SrcBlock		  "sample_time"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4383,7 +4370,7 @@ Model {
 		}
 		Line {
 		  Name			  "inter"
-		  ZOrder		  12
+		  ZOrder		  19
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4391,14 +4378,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  13
+		  ZOrder		  20
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  21
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4584,7 +4571,7 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [30, 28, 125, 72]
 	      ZOrder		      -3
-	      LibraryVersion	      "1.465"
+	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
 	      SourceProductBaseCode   "SL"
@@ -4612,7 +4599,7 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [25, 143, 120, 187]
 	      ZOrder		      -4
-	      LibraryVersion	      "1.465"
+	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
 	      SourceProductBaseCode   "SL"
@@ -4640,7 +4627,7 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [25, 293, 120, 337]
 	      ZOrder		      -5
-	      LibraryVersion	      "1.465"
+	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
 	      SourceProductBaseCode   "SL"
@@ -4898,7 +4885,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"21"
+	SIDHighWatermark	"24"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -4910,20 +4897,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "278::20"
+	  SID			  "278::23"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  11
+	  ZOrder		  14
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "278::19"
+	  SID			  "278::22"
 	  Tag			  "Stateflow S-Function 4"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  10
+	  ZOrder		  13
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -4937,9 +4924,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "278::21"
+	  SID			  "278::24"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  12
+	  ZOrder		  15
 	}
 	Block {
 	  BlockType		  Outport
@@ -4949,35 +4936,32 @@ Model {
 	  ZOrder		  -5
 	}
 	Line {
-	  ZOrder		  5
+	  ZOrder		  9
 	  SrcBlock		  "err"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 20]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "cost"
-	  ZOrder		  6
+	  ZOrder		  10
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  Points		  [121, 0; 0, -35]
 	  DstBlock		  "cost"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
+	  ZOrder		  11
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  12
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
-	  Points		  [16, 0; 0, 135]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -5014,7 +4998,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"37"
+	SIDHighWatermark	"40"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -5042,20 +5026,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "271::20"
+	  SID			  "271::39"
 	  Ports			  [1, 1]
 	  Position		  [270, 315, 320, 355]
-	  ZOrder		  11
+	  ZOrder		  30
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "271::19"
+	  SID			  "271::38"
 	  Tag			  "Stateflow S-Function 5"
 	  Ports			  [3, 6]
-	  Position		  [180, 137, 230, 278]
-	  ZOrder		  10
+	  Position		  [180, 102, 230, 243]
+	  ZOrder		  29
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[3 6]"
 	  SFunctionDeploymentMode off
@@ -5085,9 +5069,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "271::21"
+	  SID			  "271::40"
 	  Position		  [460, 326, 480, 344]
-	  ZOrder		  12
+	  ZOrder		  31
 	}
 	Block {
 	  BlockType		  Outport
@@ -5129,91 +5113,83 @@ Model {
 	  Port			  "5"
 	}
 	Line {
-	  ZOrder		  246
+	  ZOrder		  256
 	  SrcBlock		  "current_point"
 	  SrcPort		  1
-	  Points		  [76, 0; 0, 55]
+	  Points		  [120, 0]
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  247
+	  ZOrder		  257
 	  SrcBlock		  "starting_point"
 	  SrcPort		  1
-	  Points		  [46, 0; 0, 65]
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  248
+	  ZOrder		  258
 	  SrcBlock		  "cost"
 	  SrcPort		  1
-	  Points		  [21, 0; 0, 75]
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "Kp"
-	  ZOrder		  249
+	  ZOrder		  259
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  Points		  [35, 0; 0, -60]
 	  DstBlock		  "Kp"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "Ki"
-	  ZOrder		  250
+	  ZOrder		  260
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
-	  Points		  [69, 0; 0, -50]
 	  DstBlock		  "Ki"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "Kd"
-	  ZOrder		  251
+	  ZOrder		  261
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  4
-	  Points		  [104, 0; 0, -40]
 	  DstBlock		  "Kd"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "best_PID"
-	  ZOrder		  252
+	  ZOrder		  262
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  5
-	  Points		  [138, 0; 0, -30]
 	  DstBlock		  "best_PID"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "worst_PID"
-	  ZOrder		  253
+	  ZOrder		  263
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  6
-	  Points		  [173, 0; 0, -15]
 	  DstBlock		  "worst_PID"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  254
+	  ZOrder		  264
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  255
+	  ZOrder		  265
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
-	  Points		  [16, 0; 0, 190]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -5637,14 +5613,14 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000032
+#   Stateflow 80000033
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "Teach_Pendant_Task_Space"
-    sfVersion		    80000032
+    sfVersion		    80000033
     firstTarget		    101
   }
   chart {
@@ -6186,9 +6162,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 29 0 0]
     viewObj		    28
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6314,9 +6287,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 36 0 0]
     viewObj		    35
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    20
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6624,9 +6594,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 49 0 0]
     viewObj		    48
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6802,6 +6769,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 58 0 0]
     viewObj		    57
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6829,9 +6799,9 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function [Kp, Ki, Kd] = const_pid()\n% Returns constant PID values (no PSO, no auto-tuning)\n\n% "
-      "Fixed PID values (same as your original)\nKp = [1.79; 1.46; 0.60];\nKi = [1.0;  1.7;  2.9];\nKd = [0.03; 0.045; "
-      "0.001];\n\n% 1st optimization\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.629; 0.3152; 1.967];\n%Kd = [0.07648; 0.0551;"
-      " 0.006901];\n\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.629; 1.311; 1.316];\n%Kd = [0.0801; 0.04813; 0.004055];\n\nen"
+      "Fixed PID values (same as your original)\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.0;  1.7;  2.9];\n%Kd = [0.03; 0.04"
+      "5; 0.001];\n\n% 1st optimization\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.629; 0.3152; 1.967];\n%Kd = [0.07648; 0.05"
+      "51; 0.006901];\n\nKp = [1.79; 1.46; 0.60];\nKi = [1.629; 1.311; 1.316];\nKd = [0.0801; 0.04813; 0.004055];\n\nen"
       "d\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
@@ -7514,6 +7484,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 93 0 0]
     viewObj		    92
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

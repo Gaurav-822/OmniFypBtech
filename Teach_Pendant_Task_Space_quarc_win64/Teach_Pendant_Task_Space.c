@@ -1,11 +1,15 @@
 /*
  * Teach_Pendant_Task_Space.c
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.468
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Wed Dec 10 23:22:13 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -228,32 +232,32 @@ static void Teach_Pendant_Task_Space_rand(real_T r[120])
     }
   } else if (Teach_Pendant_Task_Space_DW.method == 5U) {
     for (mti = 0; mti < 120; mti++) {
-      b_r = 69069U * Teach_Pendant_Task_Space_DW.state_g[0] + 1234567U;
-      e = Teach_Pendant_Task_Space_DW.state_g[1] << 13 ^
-        Teach_Pendant_Task_Space_DW.state_g[1];
+      b_r = 69069U * Teach_Pendant_Task_Space_DW.state_k[0] + 1234567U;
+      e = Teach_Pendant_Task_Space_DW.state_k[1] << 13 ^
+        Teach_Pendant_Task_Space_DW.state_k[1];
       e ^= e >> 17;
       e ^= e << 5;
-      Teach_Pendant_Task_Space_DW.state_g[0] = b_r;
-      Teach_Pendant_Task_Space_DW.state_g[1] = e;
+      Teach_Pendant_Task_Space_DW.state_k[0] = b_r;
+      Teach_Pendant_Task_Space_DW.state_k[1] = e;
       r[mti] = (real_T)(b_r + e) * 2.328306436538696E-10;
     }
   } else {
     if (!Teach_Pendant_Task_Space_DW.state_not_empty) {
-      memset(&Teach_Pendant_Task_Space_DW.state_k[0], 0, 625U * sizeof(uint32_T));
+      memset(&Teach_Pendant_Task_Space_DW.state_j[0], 0, 625U * sizeof(uint32_T));
       b_r = 5489U;
-      Teach_Pendant_Task_Space_DW.state_k[0] = 5489U;
+      Teach_Pendant_Task_Space_DW.state_j[0] = 5489U;
       for (mti = 0; mti < 623; mti++) {
         b_r = ((b_r >> 30U ^ b_r) * 1812433253U + mti) + 1U;
-        Teach_Pendant_Task_Space_DW.state_k[mti + 1] = b_r;
+        Teach_Pendant_Task_Space_DW.state_j[mti + 1] = b_r;
       }
 
-      Teach_Pendant_Task_Space_DW.state_k[624] = 624U;
+      Teach_Pendant_Task_Space_DW.state_j[624] = 624U;
       Teach_Pendant_Task_Space_DW.state_not_empty = true;
     }
 
     for (mti = 0; mti < 120; mti++) {
       r[mti] = Teach_Pendan_eml_rand_mt19937ar
-        (Teach_Pendant_Task_Space_DW.state_k);
+        (Teach_Pendant_Task_Space_DW.state_j);
     }
   }
 }
@@ -271,32 +275,32 @@ static void Teach_Pendant_Task_Space_rand_l(real_T r[6])
     }
   } else if (Teach_Pendant_Task_Space_DW.method == 5U) {
     for (mti = 0; mti < 6; mti++) {
-      b_r = 69069U * Teach_Pendant_Task_Space_DW.state_g[0] + 1234567U;
-      e = Teach_Pendant_Task_Space_DW.state_g[1] << 13 ^
-        Teach_Pendant_Task_Space_DW.state_g[1];
+      b_r = 69069U * Teach_Pendant_Task_Space_DW.state_k[0] + 1234567U;
+      e = Teach_Pendant_Task_Space_DW.state_k[1] << 13 ^
+        Teach_Pendant_Task_Space_DW.state_k[1];
       e ^= e >> 17;
       e ^= e << 5;
-      Teach_Pendant_Task_Space_DW.state_g[0] = b_r;
-      Teach_Pendant_Task_Space_DW.state_g[1] = e;
+      Teach_Pendant_Task_Space_DW.state_k[0] = b_r;
+      Teach_Pendant_Task_Space_DW.state_k[1] = e;
       r[mti] = (real_T)(b_r + e) * 2.328306436538696E-10;
     }
   } else {
     if (!Teach_Pendant_Task_Space_DW.state_not_empty) {
-      memset(&Teach_Pendant_Task_Space_DW.state_k[0], 0, 625U * sizeof(uint32_T));
+      memset(&Teach_Pendant_Task_Space_DW.state_j[0], 0, 625U * sizeof(uint32_T));
       b_r = 5489U;
-      Teach_Pendant_Task_Space_DW.state_k[0] = 5489U;
+      Teach_Pendant_Task_Space_DW.state_j[0] = 5489U;
       for (mti = 0; mti < 623; mti++) {
         b_r = ((b_r >> 30U ^ b_r) * 1812433253U + mti) + 1U;
-        Teach_Pendant_Task_Space_DW.state_k[mti + 1] = b_r;
+        Teach_Pendant_Task_Space_DW.state_j[mti + 1] = b_r;
       }
 
-      Teach_Pendant_Task_Space_DW.state_k[624] = 624U;
+      Teach_Pendant_Task_Space_DW.state_j[624] = 624U;
       Teach_Pendant_Task_Space_DW.state_not_empty = true;
     }
 
     for (mti = 0; mti < 6; mti++) {
       r[mti] = Teach_Pendan_eml_rand_mt19937ar
-        (Teach_Pendant_Task_Space_DW.state_k);
+        (Teach_Pendant_Task_Space_DW.state_j);
     }
   }
 }
@@ -396,9 +400,9 @@ void Teach_Pendant_Task_Space_step(void)
   if (rtmIsMajorTimeStep(Teach_Pendant_Task_Space_M)) {
     /* UnitDelay: '<S6>/Unit Delay' */
     /* MATLAB Function 'MATLAB Function1': '<S4>:1' */
-    /* '<S4>:1:5' */
-    /* '<S4>:1:6' */
-    /* '<S4>:1:7' */
+    /* '<S4>:1:14' */
+    /* '<S4>:1:15' */
+    /* '<S4>:1:16' */
     Teach_Pendant_Task_Space_B.UnitDelay[0] =
       Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0];
     Teach_Pendant_Task_Space_B.UnitDelay[1] =
@@ -1793,14 +1797,14 @@ void Teach_Pendant_Task_Space_step(void)
       /* '<S5>:1:4' */
       /* '<S5>:1:5' */
       Teach_Pendant_Task_Space_B.out[0] = 1.79;
-      Teach_Pendant_Task_Space_B.out[3] = 1.0;
-      Teach_Pendant_Task_Space_B.out[6] = 0.03;
+      Teach_Pendant_Task_Space_B.out[3] = 1.629;
+      Teach_Pendant_Task_Space_B.out[6] = 0.0801;
       Teach_Pendant_Task_Space_B.out[1] = 1.46;
-      Teach_Pendant_Task_Space_B.out[4] = 1.7;
-      Teach_Pendant_Task_Space_B.out[7] = 0.045;
+      Teach_Pendant_Task_Space_B.out[4] = 1.311;
+      Teach_Pendant_Task_Space_B.out[7] = 0.04813;
       Teach_Pendant_Task_Space_B.out[2] = 0.6;
-      Teach_Pendant_Task_Space_B.out[5] = 2.9;
-      Teach_Pendant_Task_Space_B.out[8] = 0.001;
+      Teach_Pendant_Task_Space_B.out[5] = 1.316;
+      Teach_Pendant_Task_Space_B.out[8] = 0.004055;
     } else {
       /* '<S5>:1:7' */
       Teach_Pendant_Task_Space_B.out[0] = 1.79;
@@ -2311,10 +2315,10 @@ void Teach_Pendant_Task_Space_initialize(void)
   rtmSetFirstInitCond(Teach_Pendant_Task_Space_M, 1);
 
   /* External mode info */
-  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (1807107332U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (3848122483U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (3956050579U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (2853076223U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (3272660093U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (2343303830U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (2930244015U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (1739452786U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -2668,8 +2672,8 @@ void Teach_Pendant_Task_Space_initialize(void)
     Teach_Pendant_Task_Space_DW.state_not_empty = false;
     Teach_Pendant_Task_Space_DW.method = 7U;
     Teach_Pendant_Task_Space_DW.state = 1144108930U;
-    Teach_Pendant_Task_Space_DW.state_g[0] = 362436069U;
-    Teach_Pendant_Task_Space_DW.state_g[1] = 521288629U;
+    Teach_Pendant_Task_Space_DW.state_k[0] = 362436069U;
+    Teach_Pendant_Task_Space_DW.state_k[1] = 521288629U;
     for (i = 0; i < 120; i++) {
       Teach_Pendant_Task_Space_DW.velocities[i] = 0.0;
     }

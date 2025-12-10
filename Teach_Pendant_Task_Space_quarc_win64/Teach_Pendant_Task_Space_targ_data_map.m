@@ -41,31 +41,31 @@
 	
 	  ;% Teach_Pendant_Task_Space_P.TrajectoryJoint2_OutValues
 	  section.data(3).logicalSrcIdx = 2;
-	  section.data(3).dtTransOffset = 1997;
+	  section.data(3).dtTransOffset = 4018;
 	
 	  ;% Teach_Pendant_Task_Space_P.TrajectoryJoint3_OutValues
 	  section.data(4).logicalSrcIdx = 3;
-	  section.data(4).dtTransOffset = 3991;
+	  section.data(4).dtTransOffset = 8033;
 	
 	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_end_time
 	  section.data(5).logicalSrcIdx = 4;
-	  section.data(5).dtTransOffset = 5985;
+	  section.data(5).dtTransOffset = 12048;
 	
 	  ;% Teach_Pendant_Task_Space_P.SecondOrderLowPassFilter_input_
 	  section.data(6).logicalSrcIdx = 5;
-	  section.data(6).dtTransOffset = 5986;
+	  section.data(6).dtTransOffset = 12049;
 	
 	  ;% Teach_Pendant_Task_Space_P.SecondOrderLowPassFilter_inpu_h
 	  section.data(7).logicalSrcIdx = 6;
-	  section.data(7).dtTransOffset = 5987;
+	  section.data(7).dtTransOffset = 12050;
 	
 	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_start_time
 	  section.data(8).logicalSrcIdx = 7;
-	  section.data(8).dtTransOffset = 5988;
+	  section.data(8).dtTransOffset = 12051;
 	
 	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_switch_id
 	  section.data(9).logicalSrcIdx = 8;
-	  section.data(9).dtTransOffset = 5989;
+	  section.data(9).dtTransOffset = 12052;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(1) = section;
@@ -591,11 +591,11 @@
 	  section.data(2).logicalSrcIdx = 17;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% Teach_Pendant_Task_Space_DW.state_g
+	  ;% Teach_Pendant_Task_Space_DW.state_k
 	  section.data(3).logicalSrcIdx = 18;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% Teach_Pendant_Task_Space_DW.state_k
+	  ;% Teach_Pendant_Task_Space_DW.state_j
 	  section.data(4).logicalSrcIdx = 19;
 	  section.data(4).dtTransOffset = 4;
 	
@@ -728,8 +728,8 @@
   ;%
 
 
-  targMap.checksum0 = 1807107332;
-  targMap.checksum1 = 3848122483;
-  targMap.checksum2 = 3956050579;
-  targMap.checksum3 = 2853076223;
+  targMap.checksum0 = 3272660093;
+  targMap.checksum1 = 2343303830;
+  targMap.checksum2 = 2930244015;
+  targMap.checksum3 = 1739452786;
 

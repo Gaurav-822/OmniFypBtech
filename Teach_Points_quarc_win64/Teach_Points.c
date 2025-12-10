@@ -1,11 +1,15 @@
 /*
  * Teach_Points.c
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Points".
  *
- * Model version              : 1.99
+ * Model version              : 1.100
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Fri Nov 21 19:24:54 2025
+ * C source code generated on : Wed Dec 10 22:23:34 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -573,10 +577,10 @@ void Teach_Points_initialize(void)
   Teach_Points_M->Timing.stepSize0 = 0.01;
 
   /* External mode info */
-  Teach_Points_M->Sizes.checksums[0] = (3209424860U);
-  Teach_Points_M->Sizes.checksums[1] = (3372013766U);
-  Teach_Points_M->Sizes.checksums[2] = (3659675092U);
-  Teach_Points_M->Sizes.checksums[3] = (1270099152U);
+  Teach_Points_M->Sizes.checksums[0] = (2789172043U);
+  Teach_Points_M->Sizes.checksums[1] = (3355707363U);
+  Teach_Points_M->Sizes.checksums[2] = (2382567304U);
+  Teach_Points_M->Sizes.checksums[3] = (1472143410U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
