@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.468
+ * Model version              : 1.482
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Dec 10 23:22:13 2025
+ * C source code generated on : Thu Dec 11 03:13:35 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -62,10 +62,12 @@ static const char_T * rtDataTypeNames[] = {
 static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&Teach_Pendant_Task_Space_B.UnitDelay[0]), 0, 0, 89 },
 
-  { (char_T *)(&Teach_Pendant_Task_Space_B.Phantom_o1), 6, 0, 2 }
+  { (char_T *)(&Teach_Pendant_Task_Space_B.Phantom_o1), 6, 0, 2 },
+
+  { (char_T *)(&Teach_Pendant_Task_Space_B.reached), 8, 0, 1 }
   ,
 
-  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 400 },
+  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 405 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Phantom_Phantom), 14, 0, 1 },
 
@@ -75,8 +77,6 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&Teach_Pendant_Task_Space_DW.method), 7, 0, 629 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Integrator1_IWORK), 10, 0, 1 },
-
-  { (char_T *)(&Teach_Pendant_Task_Space_DW.Output_DSTATE), 5, 0, 3 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.FixPtUnitDelay2_DSTATE), 3, 0, 1 },
 
@@ -93,13 +93,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Teach_Pendant_Task_Space_P.starting_point[0]), 0, 0, 12053 },
-
-  { (char_T *)(&Teach_Pendant_Task_Space_P.LimitedCounter_uplimit), 5, 0, 3 },
-
-  { (char_T *)(&Teach_Pendant_Task_Space_P.unity_Value), 0, 0, 62 },
-
-  { (char_T *)(&Teach_Pendant_Task_Space_P.Constant_Value_h), 5, 0, 9 },
+  { (char_T *)(&Teach_Pendant_Task_Space_P.starting_point[0]), 0, 0, 6072 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_P.FixPtUnitDelay2_InitialConditio), 3,
     0, 2 }
@@ -107,7 +101,7 @@ static DataTypeTransition rtPTransitions[] = {
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  5U,
+  2U,
   rtPTransitions
 };
 

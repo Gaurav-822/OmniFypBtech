@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.468
+ * Model version              : 1.482
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Dec 10 23:22:13 2025
+ * C source code generated on : Thu Dec 11 03:13:35 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -168,43 +168,43 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T UnitDelay[3];                 /* '<S6>/Unit Delay' */
-  real_T Phantom_o2[6];                /* '<S6>/Phantom' */
-  real_T JointOffsets[3];              /* '<S6>/Joint Offsets' */
-  real_T Switch[3];                    /* '<S7>/Switch' */
+  real_T UnitDelay[3];                 /* '<S7>/Unit Delay' */
+  real_T Phantom_o2[6];                /* '<S7>/Phantom' */
+  real_T JointOffsets[3];              /* '<S7>/Joint Offsets' */
+  real_T Switch[3];                    /* '<S8>/Switch' */
   real_T Subtract[3];                  /* '<Root>/Subtract' */
-  real_T Saturation1[3];               /* '<S6>/Saturation1' */
-  real_T Saturation2[3];               /* '<S6>/Saturation2' */
-  real_T Saturation[3];                /* '<S6>/Saturation' */
-  real_T Sum1[3];                      /* '<S12>/Sum1' */
-  real_T Product1[3];                  /* '<S12>/Product1' */
-  real_T Product1_g[3];                /* '<S20>/Product1' */
+  real_T Saturation1[3];               /* '<S7>/Saturation1' */
+  real_T Saturation2[3];               /* '<S7>/Saturation2' */
+  real_T Saturation[3];                /* '<S7>/Saturation' */
+  real_T Sum1[3];                      /* '<S13>/Sum1' */
+  real_T Product1[3];                  /* '<S13>/Product1' */
+  real_T Product1_g[3];                /* '<S21>/Product1' */
   real_T ConverttoPositiveRotationConven[3];
-        /* '<S6>/Convert to Positive Rotation Convension Used in Kinematics2' */
-  real_T x0;                           /* '<S20>/x0' */
-  real_T Product[3];                   /* '<S20>/Product' */
+        /* '<S7>/Convert to Positive Rotation Convension Used in Kinematics2' */
+  real_T x0;                           /* '<S21>/x0' */
+  real_T Product[3];                   /* '<S21>/Product' */
   real_T Ki[3];                        /* '<Root>/pid auto tuner' */
   real_T Kd[3];                        /* '<Root>/pid auto tuner' */
   real_T best_PID[9];                  /* '<Root>/pid auto tuner' */
   real_T worst_PID[9];                 /* '<Root>/pid auto tuner' */
-  real_T Out;                          /* '<S26>/Out' */
-  real_T Out_i;                        /* '<S27>/Out' */
-  real_T Out_p;                        /* '<S28>/Out' */
-  real_T inter[3];                     /* '<S22>/Embedded MATLAB Function' */
-  real_T div[3];                       /* '<S14>/div' */
+  real_T q[3];                         /* '<S24>/MATLAB Function' */
+  real_T inter[3];                     /* '<S23>/Embedded MATLAB Function' */
+  real_T div[3];                       /* '<S15>/div' */
   real_T out[9];                       /* '<Root>/MATLAB Function2' */
   real_T total_cost;                   /* '<Root>/MATLAB Function' */
   real_T pos[3];                       /* '<Root>/Forward Kinematics' */
-  int32_T Phantom_o1;                  /* '<S6>/Phantom' */
-  int32_T Phantom_o3;                  /* '<S6>/Phantom' */
+  int32_T Phantom_o1;                  /* '<S7>/Phantom' */
+  int32_T Phantom_o3;                  /* '<S7>/Phantom' */
+  boolean_T reached;                   /* '<Root>/MATLAB Function3' */
 } B_Teach_Pendant_Task_Space_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T UnitDelay_DSTATE[3];          /* '<S6>/Unit Delay' */
-  real_T FixPtUnitDelay1_DSTATE[3];    /* '<S25>/FixPt Unit Delay1' */
-  real_T UnitDelay_DSTATE_h;           /* '<S18>/Unit Delay' */
-  real_T Sumk1n1xk_DSTATE[3];          /* '<S14>/Sum( k=1,n-1, x(k) )' */
+  real_T UnitDelay_DSTATE[3];          /* '<S8>/Unit Delay' */
+  real_T UnitDelay_DSTATE_b[3];        /* '<S7>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE[3];    /* '<S26>/FixPt Unit Delay1' */
+  real_T UnitDelay_DSTATE_h;           /* '<S19>/Unit Delay' */
+  real_T Sumk1n1xk_DSTATE[3];          /* '<S15>/Sum( k=1,n-1, x(k) )' */
   real_T particles[120];               /* '<Root>/pid auto tuner' */
   real_T velocities[120];              /* '<Root>/pid auto tuner' */
   real_T pbest[120];                   /* '<Root>/pid auto tuner' */
@@ -213,8 +213,10 @@ typedef struct {
   real_T gbest_cost;                   /* '<Root>/pid auto tuner' */
   real_T current_particle;             /* '<Root>/pid auto tuner' */
   real_T eval_count;                   /* '<Root>/pid auto tuner' */
+  real_T idx;                          /* '<S24>/MATLAB Function' */
+  real_T N;                            /* '<S24>/MATLAB Function' */
   real_T cost_sum;                     /* '<Root>/MATLAB Function' */
-  t_phantom_properties Phantom_Phantom;/* '<S6>/Phantom' */
+  t_phantom_properties Phantom_Phantom;/* '<S7>/Phantom' */
   struct {
     void *LoggedData[4];
   } Scope_PWORK;                       /* '<Root>/Scope' */
@@ -227,46 +229,43 @@ typedef struct {
   uint32_T state;                      /* '<Root>/pid auto tuner' */
   uint32_T state_k[2];                 /* '<Root>/pid auto tuner' */
   uint32_T state_j[625];               /* '<Root>/pid auto tuner' */
-  int_T Integrator1_IWORK;             /* '<S20>/Integrator1' */
-  uint16_T Output_DSTATE;              /* '<S29>/Output' */
-  uint16_T Output_DSTATE_j;            /* '<S32>/Output' */
-  uint16_T Output_DSTATE_c;            /* '<S35>/Output' */
-  uint8_T FixPtUnitDelay2_DSTATE;      /* '<S25>/FixPt Unit Delay2' */
-  int8_T Traject_SubsysRanBC;          /* '<S7>/Traject' */
-  int8_T SwitchCase_ActiveSubsystem;   /* '<S10>/Switch Case' */
+  int_T Integrator1_IWORK;             /* '<S21>/Integrator1' */
+  uint8_T FixPtUnitDelay2_DSTATE;      /* '<S26>/FixPt Unit Delay2' */
+  int8_T Traject_SubsysRanBC;          /* '<S8>/Traject' */
+  int8_T SwitchCase_ActiveSubsystem;   /* '<S11>/Switch Case' */
   int8_T SwitchCaseActionSubsystem2_Subs;
-                                     /* '<S10>/Switch Case Action Subsystem2' */
+                                     /* '<S11>/Switch Case Action Subsystem2' */
   int8_T SwitchCaseActionSubsystem1_Subs;
-                                     /* '<S10>/Switch Case Action Subsystem1' */
+                                     /* '<S11>/Switch Case Action Subsystem1' */
   int8_T SwitchCaseActionSubsystem_Subsy;
-                                      /* '<S10>/Switch Case Action Subsystem' */
-  int8_T EnabledMovingAverage_SubsysRanB;/* '<S10>/Enabled Moving Average' */
+                                      /* '<S11>/Switch Case Action Subsystem' */
+  int8_T EnabledMovingAverage_SubsysRanB;/* '<S11>/Enabled Moving Average' */
   boolean_T initialized_not_empty;     /* '<Root>/pid auto tuner' */
   boolean_T in_zone_prev;              /* '<Root>/pid auto tuner' */
   boolean_T state_not_empty;           /* '<Root>/pid auto tuner' */
-  boolean_T Traject_MODE;              /* '<S7>/Traject' */
-  boolean_T EnabledMovingAverage_MODE; /* '<S10>/Enabled Moving Average' */
+  boolean_T Traject_MODE;              /* '<S8>/Traject' */
+  boolean_T EnabledMovingAverage_MODE; /* '<S11>/Enabled Moving Average' */
 } DW_Teach_Pendant_Task_Space_T;
 
 /* Continuous states (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE[3];         /* '<S12>/Integrator' */
-  real_T Integrator2_CSTATE[3];        /* '<S20>/Integrator2' */
-  real_T Integrator1_CSTATE[3];        /* '<S20>/Integrator1' */
+  real_T Integrator_CSTATE[3];         /* '<S13>/Integrator' */
+  real_T Integrator2_CSTATE[3];        /* '<S21>/Integrator2' */
+  real_T Integrator1_CSTATE[3];        /* '<S21>/Integrator1' */
 } X_Teach_Pendant_Task_Space_T;
 
 /* State derivatives (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE[3];         /* '<S12>/Integrator' */
-  real_T Integrator2_CSTATE[3];        /* '<S20>/Integrator2' */
-  real_T Integrator1_CSTATE[3];        /* '<S20>/Integrator1' */
+  real_T Integrator_CSTATE[3];         /* '<S13>/Integrator' */
+  real_T Integrator2_CSTATE[3];        /* '<S21>/Integrator2' */
+  real_T Integrator1_CSTATE[3];        /* '<S21>/Integrator1' */
 } XDot_Teach_Pendant_Task_Space_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator_CSTATE[3];      /* '<S12>/Integrator' */
-  boolean_T Integrator2_CSTATE[3];     /* '<S20>/Integrator2' */
-  boolean_T Integrator1_CSTATE[3];     /* '<S20>/Integrator1' */
+  boolean_T Integrator_CSTATE[3];      /* '<S13>/Integrator' */
+  boolean_T Integrator2_CSTATE[3];     /* '<S21>/Integrator2' */
+  boolean_T Integrator1_CSTATE[3];     /* '<S21>/Integrator1' */
 } XDis_Teach_Pendant_Task_Space_T;
 
 #ifndef ODE1_INTG
@@ -286,180 +285,138 @@ struct P_Teach_Pendant_Task_Space_T_ {
                                         *   '<Root>/Constant'
                                         *   '<Root>/Constant1'
                                         */
-  real_T TrajectoryJoint1_OutValues[4015];
-                                   /* Mask Parameter: TrajectoryJoint1_OutValues
-                                    * Referenced by: '<S26>/Vector'
-                                    */
-  real_T TrajectoryJoint2_OutValues[4015];
-                                   /* Mask Parameter: TrajectoryJoint2_OutValues
-                                    * Referenced by: '<S27>/Vector'
-                                    */
-  real_T TrajectoryJoint3_OutValues[4015];
-                                   /* Mask Parameter: TrajectoryJoint3_OutValues
-                                    * Referenced by: '<S28>/Vector'
-                                    */
+  real_T traj_pos[6000];               /* Variable: traj_pos
+                                        * Referenced by: '<S24>/Constant'
+                                        */
   real_T BiasRemoval_end_time;         /* Mask Parameter: BiasRemoval_end_time
-                                        * Referenced by: '<S10>/Step: end_time'
+                                        * Referenced by: '<S11>/Step: end_time'
                                         */
   real_T SecondOrderLowPassFilter_input_;
                               /* Mask Parameter: SecondOrderLowPassFilter_input_
-                               * Referenced by: '<S20>/wn'
+                               * Referenced by: '<S21>/wn'
                                */
   real_T SecondOrderLowPassFilter_inpu_h;
                               /* Mask Parameter: SecondOrderLowPassFilter_inpu_h
-                               * Referenced by: '<S20>/zt'
+                               * Referenced by: '<S21>/zt'
                                */
   real_T BiasRemoval_start_time;       /* Mask Parameter: BiasRemoval_start_time
-                                        * Referenced by: '<S10>/Step: start_time'
+                                        * Referenced by: '<S11>/Step: start_time'
                                         */
   real_T BiasRemoval_switch_id;        /* Mask Parameter: BiasRemoval_switch_id
-                                        * Referenced by: '<S10>/Constant'
+                                        * Referenced by: '<S11>/Constant'
                                         */
-  uint16_T LimitedCounter_uplimit;     /* Mask Parameter: LimitedCounter_uplimit
-                                        * Referenced by: '<S31>/FixPt Switch'
-                                        */
-  uint16_T LimitedCounter_uplimit_p; /* Mask Parameter: LimitedCounter_uplimit_p
-                                      * Referenced by: '<S34>/FixPt Switch'
-                                      */
-  uint16_T LimitedCounter_uplimit_k; /* Mask Parameter: LimitedCounter_uplimit_k
-                                      * Referenced by: '<S37>/FixPt Switch'
-                                      */
   real_T unity_Value;                  /* Expression: 1
-                                        * Referenced by: '<S18>/unity'
+                                        * Referenced by: '<S19>/unity'
                                         */
   real_T UnitDelay_InitialCondition;   /* Expression: 0
-                                        * Referenced by: '<S18>/Unit Delay'
+                                        * Referenced by: '<S19>/Unit Delay'
                                         */
   real_T Sumk1n1xk_InitialCondition;   /* Expression: 0
-                                        * Referenced by: '<S14>/Sum( k=1,n-1, x(k) )'
+                                        * Referenced by: '<S15>/Sum( k=1,n-1, x(k) )'
                                         */
   real_T zero_Y0;                      /* Expression: [0]
-                                        * Referenced by: '<S15>/zero'
+                                        * Referenced by: '<S16>/zero'
                                         */
   real_T Vbiased_Y0;                   /* Expression: [0]
-                                        * Referenced by: '<S16>/Vbiased'
+                                        * Referenced by: '<S17>/Vbiased'
                                         */
   real_T Vunbiased_Y0;                 /* Expression: [0]
-                                        * Referenced by: '<S17>/Vunbiased'
+                                        * Referenced by: '<S18>/Vunbiased'
                                         */
   real_T Stepstart_time_Y0;            /* Expression: 0
-                                        * Referenced by: '<S10>/Step: start_time'
+                                        * Referenced by: '<S11>/Step: start_time'
                                         */
   real_T Stepstart_time_YFinal;        /* Expression: 1
-                                        * Referenced by: '<S10>/Step: start_time'
+                                        * Referenced by: '<S11>/Step: start_time'
                                         */
   real_T Stepend_time_Y0;              /* Expression: 0
-                                        * Referenced by: '<S10>/Step: end_time'
+                                        * Referenced by: '<S11>/Step: end_time'
                                         */
   real_T Stepend_time_YFinal;          /* Expression: 1
-                                        * Referenced by: '<S10>/Step: end_time'
+                                        * Referenced by: '<S11>/Step: end_time'
                                         */
-  real_T Constant2_Value;              /* Expression: 1
-                                        * Referenced by: '<Root>/Constant2'
+  real_T UnitDelay_InitialCondition_o; /* Expression: 0
+                                        * Referenced by: '<S8>/Unit Delay'
                                         */
   real_T firstpoint_Value[3];        /* Expression: [pos(1,1) pos(1,2) pos(1,3)]
-                                      * Referenced by: '<S7>/first point'
+                                      * Referenced by: '<S8>/first point'
                                       */
   real_T UnitDelay_InitialCondition_g; /* Expression: 0
-                                        * Referenced by: '<S6>/Unit Delay'
+                                        * Referenced by: '<S7>/Unit Delay'
                                         */
   real_T EncoderOffsets_Bias[6];       /* Expression: [0 659 914 0 -1000 0]
-                                        * Referenced by: '<S6>/Encoder Offsets'
+                                        * Referenced by: '<S7>/Encoder Offsets'
                                         */
   real_T Bias1_Bias[3];                /* Expression: [0 -659 -910]
-                                        * Referenced by: '<S11>/Bias1'
+                                        * Referenced by: '<S12>/Bias1'
                                         */
   real_T Encoder_Gain;                 /* Expression: 2*pi/2048
-                                        * Referenced by: '<S11>/Encoder'
+                                        * Referenced by: '<S12>/Encoder'
                                         */
   real_T GearRatio_Gain[3];            /* Expression: 1./[7.461 -7.519 7.529]
-                                        * Referenced by: '<S11>/Gear Ratio'
+                                        * Referenced by: '<S12>/Gear Ratio'
                                         */
   real_T ConverttoPositiveRotationConven[3];/* Expression: [1 -1 -1]
-                                             * Referenced by: '<S6>/Convert to Positive Rotation Convension Used in Kinematics1'
+                                             * Referenced by: '<S7>/Convert to Positive Rotation Convension Used in Kinematics1'
                                              */
   real_T JointOffsets_Bias[3];         /* Expression: [0 0 pi()/2]
-                                        * Referenced by: '<S6>/Joint Offsets'
+                                        * Referenced by: '<S7>/Joint Offsets'
                                         */
   real_T FixPtUnitDelay1_InitialConditio;/* Expression: 0.0
-                                          * Referenced by: '<S25>/FixPt Unit Delay1'
+                                          * Referenced by: '<S26>/FixPt Unit Delay1'
                                           */
   real_T speed_Value;                  /* Expression: .1
-                                        * Referenced by: '<S7>/speed'
+                                        * Referenced by: '<S8>/speed'
                                         */
-  real_T Constant2_Value_a;            /* Expression: qc_get_step_size
-                                        * Referenced by: '<S22>/Constant2'
+  real_T Constant2_Value;              /* Expression: qc_get_step_size
+                                        * Referenced by: '<S23>/Constant2'
+                                        */
+  real_T Constant3_Value;              /* Expression: 0.01
+                                        * Referenced by: '<Root>/Constant3'
+                                        */
+  real_T Constant2_Value_h;            /* Expression: 1
+                                        * Referenced by: '<Root>/Constant2'
                                         */
   real_T Saturation1_UpperSat[3];      /* Expression: [.1 .1 .025]
-                                        * Referenced by: '<S6>/Saturation1'
+                                        * Referenced by: '<S7>/Saturation1'
                                         */
   real_T Saturation1_LowerSat[3];      /* Expression: [.02 .02 0]
-                                        * Referenced by: '<S6>/Saturation1'
+                                        * Referenced by: '<S7>/Saturation1'
                                         */
   real_T Saturation2_UpperSat[3];      /* Expression: [2 2 3]
-                                        * Referenced by: '<S6>/Saturation2'
+                                        * Referenced by: '<S7>/Saturation2'
                                         */
   real_T Saturation2_LowerSat[3];      /* Expression: [0 0 0]
-                                        * Referenced by: '<S6>/Saturation2'
+                                        * Referenced by: '<S7>/Saturation2'
                                         */
   real_T Saturation_UpperSat[3];       /* Expression: [2 2 1]
-                                        * Referenced by: '<S6>/Saturation'
+                                        * Referenced by: '<S7>/Saturation'
                                         */
   real_T Saturation_LowerSat[3];       /* Expression: [0 0 0]
-                                        * Referenced by: '<S6>/Saturation'
+                                        * Referenced by: '<S7>/Saturation'
                                         */
   real_T Integrator_IC;                /* Expression: 0
-                                        * Referenced by: '<S12>/Integrator'
+                                        * Referenced by: '<S13>/Integrator'
                                         */
   real_T Integrator2_IC;               /* Expression: 0
-                                        * Referenced by: '<S20>/Integrator2'
+                                        * Referenced by: '<S21>/Integrator2'
                                         */
   real_T ConverttoPositiveRotationConv_g[3];/* Expression: [-1 -1 -1]
-                                             * Referenced by: '<S6>/Convert to Positive Rotation Convension Used in Kinematics2'
+                                             * Referenced by: '<S7>/Convert to Positive Rotation Convension Used in Kinematics2'
                                              */
   real_T Constant_Value;               /* Expression: 2
-                                        * Referenced by: '<S20>/Constant'
+                                        * Referenced by: '<S21>/Constant'
                                         */
   real_T x0_Value;                     /* Expression: input_init
-                                        * Referenced by: '<S20>/x0'
+                                        * Referenced by: '<S21>/x0'
                                         */
-  uint16_T Constant_Value_h;           /* Computed Parameter: Constant_Value_h
-                                        * Referenced by: '<S31>/Constant'
-                                        */
-  uint16_T Constant_Value_f;           /* Computed Parameter: Constant_Value_f
-                                        * Referenced by: '<S34>/Constant'
-                                        */
-  uint16_T Constant_Value_m;           /* Computed Parameter: Constant_Value_m
-                                        * Referenced by: '<S37>/Constant'
-                                        */
-  uint16_T FixPtConstant_Value;       /* Computed Parameter: FixPtConstant_Value
-                                       * Referenced by: '<S30>/FixPt Constant'
-                                       */
-  uint16_T Output_InitialCondition;
-                                  /* Computed Parameter: Output_InitialCondition
-                                   * Referenced by: '<S29>/Output'
-                                   */
-  uint16_T FixPtConstant_Value_m;   /* Computed Parameter: FixPtConstant_Value_m
-                                     * Referenced by: '<S33>/FixPt Constant'
-                                     */
-  uint16_T Output_InitialCondition_p;
-                                /* Computed Parameter: Output_InitialCondition_p
-                                 * Referenced by: '<S32>/Output'
-                                 */
-  uint16_T FixPtConstant_Value_c;   /* Computed Parameter: FixPtConstant_Value_c
-                                     * Referenced by: '<S36>/FixPt Constant'
-                                     */
-  uint16_T Output_InitialCondition_b;
-                                /* Computed Parameter: Output_InitialCondition_b
-                                 * Referenced by: '<S35>/Output'
-                                 */
   uint8_T FixPtUnitDelay2_InitialConditio;
                           /* Computed Parameter: FixPtUnitDelay2_InitialConditio
-                           * Referenced by: '<S25>/FixPt Unit Delay2'
+                           * Referenced by: '<S26>/FixPt Unit Delay2'
                            */
-  uint8_T FixPtConstant_Value_l;    /* Computed Parameter: FixPtConstant_Value_l
-                                     * Referenced by: '<S25>/FixPt Constant'
-                                     */
+  uint8_T FixPtConstant_Value;        /* Computed Parameter: FixPtConstant_Value
+                                       * Referenced by: '<S26>/FixPt Constant'
+                                       */
 };
 
 /* Real-time Model Data Structure */
@@ -560,37 +517,27 @@ extern RT_MODEL_Teach_Pendant_Task_S_T *const Teach_Pendant_Task_Space_M;
  * '<S3>'   : 'Teach_Pendant_Task_Space/MATLAB Function'
  * '<S4>'   : 'Teach_Pendant_Task_Space/MATLAB Function1'
  * '<S5>'   : 'Teach_Pendant_Task_Space/MATLAB Function2'
- * '<S6>'   : 'Teach_Pendant_Task_Space/PID Control'
- * '<S7>'   : 'Teach_Pendant_Task_Space/Trajectory Planning'
- * '<S8>'   : 'Teach_Pendant_Task_Space/cost function'
- * '<S9>'   : 'Teach_Pendant_Task_Space/pid auto tuner'
- * '<S10>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal'
- * '<S11>'  : 'Teach_Pendant_Task_Space/PID Control/Encoders to Joints q1, q2, q3'
- * '<S12>'  : 'Teach_Pendant_Task_Space/PID Control/PIV Controller'
- * '<S13>'  : 'Teach_Pendant_Task_Space/PID Control/Tool Offset'
- * '<S14>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Enabled Moving Average'
- * '<S15>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem'
- * '<S16>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem1'
- * '<S17>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem2'
- * '<S18>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Enabled Moving Average/Increment'
- * '<S19>'  : 'Teach_Pendant_Task_Space/PID Control/Encoders to Joints q1, q2, q3/Embedded MATLAB Function'
- * '<S20>'  : 'Teach_Pendant_Task_Space/PID Control/PIV Controller/Second-Order Low-Pass Filter'
- * '<S21>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Forward Kinematics'
- * '<S22>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory'
- * '<S23>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject'
- * '<S24>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory/Embedded MATLAB Function'
- * '<S25>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory/Unit Delay External IC'
- * '<S26>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1'
- * '<S27>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 2'
- * '<S28>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 3'
- * '<S29>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1/LimitedCounter'
- * '<S30>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1/LimitedCounter/Increment Real World'
- * '<S31>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1/LimitedCounter/Wrap To Zero'
- * '<S32>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 2/LimitedCounter'
- * '<S33>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 2/LimitedCounter/Increment Real World'
- * '<S34>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 2/LimitedCounter/Wrap To Zero'
- * '<S35>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 3/LimitedCounter'
- * '<S36>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 3/LimitedCounter/Increment Real World'
- * '<S37>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 3/LimitedCounter/Wrap To Zero'
+ * '<S6>'   : 'Teach_Pendant_Task_Space/MATLAB Function3'
+ * '<S7>'   : 'Teach_Pendant_Task_Space/PID Control'
+ * '<S8>'   : 'Teach_Pendant_Task_Space/Trajectory Planning'
+ * '<S9>'   : 'Teach_Pendant_Task_Space/cost function'
+ * '<S10>'  : 'Teach_Pendant_Task_Space/pid auto tuner'
+ * '<S11>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal'
+ * '<S12>'  : 'Teach_Pendant_Task_Space/PID Control/Encoders to Joints q1, q2, q3'
+ * '<S13>'  : 'Teach_Pendant_Task_Space/PID Control/PIV Controller'
+ * '<S14>'  : 'Teach_Pendant_Task_Space/PID Control/Tool Offset'
+ * '<S15>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Enabled Moving Average'
+ * '<S16>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem'
+ * '<S17>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem1'
+ * '<S18>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Switch Case Action Subsystem2'
+ * '<S19>'  : 'Teach_Pendant_Task_Space/PID Control/Bias Removal/Enabled Moving Average/Increment'
+ * '<S20>'  : 'Teach_Pendant_Task_Space/PID Control/Encoders to Joints q1, q2, q3/Embedded MATLAB Function'
+ * '<S21>'  : 'Teach_Pendant_Task_Space/PID Control/PIV Controller/Second-Order Low-Pass Filter'
+ * '<S22>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Forward Kinematics'
+ * '<S23>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory'
+ * '<S24>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject'
+ * '<S25>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory/Embedded MATLAB Function'
+ * '<S26>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory/Unit Delay External IC'
+ * '<S27>'  : 'Teach_Pendant_Task_Space/Trajectory Planning/Traject/MATLAB Function'
  */
 #endif                              /* RTW_HEADER_Teach_Pendant_Task_Space_h_ */

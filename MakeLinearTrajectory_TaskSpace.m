@@ -3,7 +3,7 @@
 % (dense ends, uniform middle)
 % ================================
 
-pos_dot = [0.2 0.15 0.12]/2;
+pos_dot = [0.2 0.15 0.12];
 sampling_time = 0.001;
 
 nonuniform_alpha = 2;

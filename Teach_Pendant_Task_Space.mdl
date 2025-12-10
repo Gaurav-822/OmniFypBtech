@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.468"
+    ComputedModelVersion    "1.482"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -19,7 +19,7 @@ Model {
     IsArchitectureModel	    0
     IsAUTOSARArchitectureModel 0
     NumParameterArguments   0
-    NumExternalFileReferences 7
+    NumExternalFileReferences 4
     ExternalFileReference {
       Reference		      "quarc_library/Discrete/Bias Removal"
       Path		      "Teach_Pendant_Task_Space/PID Control/Bias Removal"
@@ -42,24 +42,6 @@ Model {
       Reference		      "simulink_need_slupdate/Unit Delay\nExternal IC"
       Path		      "Teach_Pendant_Task_Space/Trajectory Planning/Linear Trajectory/Unit Delay External IC"
       SID		      "184"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Repeating\nSequence\nStair"
-      Path		      "Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1"
-      SID		      "171"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Repeating\nSequence\nStair"
-      Path		      "Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 2"
-      SID		      "172"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Repeating\nSequence\nStair"
-      Path		      "Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 3"
-      SID		      "173"
       Type		      "LIBRARY_BLOCK"
     }
     OrderedModelArguments   1
@@ -181,23 +163,23 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "159"
 	  Extents		  [1882.0, 791.0]
 	  ZoomFactor		  [1.5]
-	  Offset		  [-311.80429546023231, 138.24986476608288]
-	  SceneRectInView	  [-311.80429546023231, 138.24986476608288, 1254.6666666666667, 527.33333333333337]
+	  Offset		  [249.536039414449, -0.3372992851120461]
+	  SceneRectInView	  [249.536039414449, -0.3372992851120461, 1254.6666666666667, 527.33333333333337]
 	}
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
 	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "163"
-	  Extents		  [1328.0, 479.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [-136.90494791666669, -18.0]
-	  SceneRectInView	  [-136.90494791666669, -18.0, 885.33333333333337, 319.33333333333331]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1882.0, 791.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [482.57885432192552, -193.77802824450146]
+	  SceneRectInView	  [482.57885432192552, -193.77802824450146, 1882.0, 791.0]
 	}
 	Object {
 	  $ObjectID		  7
@@ -205,21 +187,21 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "168"
-	  Extents		  [1328.0, 479.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-311.23333333333414, 14.216666666666669]
-	  SceneRectInView	  [-311.23333333333414, 14.216666666666669, 1062.4, 383.2]
+	  Extents		  [1882.0, 791.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [-267.47707099843075, -43.874310767087188]
+	  SceneRectInView	  [-267.47707099843075, -43.874310767087188, 1075.4285714285713, 452.0]
 	}
 	Object {
 	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "159"
-	  Extents		  [1328.0, 479.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [-177.69351998312504, -92.184900549909628]
-	  SceneRectInView	  [-177.69351998312504, -92.184900549909628, 1660.0, 598.75]
+	  LoadSaveID		  "163"
+	  Extents		  [1882.0, 791.0]
+	  ZoomFactor		  [2.0]
+	  Offset		  [-154.73289184662951, -50.877840190273957]
+	  SceneRectInView	  [-154.73289184662951, -50.877840190273957, 941.0, 395.5]
 	}
 	Object {
 	  $ObjectID		  9
@@ -282,9 +264,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "EE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Dec 10 23:08:42 2025"
-  RTWModifiedTimeStamp	  687308922
-  ModelVersionFormat	  "1.%<AutoIncrement:468>"
+  LastModifiedDate	  "Thu Dec 11 03:12:21 2025"
+  RTWModifiedTimeStamp	  687323540
+  ModelVersionFormat	  "1.%<AutoIncrement:482>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -405,7 +387,7 @@ Model {
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
-	  StopTime		  "100"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "0.001"
@@ -1666,7 +1648,7 @@ Model {
   System {
     Name		    "Teach_Pendant_Task_Space"
     Location		    [-8, -8, 1928, 1048]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1680,9 +1662,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "150"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "294"
+    SIDHighWatermark	    "317"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Constant
@@ -1708,6 +1690,14 @@ Model {
       ZOrder		      52
     }
     Block {
+      BlockType		      Constant
+      Name		      "Constant3"
+      SID		      "296"
+      Position		      [1425, 300, 1455, 330]
+      ZOrder		      54
+      Value		      "0.01"
+    }
+    Block {
       BlockType		      Demux
       Name		      "Demux"
       SID		      "265"
@@ -1724,6 +1714,15 @@ Model {
       Position		      [85, 313, 90, 367]
       ZOrder		      50
       Outputs		      "3"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display"
+      SID		      "297"
+      Ports		      [1]
+      Position		      [1725, 240, 1815, 270]
+      ZOrder		      55
+      Decimation	      "1"
     }
     Block {
       BlockType		      SubSystem
@@ -2618,6 +2617,154 @@ Model {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  Points		  [20, 0]
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "MATLAB Function3"
+      SID		      "295"
+      Ports		      [3, 1]
+      Position		      [1485, 208, 1675, 302]
+      ZOrder		      53
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      RequestExecContextInheritance off
+      SFBlockType	      "MATLAB Function"
+      ContentPreviewEnabled   on
+      System {
+	Name			"MATLAB Function3"
+	Location		[223, 338, 826, 833]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"26"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Inport
+	  Name			  "theoretical"
+	  SID			  "295::1"
+	  Position		  [20, 101, 40, 119]
+	  ZOrder		  -1
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "practical"
+	  SID			  "295::25"
+	  Position		  [20, 136, 40, 154]
+	  ZOrder		  16
+	  Port			  "2"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "tol"
+	  SID			  "295::26"
+	  Position		  [20, 171, 40, 189]
+	  ZOrder		  17
+	  Port			  "3"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "295::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 230, 320, 270]
+	  ZOrder		  14
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "295::22"
+	  Tag			  "Stateflow S-Function 12"
+	  Ports			  [3, 2]
+	  Position		  [180, 100, 230, 180]
+	  ZOrder		  13
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[3 2]"
+	  SFunctionDeploymentMode off
+	  EnableBusSupport	  on
+	  SFcnIsStateOwnerBlock	  off
+	  Port {
+	    PortNumber		    2
+	    Name		    "reached"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "295::24"
+	  Position		  [460, 241, 480, 259]
+	  ZOrder		  15
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "reached"
+	  SID			  "295::5"
+	  Position		  [460, 101, 480, 119]
+	  ZOrder		  -5
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "theoretical"
+	  SrcPort		  1
+	  Points		  [60, 0; 0, 5]
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "practical"
+	  SrcPort		  1
+	  Points		  [60, 0; 0, -5]
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  16
+	  SrcBlock		  "tol"
+	  SrcPort		  1
+	  Points		  [69, 0; 0, -15]
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "reached"
+	  ZOrder		  17
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  Points		  [116, 0; 0, -50]
+	  DstBlock		  "reached"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  18
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  19
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  Points		  [16, 0; 0, 130]
 	  DstBlock		  " Demux "
 	  DstPort		  1
 	}
@@ -3904,33 +4051,33 @@ Model {
       "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
       "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647"
       "058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLa"
-      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'Demux/1'}},'ShowCont"
-      "ent',true,'Placement',1),struct('MinYLimReal','-0.07791','MaxYLimReal','0.05668','YLabelReal','','MinYLimMag','0"
-      "','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],"
-      "'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0"
-      "745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
-      "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156"
-      "863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames'"
-      ",{{'Demux/2'}},'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.047','MaxYLimReal','0.05005','YLabelRe"
-      "al','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',fals"
-      "e,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 "
-      "0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098"
-      " 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803"
-      "9215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'N"
-      "umLines',1,'LineNames',{{'Demux/3'}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.25959','MaxYLimR"
-      "eal','2.33629','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',"
-      "true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980"
-      "3922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431"
-      "372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294"
-      "117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefi"
-      "nedChannelNames',{{}},'NumLines',1,'LineNames',{{'MATLAB Function'}},'ShowContent',true,'Placement',4)},'Display"
-      "PropertyDefaults',struct('YLabelReal','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false"
-      ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.074"
-      "5098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 "
-      "0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039"
-      "215686 0.650980392156863]),'DisplayLayoutDimensions',[4 1]),extmgr.Configuration('Tools','Plot Navigation',true,"
-      "'OnceAtStop',false,'PreviousZoomMode','Pan'),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')"
-      "),'Version','2020a','Position',[1 41 1920 963],'VisibleAtModelOpen','on')"
+      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',tr"
+      "ue,'Placement',1),struct('MinYLimReal','-0.07791','MaxYLimReal','0.05668','YLabelReal','','MinYLimMag','0','MaxY"
+      "LimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTi"
+      "ckColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450980"
+      "39215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980"
+      "39215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'T"
+      "itle','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}}"
+      ",'ShowContent',true,'Placement',2),struct('MinYLimReal','-0.047','MaxYLimReal','0.05005','YLabelReal','','MinYLi"
+      "mMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',"
+      "[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666666"
+      "6667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254901"
+      "9608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509"
+      "80392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'Li"
+      "neNames',{{[]}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-0.25959','MaxYLimReal','2.33629','YLabe"
+      "lReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',f"
+      "alse,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1"
+      " 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745"
+      "098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509"
+      "8039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}}"
+      ",'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',4)},'DisplayPropertyDefaults',struct('YLabelReal"
+      "','','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor'"
+      ",[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 "
+      "0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.39215686274509"
+      "8 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayL"
+      "ayoutDimensions',[4 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousZoomMode"
+      "','Pan'),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')),'Version','2020a','Position',[1 41"
+      " 1920 963])"
       NumInputPorts	      "4"
       Floating		      off
     }
@@ -3968,15 +4115,15 @@ Model {
       BlockType		      SubSystem
       Name		      "Trajectory Planning"
       SID		      "159"
-      Ports		      [0, 1]
+      Ports		      [1, 1]
       Position		      [735, 115, 830, 175]
       ZOrder		      -38
       BackgroundColor	      "orange"
       RequestExecContextInheritance off
       System {
 	Name			"Trajectory Planning"
-	Location		[-8, -8, 1374, 736]
-	Open			off
+	Location		[-8, -8, 1928, 1048]
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -3990,8 +4137,15 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"80"
+	ZoomFactor		"150"
 	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Inport"
+	  SID			  "316"
+	  Position		  [755, 233, 785, 247]
+	  ZOrder		  191
+	}
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux3"
@@ -4186,7 +4340,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  System {
 	    Name		    "Linear Trajectory"
-	    Location		    [-8, -8, 1374, 736]
+	    Location		    [-8, -8, 1928, 1048]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    SetExecutionDomain	    off
@@ -4201,7 +4355,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "150"
+	    ZoomFactor		    "200"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
 	      BlockType		      Inport
@@ -4490,6 +4644,14 @@ Model {
 	  OutDataTypeStr	  "boolean"
 	}
 	Block {
+	  BlockType		  Constant
+	  Name			  "Planned Traj determines the path"
+	  SID			  "312"
+	  Position		  [1025, -1, 1090, 41]
+	  ZOrder		  190
+	  Value			  "[0.1971; -0.01485; -0.09938]"
+	}
+	Block {
 	  BlockType		  RelationalOperator
 	  Name			  "Relational\nOperator"
 	  SID			  "165"
@@ -4521,13 +4683,13 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Traject"
 	  SID			  "168"
-	  Ports			  [0, 1, 1]
-	  Position		  [765, 216, 880, 274]
+	  Ports			  [1, 1, 1]
+	  Position		  [805, 211, 920, 269]
 	  ZOrder		  -21
 	  RequestExecContextInheritance	off
 	  System {
 	    Name		    "Traject"
-	    Location		    [-8, -8, 1374, 736]
+	    Location		    [-8, -8, 1928, 1048]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    SetExecutionDomain	    off
@@ -4542,16 +4704,159 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "175"
 	    SimulinkSubDomain	    "Simulink"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Inport"
+	      SID		      "315"
+	      Position		      [320, 273, 350, 287]
+	      ZOrder		      176
+	    }
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
 	      SID		      "169"
 	      Ports		      []
-	      Position		      [560, 40, 580, 60]
+	      Position		      [555, 40, 580, 60]
 	      ZOrder		      -1
 	      StatesWhenEnabling      "reset"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "314"
+	      Position		      [305, 165, 355, 195]
+	      ZOrder		      2
+	      Value		      "traj_pos"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "MATLAB Function"
+	      SID		      "313"
+	      Ports		      [2, 1]
+	      Position		      [405, 146, 500, 219]
+	      ZOrder		      1
+	      ErrorFcn		      "Stateflow.Translate.translate"
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      RequestExecContextInheritance off
+	      SFBlockType	      "MATLAB Function"
+	      ContentPreviewEnabled   on
+	      System {
+		Name			"MATLAB Function"
+		Location		[223, 338, 826, 833]
+		Open			off
+		PortBlocksUseCompactNotation off
+		SetExecutionDomain	off
+		ExecutionDomainType	"Deduce"
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"27"
+		SimulinkSubDomain	"Simulink"
+		Block {
+		  BlockType		  Inport
+		  Name			  "traj_pos"
+		  SID			  "313::26"
+		  Position		  [20, 101, 40, 119]
+		  ZOrder		  17
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "enable"
+		  SID			  "313::27"
+		  Position		  [20, 136, 40, 154]
+		  ZOrder		  18
+		  Port			  "2"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "313::23"
+		  Ports			  [1, 1]
+		  Position		  [270, 230, 320, 270]
+		  ZOrder		  14
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  S-Function
+		  Name			  " SFunction "
+		  SID			  "313::22"
+		  Tag			  "Stateflow S-Function 13"
+		  Ports			  [2, 2]
+		  Position		  [180, 100, 230, 160]
+		  ZOrder		  13
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[2 2]"
+		  SFunctionDeploymentMode off
+		  EnableBusSupport	  on
+		  SFcnIsStateOwnerBlock	  off
+		  Port {
+		    PortNumber		    2
+		    Name		    "q"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "313::24"
+		  Position		  [460, 241, 480, 259]
+		  ZOrder		  15
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "q"
+		  SID			  "313::5"
+		  Position		  [460, 101, 480, 119]
+		  ZOrder		  -5
+		}
+		Line {
+		  ZOrder		  21
+		  SrcBlock		  "traj_pos"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  22
+		  SrcBlock		  "enable"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "q"
+		  ZOrder		  23
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "q"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  24
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  25
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
 	    }
 	    Block {
 	      BlockType		      Mux
@@ -4561,6 +4866,7 @@ Model {
 	      Position		      [340, 41, 345, 79]
 	      ZOrder		      -2
 	      ShowName		      off
+	      Commented		      "on"
 	      Inputs		      "3"
 	      DisplayOption	      "bar"
 	    }
@@ -4569,8 +4875,9 @@ Model {
 	      Name		      "Trajectory Joint 1"
 	      SID		      "171"
 	      Ports		      [0, 1]
-	      Position		      [30, 28, 125, 72]
+	      Position		      [25, 28, 120, 72]
 	      ZOrder		      -3
+	      Commented		      "on"
 	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
@@ -4599,6 +4906,7 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [25, 143, 120, 187]
 	      ZOrder		      -4
+	      Commented		      "on"
 	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
@@ -4627,6 +4935,7 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [25, 293, 120, 337]
 	      ZOrder		      -5
+	      Commented		      "on"
 	      LibraryVersion	      "1.466"
 	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
 	      SourceType	      "Repeating Sequence Stair"
@@ -4652,7 +4961,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Planned Trajectory"
 	      SID		      "174"
-	      Position		      [435, 53, 465, 67]
+	      Position		      [550, 173, 580, 187]
 	      ZOrder		      -6
 	    }
 	    Line {
@@ -4679,13 +4988,39 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      4
-	      SrcBlock		      "Mux"
+	      ZOrder		      5
+	      SrcBlock		      "MATLAB Function"
 	      SrcPort		      1
+	      Points		      [15, 0; 0, -5]
 	      DstBlock		      "Planned Trajectory"
 	      DstPort		      1
 	    }
+	    Line {
+	      ZOrder		      6
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, -15]
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      7
+	      SrcBlock		      "Inport"
+	      SrcPort		      1
+	      Points		      [23, 0; 0, -80]
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      2
+	    }
 	  }
+	}
+	Block {
+	  BlockType		  UnitDelay
+	  Name			  "Unit Delay"
+	  SID			  "317"
+	  Position		  [970, 223, 1005, 257]
+	  ZOrder		  192
+	  SampleTime		  "-1"
+	  HasFrameUpgradeWarning  on
 	}
 	Block {
 	  BlockType		  Constant
@@ -4707,7 +5042,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Trajectory"
 	  SID			  "177"
-	  Position		  [1130, 298, 1160, 312]
+	  Position		  [1165, 298, 1195, 312]
 	  ZOrder		  -24
 	}
 	Line {
@@ -4794,25 +5129,10 @@ Model {
 	  }
 	  Branch {
 	    ZOrder		    14
-	    Points		    [95, 0]
+	    Points		    [135, 0]
 	    DstBlock		    "Traject"
 	    DstPort		    enable
 	  }
-	}
-	Line {
-	  ZOrder		  15
-	  SrcBlock		  "Traject"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 50]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  16
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Trajectory"
-	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  17
@@ -4841,6 +5161,35 @@ Model {
 	  SrcBlock		  "Forward Kinematics"
 	  SrcPort		  2
 	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  37
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Trajectory"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  48
+	  SrcBlock		  "Inport"
+	  SrcPort		  1
+	  DstBlock		  "Traject"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  49
+	  SrcBlock		  "Traject"
+	  SrcPort		  1
+	  DstBlock		  "Unit Delay"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  50
+	  SrcBlock		  "Unit Delay"
+	  SrcPort		  1
+	  Points		  [19, 0; 0, 34; -43, 0; 0, 21]
+	  DstBlock		  "Switch"
 	  DstPort		  1
 	}
       }
@@ -5294,6 +5643,12 @@ Model {
 	  DstPort		  1
 	}
 	Branch {
+	  ZOrder		  300
+	  Points		  [0, -145]
+	  DstBlock		  "MATLAB Function3"
+	  DstPort		  2
+	}
+	Branch {
 	  ZOrder		  122
 	  DstBlock		  "Practical Trajactory"
 	  DstPort		  1
@@ -5357,9 +5712,19 @@ Model {
 	Points			[0, 131; 190, 0]
 	Branch {
 	  ZOrder		  243
-	  Points		  [328, 0; 0, 449]
-	  DstBlock		  "MATLAB Function"
-	  DstPort		  2
+	  Points		  [328, 0]
+	  Branch {
+	    ZOrder		    298
+	    Points		    [0, 449]
+	    DstBlock		    "MATLAB Function"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    297
+	    Points		    [0, -51]
+	    DstBlock		    "MATLAB Function3"
+	    DstPort		    1
+	  }
 	}
 	Branch {
 	  ZOrder		  242
@@ -5609,6 +5974,31 @@ Model {
       DstBlock		      "MATLAB Function2"
       DstPort		      2
     }
+    Line {
+      ZOrder		      295
+      SrcBlock		      "Constant3"
+      SrcPort		      1
+      Points		      [10, 0]
+      DstBlock		      "MATLAB Function3"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      301
+      SrcBlock		      "MATLAB Function3"
+      SrcPort		      1
+      Points		      [18, 0]
+      Branch {
+	ZOrder			357
+	Points			[0, -249; -975, 0; 0, 139]
+	DstBlock		"Trajectory Planning"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			356
+	DstBlock		"Display"
+	DstPort			1
+      }
+    }
   }
 }
 #Finite State Machines
@@ -5621,7 +6011,7 @@ Stateflow {
     id			    1
     name		    "Teach_Pendant_Task_Space"
     sfVersion		    80000033
-    firstTarget		    101
+    firstTarget		    118
   }
   chart {
     id			    2
@@ -5793,7 +6183,7 @@ Stateflow {
     }
     midPoint		    [23.5747 24.9468]
     chart		    2
-    dataLimits		    [23.575 23.575 14.625 34.575]
+    dataLimits		    [21.175 25.975 14.625 42.575]
     subviewer		    2
     drawStyle		    SMART
     slide {
@@ -5957,6 +6347,9 @@ Stateflow {
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 19 0 0]
     viewObj		    18
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5987,7 +6380,7 @@ Stateflow {
       script		      "function inter = linear_interpolator( final, current, speed, sample_time)\n\nstep = speed*sample_"
       "time;\ninter = current + sign(final-current).*step;\n\n\nfor i = 1:length(final)\n    if ( abs (final(i)-current"
       "(i)) < step(i))\n        inter(i) = final(i);\n    end\nend\nend"
-      editorLayout	      "100 M4x1[146 214 671 364]"
+      editorLayout	      "100 M4x1[10 5 700 500]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
       fimathForFiConstructors FimathMatlabFactoryDefault
@@ -6769,9 +7162,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 58 0 0]
     viewObj		    57
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6798,11 +7188,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [Kp, Ki, Kd] = const_pid()\n% Returns constant PID values (no PSO, no auto-tuning)\n\n% "
-      "Fixed PID values (same as your original)\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.0;  1.7;  2.9];\n%Kd = [0.03; 0.04"
-      "5; 0.001];\n\n% 1st optimization\n%Kp = [1.79; 1.46; 0.60];\n%Ki = [1.629; 0.3152; 1.967];\n%Kd = [0.07648; 0.05"
-      "51; 0.006901];\n\nKp = [1.79; 1.46; 0.60];\nKi = [1.629; 1.311; 1.316];\nKd = [0.0801; 0.04813; 0.004055];\n\nen"
-      "d\n"
+      script		      "function [Kp, Ki, Kd] = const_pid()\n% Returns constant PID values (no PSO, no auto-tuning)\n\nKp"
+      " = [1.79; 1.46; 0.60];\nKi = [1.629; 1.311; 1.316];\nKd = [0.0801; 0.04813; 0.004055];\n\nend\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -7241,6 +7628,9 @@ Stateflow {
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 82 0 0]
     viewObj		    81
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7484,9 +7874,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 93 0 0]
     viewObj		    92
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7652,19 +8039,352 @@ Stateflow {
     name		    "MATLAB Function2"
     chart		    92
   }
-  target {
+  chart {
     id			    101
+    machine		    1
+    name		    "MATLAB Function3"
+    windowPosition	    [422 539.941 189 413]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3600 1200 1.180555555555556]
+    treeNode		    [0 102 0 0]
+    viewObj		    101
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    chartFileNumber	    12
+    disableImplicitCasting  1
+    eml {
+      name		      "isWithinTolerance"
+    }
+    firstData		    103
+    firstTransition	    108
+    firstJunction	    107
+  }
+  state {
+    id			    102
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    101
+    treeNode		    [101 0 0 0]
+    superState		    SUBCHART
+    subviewer		    101
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function reached = isWithinTolerance(theoretical, practical, tol)\n% theoretical : [3x1] or [1x3]"
+      "\n% practical   : [3x1] or [1x3]\n% tol         : scalar\n% reached     : true if distance <= tol\n\n% ensure co"
+      "lumn vectors\ntheoretical = theoretical(:);\npractical   = practical(:);\n\n% Euclidean distance\nerr = norm(the"
+      "oretical - practical);\n\n% tolerance check\nreached = err <= tol;\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  data {
+    id			    103
+    ssIdNumber		    4
+    name		    "theoretical"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [101 0 104]
+  }
+  data {
+    id			    104
+    ssIdNumber		    5
+    name		    "reached"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [101 103 105]
+  }
+  data {
+    id			    105
+    ssIdNumber		    6
+    name		    "practical"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [101 104 106]
+  }
+  data {
+    id			    106
+    ssIdNumber		    7
+    name		    "tol"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [101 105 0]
+  }
+  junction {
+    id			    107
+    position		    [23.5747 49.5747 7]
+    chart		    101
+    subviewer		    101
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+    linkNode		    [101 0 0]
+  }
+  transition {
+    id			    108
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [28.125 13.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      107
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    101
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    101
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+    linkNode		    [101 0 0]
+  }
+  instance {
+    id			    109
+    machine		    1
+    name		    "MATLAB Function3"
+    chart		    101
+  }
+  chart {
+    id			    110
+    machine		    1
+    name		    "Trajectory Planning/Traject/MATLAB Function"
+    windowPosition	    [422 539.941 189 413]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3600 1200 1.180555555555556]
+    treeNode		    [0 111 0 0]
+    viewObj		    110
+    visible		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    chartFileNumber	    13
+    disableImplicitCasting  1
+    eml {
+      name		      "traj_generator"
+    }
+    firstData		    112
+    firstTransition	    116
+    firstJunction	    115
+  }
+  state {
+    id			    111
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    110
+    treeNode		    [110 0 0 0]
+    superState		    SUBCHART
+    subviewer		    110
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function q = traj_generator(traj_pos, enable)\n% traj_pos : Nx3 trajectory matrix\n% enable   : 0"
+      " = hold, 1 = advance\n% q        : 3x1 current joint vector\n\npersistent idx N\n\nif isempty(idx)\n    idx = 1;"
+      "\n    N = size(traj_pos,1);\nend\n\n% Output current point\nq = traj_pos(idx,:)';\n\n% Advance only if enable = "
+      "1\nif enable == 1\n    if idx < N\n        idx = idx + 1;\n    end\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  data {
+    id			    112
+    ssIdNumber		    5
+    name		    "q"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 0 113]
+  }
+  data {
+    id			    113
+    ssIdNumber		    6
+    name		    "traj_pos"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 112 114]
+  }
+  data {
+    id			    114
+    ssIdNumber		    7
+    name		    "enable"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 113 0]
+  }
+  junction {
+    id			    115
+    position		    [23.5747 49.5747 7]
+    chart		    110
+    subviewer		    110
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+    linkNode		    [110 0 0]
+  }
+  transition {
+    id			    116
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [28.125 13.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      115
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    110
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    110
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+    linkNode		    [110 0 0]
+  }
+  instance {
+    id			    117
+    machine		    1
+    name		    "Trajectory Planning/Traject/MATLAB Function"
+    chart		    110
+  }
+  target {
+    id			    118
     machine		    1
     name		    "sfun"
     codeFlags		    ""
-    linkNode		    [1 0 102]
+    linkNode		    [1 0 119]
   }
   target {
-    id			    102
+    id			    119
     machine		    1
     name		    "rtw"
     codeFlags		    " comments=1 statebitsets=1 databitsets=1 emitlogicalops=1 elseifdetection=1 constantfolding=1 redu"
     "ndantloadelimination=0 preservenames=0 preservenameswithparent=0 exportcharts=0"
-    linkNode		    [1 101 0]
+    linkNode		    [1 118 0]
   }
 }

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.468
+ * Model version              : 1.482
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Dec 10 23:22:13 2025
+ * C source code generated on : Thu Dec 11 03:13:35 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
