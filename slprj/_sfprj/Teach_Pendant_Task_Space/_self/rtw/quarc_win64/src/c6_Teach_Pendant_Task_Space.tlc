@@ -7,18 +7,26 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   1 \
+    NumChartData   2 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
     }\
     ChartData {\
-      Name         "cost_sum"\
+      Name         "cost_accum"\
       Description  "EmlPersistent"\
       SFName       ""\
       Path         ""\
-      SrcLocation  "Teach_Pendant_Task_Space:283:79-87"\
+      SrcLocation  "Teach_Pendant_Task_Space:283:244-254"\
+      Dimensions   [1,10]\
+    }\
+    ChartData {\
+      Name         "last_seg"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Teach_Pendant_Task_Space:283:255-263"\
     }\
   }
   %return ChartDataElements

@@ -1,11 +1,15 @@
 /*
  * Teach_Pendant_Task_Space.h
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.477
+ * Model version              : 1.492
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Feb 26 18:02:59 2026
+ * C source code generated on : Wed Dec 10 19:55:29 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -164,6 +168,7 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Add;                          /* '<Root>/Add' */
   real_T UnitDelay[3];                 /* '<S6>/Unit Delay' */
   real_T Phantom_o2[6];                /* '<S6>/Phantom' */
   real_T JointOffsets[3];              /* '<S6>/Joint Offsets' */
@@ -179,40 +184,44 @@ typedef struct {
         /* '<S6>/Convert to Positive Rotation Convension Used in Kinematics2' */
   real_T x0;                           /* '<S20>/x0' */
   real_T Product[3];                   /* '<S20>/Product' */
-  real_T Ki[3];                        /* '<Root>/pid auto tuner' */
-  real_T Kd[3];                        /* '<Root>/pid auto tuner' */
-  real_T best_PID[9];                  /* '<Root>/pid auto tuner' */
-  real_T worst_PID[9];                 /* '<Root>/pid auto tuner' */
+  real_T best_Kp[3];                   /* '<Root>/pid auto tuner' */
+  real_T best_Ki[3];                   /* '<Root>/pid auto tuner' */
+  real_T best_Kd[3];                   /* '<Root>/pid auto tuner' */
+  real_T current_seg;                  /* '<Root>/pid auto tuner' */
   real_T Out;                          /* '<S26>/Out' */
   real_T Out_i;                        /* '<S27>/Out' */
   real_T Out_p;                        /* '<S28>/Out' */
   real_T inter[3];                     /* '<S22>/Embedded MATLAB Function' */
   real_T div[3];                       /* '<S14>/div' */
-  real_T current_seg;                  /* '<Root>/MATLAB Function1' */
+  real_T Kp_p[3];                      /* '<Root>/MATLAB Function1' */
+  real_T Ki_g[3];                      /* '<Root>/MATLAB Function1' */
+  real_T Kd_f[3];                      /* '<Root>/MATLAB Function1' */
+  real_T current_seg_b;                /* '<Root>/MATLAB Function1' */
   real_T total_cost;                   /* '<Root>/MATLAB Function' */
   real_T pos[3];                       /* '<Root>/Forward Kinematics' */
   real_T out[9];                       /* '<Root>/1 to out 1st signal' */
-  int32_T Add;                         /* '<Root>/Add' */
   int32_T Phantom_o1;                  /* '<S6>/Phantom' */
   int32_T Phantom_o3;                  /* '<S6>/Phantom' */
 } B_Teach_Pendant_Task_Space_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T UnitDelay_DSTATE[3];          /* '<S6>/Unit Delay' */
+  real_T UnitDelay_DSTATE;             /* '<Root>/Unit Delay' */
+  real_T UnitDelay_DSTATE_b[3];        /* '<S6>/Unit Delay' */
   real_T FixPtUnitDelay1_DSTATE[3];    /* '<S25>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_h;           /* '<S18>/Unit Delay' */
   real_T Sumk1n1xk_DSTATE[3];          /* '<S14>/Sum( k=1,n-1, x(k) )' */
-  real_T particles[120];               /* '<Root>/pid auto tuner' */
-  real_T velocities[120];              /* '<Root>/pid auto tuner' */
-  real_T pbest[120];                   /* '<Root>/pid auto tuner' */
-  real_T pbest_cost[20];               /* '<Root>/pid auto tuner' */
-  real_T gbest[6];                     /* '<Root>/pid auto tuner' */
-  real_T gbest_cost;                   /* '<Root>/pid auto tuner' */
-  real_T current_particle;             /* '<Root>/pid auto tuner' */
-  real_T eval_count;                   /* '<Root>/pid auto tuner' */
+  real_T particles[1200];              /* '<Root>/pid auto tuner' */
+  real_T velocities[1200];             /* '<Root>/pid auto tuner' */
+  real_T pbest[1200];                  /* '<Root>/pid auto tuner' */
+  real_T pbest_cost[200];              /* '<Root>/pid auto tuner' */
+  real_T gbest[60];                    /* '<Root>/pid auto tuner' */
+  real_T gbest_cost[10];               /* '<Root>/pid auto tuner' */
+  real_T current_particle[10];         /* '<Root>/pid auto tuner' */
+  real_T eval_count[10];               /* '<Root>/pid auto tuner' */
   real_T last_seg;                     /* '<Root>/MATLAB Function1' */
-  real_T cost_sum;                     /* '<Root>/MATLAB Function' */
+  real_T cost_accum[10];               /* '<Root>/MATLAB Function' */
+  real_T last_seg_b;                   /* '<Root>/MATLAB Function' */
   t_phantom_properties Phantom_Phantom;/* '<S6>/Phantom' */
   struct {
     void *LoggedData[4];
@@ -222,11 +231,10 @@ typedef struct {
     void *LoggedData;
   } ToWorkspace_PWORK;                 /* '<Root>/To Workspace' */
 
-  int32_T UnitDelay_DSTATE_d;          /* '<Root>/Unit Delay' */
   uint32_T method;                     /* '<Root>/pid auto tuner' */
   uint32_T state;                      /* '<Root>/pid auto tuner' */
-  uint32_T state_g[2];                 /* '<Root>/pid auto tuner' */
-  uint32_T state_k[625];               /* '<Root>/pid auto tuner' */
+  uint32_T state_k[2];                 /* '<Root>/pid auto tuner' */
+  uint32_T state_j[625];               /* '<Root>/pid auto tuner' */
   int_T Integrator1_IWORK;             /* '<S20>/Integrator1' */
   uint16_T Output_DSTATE;              /* '<S29>/Output' */
   uint16_T Output_DSTATE_j;            /* '<S32>/Output' */
@@ -241,8 +249,8 @@ typedef struct {
   int8_T SwitchCaseActionSubsystem_Subsy;
                                       /* '<S10>/Switch Case Action Subsystem' */
   int8_T EnabledMovingAverage_SubsysRanB;/* '<S10>/Enabled Moving Average' */
+  boolean_T in_zone_prev[10];          /* '<Root>/pid auto tuner' */
   boolean_T initialized_not_empty;     /* '<Root>/pid auto tuner' */
-  boolean_T in_zone_prev;              /* '<Root>/pid auto tuner' */
   boolean_T state_not_empty;           /* '<Root>/pid auto tuner' */
   boolean_T Traject_MODE;              /* '<S7>/Traject' */
   boolean_T EnabledMovingAverage_MODE; /* '<S10>/Enabled Moving Average' */
@@ -282,22 +290,22 @@ typedef struct {
 /* Parameters (default storage) */
 struct P_Teach_Pendant_Task_Space_T_ {
   real_T segment_lengths[3];           /* Variable: segment_lengths
-                                        * Referenced by: '<Root>/Constant3'
+                                        * Referenced by:
+                                        *   '<Root>/gives the length of all the segments needed by const_pid to detect which segment is robot is in currently'
+                                        *   '<Root>/same as of const_pid'
                                         */
   real_T starting_point[3];            /* Variable: starting_point
-                                        * Referenced by:
-                                        *   '<Root>/Constant'
-                                        *   '<Root>/Constant1'
+                                        * Referenced by: '<Root>/Constant'
                                         */
-  real_T TrajectoryJoint1_OutValues[1267];
+  real_T TrajectoryJoint1_OutValues[2096];
                                    /* Mask Parameter: TrajectoryJoint1_OutValues
                                     * Referenced by: '<S26>/Vector'
                                     */
-  real_T TrajectoryJoint2_OutValues[1267];
+  real_T TrajectoryJoint2_OutValues[2096];
                                    /* Mask Parameter: TrajectoryJoint2_OutValues
                                     * Referenced by: '<S27>/Vector'
                                     */
-  real_T TrajectoryJoint3_OutValues[1267];
+  real_T TrajectoryJoint3_OutValues[2096];
                                    /* Mask Parameter: TrajectoryJoint3_OutValues
                                     * Referenced by: '<S28>/Vector'
                                     */
@@ -357,8 +365,8 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T Stepend_time_YFinal;          /* Expression: 1
                                         * Referenced by: '<S10>/Step: end_time'
                                         */
-  real_T Constant2_Value;              /* Expression: 1
-                                        * Referenced by: '<Root>/Constant2'
+  real_T UnitDelay_InitialCondition_j; /* Expression: 0
+                                        * Referenced by: '<Root>/Unit Delay'
                                         */
   real_T firstpoint_Value[3];        /* Expression: [pos(1,1) pos(1,2) pos(1,3)]
                                       * Referenced by: '<S7>/first point'
@@ -390,8 +398,11 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T speed_Value;                  /* Expression: .1
                                         * Referenced by: '<S7>/speed'
                                         */
-  real_T Constant2_Value_a;            /* Expression: qc_get_step_size
+  real_T Constant2_Value;              /* Expression: qc_get_step_size
                                         * Referenced by: '<S22>/Constant2'
+                                        */
+  real_T Constant2_Value_h;            /* Expression: 1
+                                        * Referenced by: '<Root>/Constant2'
                                         */
   real_T Saturation1_UpperSat[3];      /* Expression: [.1 .1 .025]
                                         * Referenced by: '<S6>/Saturation1'
@@ -429,10 +440,6 @@ struct P_Teach_Pendant_Task_Space_T_ {
   int32_T Constant4_Value;             /* Computed Parameter: Constant4_Value
                                         * Referenced by: '<Root>/Constant4'
                                         */
-  int32_T UnitDelay_InitialCondition_j;
-                             /* Computed Parameter: UnitDelay_InitialCondition_j
-                              * Referenced by: '<Root>/Unit Delay'
-                              */
   uint16_T Constant_Value_h;           /* Computed Parameter: Constant_Value_h
                                         * Referenced by: '<S31>/Constant'
                                         */

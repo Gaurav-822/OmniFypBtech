@@ -1,11 +1,15 @@
 /*
  * rt_i32zcfcn.c
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Points".
  *
- * Model version              : 1.99
+ * Model version              : 1.100
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Fri Nov 21 19:24:54 2025
+ * C source code generated on : Wed Dec 10 18:55:46 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

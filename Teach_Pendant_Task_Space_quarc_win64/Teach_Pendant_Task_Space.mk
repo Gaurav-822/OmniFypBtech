@@ -83,18 +83,18 @@ BUILD_SUCCESS	    = ^#^#^# Created
 MODEL                = Teach_Pendant_Task_Space
 MODULES              = Teach_Pendant_Task_Space_data.c Teach_Pendant_Task_Space_main.c rtGetInf.c rtGetNaN.c rt_nonfinite.c rt_sim.c
 MAKEFILE             = Teach_Pendant_Task_Space.mk
-MATLAB_ROOT          = C:\Program Files\Polyspace\R2020a
-ALT_MATLAB_ROOT      = C:\PROGRA~1\POLYSP~1\R2020a
-MATLAB_BIN           = C:\Program Files\Polyspace\R2020a\bin
-ALT_MATLAB_BIN       = C:\PROGRA~1\POLYSP~1\R2020a\bin
+MATLAB_ROOT          = C:\Program Files\MATLAB\R2020a
+ALT_MATLAB_ROOT      = C:\PROGRA~1\MATLAB\R2020a
+MATLAB_BIN           = C:\Program Files\MATLAB\R2020a\bin
+ALT_MATLAB_BIN       = C:\PROGRA~1\MATLAB\R2020a\bin
 #-- Support for parallel builds
-START_DIR            = E:\OmniFypBtech\Omni NITS\Omni\Product Resources\Instructor Resources\Software\06 Teach Pendant in Task Space
+START_DIR            = D:\OmniFypBtech\OmniFypBtech
 S_FUNCTIONS_LIB      = C:\PROGRA~1\Quanser\QUARC\lib\win64\QUA50B~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUCD81~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUDCFC~1.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUANSE~4.LIB C:\PROGRA~1\Quanser\QUARC\lib\win64\QUANSE~1.LIB
 NUMST                = 2
 TID01EQ              = 1
 NCSTATES             = 9
 COMPUTER             = PCWIN64
-BUILDARGS            =  EXT_MODE=1 EXTMODE_STATIC_ALLOC=0 TMW_EXTMODE_TESTING=0 EXTMODE_STATIC_ALLOC_SIZE=1000000 EXTMODE_TRANSPORT=0 SHOW_TIMES=0 DEBUG=0 DEBUG_HEAP=0 INCLUDE_MDL_TERMINATE_FCN=1 ISPROTECTINGMODEL=NOTPROTECTING OPTS="-DEXT_MODE -DON_TARGET_WAIT_FOR_START=0 -DTID01EQ=1"
+BUILDARGS            =  EXT_MODE=1 EXTMODE_STATIC_ALLOC=0 TMW_EXTMODE_TESTING=0 EXTMODE_STATIC_ALLOC_SIZE=1000000 EXTMODE_TRANSPORT=0 SHOW_TIMES=0 DEBUG=0 DEBUG_HEAP=0 INCLUDE_MDL_TERMINATE_FCN=1 ISPROTECTINGMODEL=NOTPROTECTING OPTS="-DEXT_MODE -DON_TARGET_WAIT_FOR_START=1 -DTID01EQ=1"
 MULTITASKING         = 0
 RELEASE_VERSION      = R2020a
 MAT_FILE             = 0

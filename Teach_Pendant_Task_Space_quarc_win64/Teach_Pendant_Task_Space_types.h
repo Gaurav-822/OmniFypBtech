@@ -1,11 +1,15 @@
 /*
  * Teach_Pendant_Task_Space_types.h
  *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.477
+ * Model version              : 1.492
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Feb 26 18:02:59 2026
+ * C source code generated on : Wed Dec 10 19:55:29 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
