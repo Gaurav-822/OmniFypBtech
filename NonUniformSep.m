@@ -1,26 +1,31 @@
-figure; clf; hold on; grid on; axis equal;
+%% ----- Dynamic Trajectory Plot (All Points) -----
 
-colors = lines(length(all_segments));
+figure(2); clf; hold on; axis equal;
 
-for i = 1:length(all_segments)
-    seg = all_segments{i};
-    
-    scatter(seg(:,2), seg(:,1), ...
-        12, ...                 % point size
-        colors(i,:), ...
-        'filled');
-end
+% --- lengths ---
+n_actual = size(pos_actual,1);
+n_gen    = size(traj_pos,1);
+n_align  = min(n_actual, n_gen);
 
-% waypoints
-scatter(pos(:,2), pos(:,1), ...
-    60, 'r', 'filled', 'o');
+% --- Generated trajectory (points) ---
+plot(traj_pos(1:n_align,2), traj_pos(1:n_align,1), ...
+    '.r', 'MarkerSize', 8);
 
-xlabel('Y');
-ylabel('X');
-title('Segment-wise Non-uniform Trajectory (Sample Points)');
+% --- Input waypoints (pos) ---
+plot(pos(:,2), pos(:,1), ...
+    'ok', 'MarkerSize', 8, 'LineWidth', 2);
 
-legend_strings = arrayfun(@(i) sprintf('Seg %d',i), ...
-                 1:length(all_segments), ...
-                 'UniformOutput', false);
+% --- Generated waypoint hits (zone==1) ---
+idx_zone = find(traj_zone==1);
+plot(traj_pos(idx_zone,2), traj_pos(idx_zone,1), ...
+    'sg', 'MarkerSize', 7, 'LineWidth', 1.5);
 
-legend([legend_strings {'Waypoints'}]);
+plot(pos_actual(:,2), pos_actual(:,1), 'b')
+
+title('Actual vs Generated Trajectory (Point Cloud)');
+xlabel('Y'); ylabel('X'); grid on;
+
+legend({'Actual','Generated','Input Waypoints','Generated Waypoints','Start'}, ...
+    'Location','bestoutside');
+
+hold off;

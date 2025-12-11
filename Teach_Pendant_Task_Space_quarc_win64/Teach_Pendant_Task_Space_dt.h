@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.482
+ * Model version              : 1.512
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Dec 11 03:13:35 2025
+ * C source code generated on : Thu Dec 11 06:12:59 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -67,7 +67,7 @@ static DataTypeTransition rtBTransitions[] = {
   { (char_T *)(&Teach_Pendant_Task_Space_B.reached), 8, 0, 1 }
   ,
 
-  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 405 },
+  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 407 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Phantom_Phantom), 14, 0, 1 },
 
@@ -82,7 +82,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Traject_SubsysRanBC), 2, 0, 6 },
 
-  { (char_T *)(&Teach_Pendant_Task_Space_DW.initialized_not_empty), 8, 0, 5 }
+  { (char_T *)(&Teach_Pendant_Task_Space_DW.initialized_not_empty), 8, 0, 6 }
 };
 
 /* data type transition table for block I/O structure */
@@ -93,7 +93,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Teach_Pendant_Task_Space_P.starting_point[0]), 0, 0, 6072 },
+  { (char_T *)(&Teach_Pendant_Task_Space_P.starting_point[0]), 0, 0, 4650 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_P.FixPtUnitDelay2_InitialConditio), 3,
     0, 2 }

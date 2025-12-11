@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.482
+ * Model version              : 1.512
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Dec 11 03:13:35 2025
+ * C source code generated on : Thu Dec 11 06:12:59 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -303,6 +303,24 @@ static void Teach_Pendant_Task_Space_rand_l(real_T r[6])
         (Teach_Pendant_Task_Space_DW.state_j);
     }
   }
+}
+
+real_T rt_roundd_snf(real_T u)
+{
+  real_T y;
+  if (fabs(u) < 4.503599627370496E+15) {
+    if (u >= 0.5) {
+      y = floor(u + 0.5);
+    } else if (u > -0.5) {
+      y = u * 0.0;
+    } else {
+      y = ceil(u - 0.5);
+    }
+  } else {
+    y = u;
+  }
+
+  return y;
 }
 
 /* Model step function */
@@ -934,7 +952,7 @@ void Teach_Pendant_Task_Space_step(void)
     /* MATLAB Function 'Trajectory Planning/Linear Trajectory/Embedded MATLAB Function': '<S25>:1' */
     /* '<S25>:1:3' */
     rtb_Count = Teach_Pendant_Task_Space_P.speed_Value *
-      Teach_Pendant_Task_Space_P.Constant2_Value;
+      Teach_Pendant_Task_Space_P.Constant2_Value_a;
 
     /* Switch: '<S26>/Init' incorporates:
      *  MATLAB Function: '<S8>/Forward Kinematics'
@@ -2069,8 +2087,10 @@ void Teach_Pendant_Task_Space_step(void)
       if (rtb_LogicalOperator) {
         if (!Teach_Pendant_Task_Space_DW.Traject_MODE) {
           /* SystemReset for MATLAB Function: '<S24>/MATLAB Function' */
+          Teach_Pendant_Task_Space_DW.idx_not_empty = false;
           Teach_Pendant_Task_Space_DW.idx = 1.0;
-          Teach_Pendant_Task_Space_DW.N = 2000.0;
+          Teach_Pendant_Task_Space_DW.N = 1144.0;
+          Teach_Pendant_Task_Space_DW.hold_count = 0.0;
           Teach_Pendant_Task_Space_DW.Traject_MODE = true;
         }
       } else {
@@ -2081,22 +2101,73 @@ void Teach_Pendant_Task_Space_step(void)
     if (Teach_Pendant_Task_Space_DW.Traject_MODE) {
       /* MATLAB Function: '<S24>/MATLAB Function' incorporates:
        *  Constant: '<S24>/Constant'
+       *  Constant: '<S24>/Constant1'
+       *  Constant: '<S24>/Constant2'
+       *  Constant: '<S24>/Constant3'
        */
       /* MATLAB Function 'Trajectory Planning/Traject/MATLAB Function': '<S27>:1' */
-      /* '<S27>:1:14' */
+      if (!Teach_Pendant_Task_Space_DW.idx_not_empty) {
+        /* '<S27>:1:5' */
+        Teach_Pendant_Task_Space_DW.idx_not_empty = true;
+
+        /* '<S27>:1:9' */
+        Teach_Pendant_Task_Space_DW.hold_steps =
+          Teach_Pendant_Task_Space_P.Constant2_Value /
+          Teach_Pendant_Task_Space_P.Constant1_Value;
+        Teach_Pendant_Task_Space_DW.hold_steps = rt_roundd_snf
+          (Teach_Pendant_Task_Space_DW.hold_steps);
+      }
+
+      /* '<S27>:1:12' */
       i = (int32_T)Teach_Pendant_Task_Space_DW.idx;
       Teach_Pendant_Task_Space_B.q[0] = Teach_Pendant_Task_Space_P.traj_pos[i -
         1];
       Teach_Pendant_Task_Space_B.q[1] = Teach_Pendant_Task_Space_P.traj_pos[i +
-        1999];
+        1143];
       Teach_Pendant_Task_Space_B.q[2] = Teach_Pendant_Task_Space_P.traj_pos[i +
-        3999];
-      if (Teach_Pendant_Task_Space_B.reached && (Teach_Pendant_Task_Space_DW.idx
-           < Teach_Pendant_Task_Space_DW.N)) {
-        /* '<S27>:1:17' */
-        /* '<S27>:1:18' */
-        /* '<S27>:1:19' */
+        2287];
+
+      /* '<S27>:1:14' */
+      if (Teach_Pendant_Task_Space_P.traj_zone[(int32_T)
+          Teach_Pendant_Task_Space_DW.idx - 1] == 1.0) {
+        /* '<S27>:1:16' */
+        if (Teach_Pendant_Task_Space_B.reached) {
+          /* '<S27>:1:18' */
+          /* '<S27>:1:20' */
+          Teach_Pendant_Task_Space_DW.idx++;
+          if (Teach_Pendant_Task_Space_DW.idx > Teach_Pendant_Task_Space_DW.N) {
+            /* '<S27>:1:21' */
+            /* '<S27>:1:22' */
+            Teach_Pendant_Task_Space_DW.idx = 1.0;
+          }
+
+          /* '<S27>:1:24' */
+          Teach_Pendant_Task_Space_DW.hold_count = 0.0;
+        } else if (Teach_Pendant_Task_Space_DW.hold_count <
+                   Teach_Pendant_Task_Space_DW.hold_steps) {
+          /* '<S27>:1:28' */
+          /* '<S27>:1:29' */
+          Teach_Pendant_Task_Space_DW.hold_count++;
+        } else {
+          /* '<S27>:1:32' */
+          Teach_Pendant_Task_Space_DW.idx++;
+          if (Teach_Pendant_Task_Space_DW.idx > Teach_Pendant_Task_Space_DW.N) {
+            /* '<S27>:1:33' */
+            /* '<S27>:1:34' */
+            Teach_Pendant_Task_Space_DW.idx = 1.0;
+          }
+
+          /* '<S27>:1:36' */
+          Teach_Pendant_Task_Space_DW.hold_count = 0.0;
+        }
+      } else {
+        /* '<S27>:1:42' */
         Teach_Pendant_Task_Space_DW.idx++;
+        if (Teach_Pendant_Task_Space_DW.idx > Teach_Pendant_Task_Space_DW.N) {
+          /* '<S27>:1:43' */
+          /* '<S27>:1:44' */
+          Teach_Pendant_Task_Space_DW.idx = 1.0;
+        }
       }
 
       /* End of MATLAB Function: '<S24>/MATLAB Function' */
@@ -2312,10 +2383,10 @@ void Teach_Pendant_Task_Space_initialize(void)
   rtmSetFirstInitCond(Teach_Pendant_Task_Space_M, 1);
 
   /* External mode info */
-  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (4200602517U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (3286302902U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (2135106923U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (3174512592U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (610101918U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (2605428220U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (1944804666U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (2980733707U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -2500,6 +2571,8 @@ void Teach_Pendant_Task_Space_initialize(void)
   Teach_Pendant_Task_Space_DW.eval_count = 0.0;
   Teach_Pendant_Task_Space_DW.idx = 0.0;
   Teach_Pendant_Task_Space_DW.N = 0.0;
+  Teach_Pendant_Task_Space_DW.hold_count = 0.0;
+  Teach_Pendant_Task_Space_DW.hold_steps = 0.0;
   Teach_Pendant_Task_Space_DW.cost_sum = 0.0;
 
   /* data type transition information */
@@ -2686,8 +2759,10 @@ void Teach_Pendant_Task_Space_initialize(void)
 
     /* SystemInitialize for Enabled SubSystem: '<S8>/Traject' */
     /* SystemInitialize for MATLAB Function: '<S24>/MATLAB Function' */
+    Teach_Pendant_Task_Space_DW.idx_not_empty = false;
     Teach_Pendant_Task_Space_DW.idx = 1.0;
-    Teach_Pendant_Task_Space_DW.N = 2000.0;
+    Teach_Pendant_Task_Space_DW.N = 1144.0;
+    Teach_Pendant_Task_Space_DW.hold_count = 0.0;
 
     /* End of SystemInitialize for SubSystem: '<S8>/Traject' */
 

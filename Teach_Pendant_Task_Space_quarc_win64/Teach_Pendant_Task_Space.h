@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.482
+ * Model version              : 1.512
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Dec 11 03:13:35 2025
+ * C source code generated on : Thu Dec 11 06:12:59 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -215,6 +215,8 @@ typedef struct {
   real_T eval_count;                   /* '<Root>/pid auto tuner' */
   real_T idx;                          /* '<S24>/MATLAB Function' */
   real_T N;                            /* '<S24>/MATLAB Function' */
+  real_T hold_count;                   /* '<S24>/MATLAB Function' */
+  real_T hold_steps;                   /* '<S24>/MATLAB Function' */
   real_T cost_sum;                     /* '<Root>/MATLAB Function' */
   t_phantom_properties Phantom_Phantom;/* '<S7>/Phantom' */
   struct {
@@ -243,6 +245,7 @@ typedef struct {
   boolean_T initialized_not_empty;     /* '<Root>/pid auto tuner' */
   boolean_T in_zone_prev;              /* '<Root>/pid auto tuner' */
   boolean_T state_not_empty;           /* '<Root>/pid auto tuner' */
+  boolean_T idx_not_empty;             /* '<S24>/MATLAB Function' */
   boolean_T Traject_MODE;              /* '<S8>/Traject' */
   boolean_T EnabledMovingAverage_MODE; /* '<S11>/Enabled Moving Average' */
 } DW_Teach_Pendant_Task_Space_T;
@@ -285,8 +288,11 @@ struct P_Teach_Pendant_Task_Space_T_ {
                                         *   '<Root>/Constant'
                                         *   '<Root>/Constant1'
                                         */
-  real_T traj_pos[6000];               /* Variable: traj_pos
+  real_T traj_pos[3432];               /* Variable: traj_pos
                                         * Referenced by: '<S24>/Constant'
+                                        */
+  real_T traj_zone[1144];              /* Variable: traj_zone
+                                        * Referenced by: '<S24>/Constant3'
                                         */
   real_T BiasRemoval_end_time;         /* Mask Parameter: BiasRemoval_end_time
                                         * Referenced by: '<S11>/Step: end_time'
@@ -335,6 +341,12 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T Stepend_time_YFinal;          /* Expression: 1
                                         * Referenced by: '<S11>/Step: end_time'
                                         */
+  real_T Constant1_Value;              /* Expression: 0.001
+                                        * Referenced by: '<S24>/Constant1'
+                                        */
+  real_T Constant2_Value;              /* Expression: 5
+                                        * Referenced by: '<S24>/Constant2'
+                                        */
   real_T UnitDelay_InitialCondition_o; /* Expression: 0
                                         * Referenced by: '<S8>/Unit Delay'
                                         */
@@ -368,10 +380,10 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T speed_Value;                  /* Expression: .1
                                         * Referenced by: '<S8>/speed'
                                         */
-  real_T Constant2_Value;              /* Expression: qc_get_step_size
+  real_T Constant2_Value_a;            /* Expression: qc_get_step_size
                                         * Referenced by: '<S23>/Constant2'
                                         */
-  real_T Constant3_Value;              /* Expression: 0.01
+  real_T Constant3_Value;              /* Expression: 0.01/2
                                         * Referenced by: '<Root>/Constant3'
                                         */
   real_T Constant2_Value_h;            /* Expression: 1

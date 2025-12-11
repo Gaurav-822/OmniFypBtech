@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   2 \
+    NumChartData   5 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -18,14 +18,35 @@
       Description  "EmlPersistent"\
       SFName       ""\
       Path         ""\
-      SrcLocation  "Teach_Pendant_Task_Space:313:166-169"\
+      SrcLocation  "Teach_Pendant_Task_Space:313:83-86"\
+    }\
+    ChartData {\
+      Name         "idx_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Teach_Pendant_Task_Space:313:83-86"\
     }\
     ChartData {\
       Name         "N"\
       Description  "EmlPersistent"\
       SFName       ""\
       Path         ""\
-      SrcLocation  "Teach_Pendant_Task_Space:313:170-171"\
+      SrcLocation  "Teach_Pendant_Task_Space:313:87-88"\
+    }\
+    ChartData {\
+      Name         "hold_count"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Teach_Pendant_Task_Space:313:89-99"\
+    }\
+    ChartData {\
+      Name         "hold_steps"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Teach_Pendant_Task_Space:313:100-110"\
     }\
   }
   %return ChartDataElements

@@ -28,8 +28,8 @@
     ;%
     ;% Auto data (Teach_Pendant_Task_Space_P)
     ;%
-      section.nData     = 42;
-      section.data(42)  = dumData; %prealloc
+      section.nData     = 45;
+      section.data(45)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_P.starting_point
 	  section.data(1).logicalSrcIdx = 0;
@@ -39,165 +39,177 @@
 	  section.data(2).logicalSrcIdx = 1;
 	  section.data(2).dtTransOffset = 3;
 	
-	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_end_time
+	  ;% Teach_Pendant_Task_Space_P.traj_zone
 	  section.data(3).logicalSrcIdx = 2;
-	  section.data(3).dtTransOffset = 6003;
+	  section.data(3).dtTransOffset = 3435;
+	
+	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_end_time
+	  section.data(4).logicalSrcIdx = 3;
+	  section.data(4).dtTransOffset = 4579;
 	
 	  ;% Teach_Pendant_Task_Space_P.SecondOrderLowPassFilter_input_
-	  section.data(4).logicalSrcIdx = 3;
-	  section.data(4).dtTransOffset = 6004;
+	  section.data(5).logicalSrcIdx = 4;
+	  section.data(5).dtTransOffset = 4580;
 	
 	  ;% Teach_Pendant_Task_Space_P.SecondOrderLowPassFilter_inpu_h
-	  section.data(5).logicalSrcIdx = 4;
-	  section.data(5).dtTransOffset = 6005;
+	  section.data(6).logicalSrcIdx = 5;
+	  section.data(6).dtTransOffset = 4581;
 	
 	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_start_time
-	  section.data(6).logicalSrcIdx = 5;
-	  section.data(6).dtTransOffset = 6006;
+	  section.data(7).logicalSrcIdx = 6;
+	  section.data(7).dtTransOffset = 4582;
 	
 	  ;% Teach_Pendant_Task_Space_P.BiasRemoval_switch_id
-	  section.data(7).logicalSrcIdx = 6;
-	  section.data(7).dtTransOffset = 6007;
+	  section.data(8).logicalSrcIdx = 7;
+	  section.data(8).dtTransOffset = 4583;
 	
 	  ;% Teach_Pendant_Task_Space_P.unity_Value
-	  section.data(8).logicalSrcIdx = 7;
-	  section.data(8).dtTransOffset = 6008;
+	  section.data(9).logicalSrcIdx = 8;
+	  section.data(9).dtTransOffset = 4584;
 	
 	  ;% Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition
-	  section.data(9).logicalSrcIdx = 8;
-	  section.data(9).dtTransOffset = 6009;
+	  section.data(10).logicalSrcIdx = 9;
+	  section.data(10).dtTransOffset = 4585;
 	
 	  ;% Teach_Pendant_Task_Space_P.Sumk1n1xk_InitialCondition
-	  section.data(10).logicalSrcIdx = 9;
-	  section.data(10).dtTransOffset = 6010;
+	  section.data(11).logicalSrcIdx = 10;
+	  section.data(11).dtTransOffset = 4586;
 	
 	  ;% Teach_Pendant_Task_Space_P.zero_Y0
-	  section.data(11).logicalSrcIdx = 10;
-	  section.data(11).dtTransOffset = 6011;
+	  section.data(12).logicalSrcIdx = 11;
+	  section.data(12).dtTransOffset = 4587;
 	
 	  ;% Teach_Pendant_Task_Space_P.Vbiased_Y0
-	  section.data(12).logicalSrcIdx = 11;
-	  section.data(12).dtTransOffset = 6012;
+	  section.data(13).logicalSrcIdx = 12;
+	  section.data(13).dtTransOffset = 4588;
 	
 	  ;% Teach_Pendant_Task_Space_P.Vunbiased_Y0
-	  section.data(13).logicalSrcIdx = 12;
-	  section.data(13).dtTransOffset = 6013;
+	  section.data(14).logicalSrcIdx = 13;
+	  section.data(14).dtTransOffset = 4589;
 	
 	  ;% Teach_Pendant_Task_Space_P.Stepstart_time_Y0
-	  section.data(14).logicalSrcIdx = 13;
-	  section.data(14).dtTransOffset = 6014;
+	  section.data(15).logicalSrcIdx = 14;
+	  section.data(15).dtTransOffset = 4590;
 	
 	  ;% Teach_Pendant_Task_Space_P.Stepstart_time_YFinal
-	  section.data(15).logicalSrcIdx = 14;
-	  section.data(15).dtTransOffset = 6015;
+	  section.data(16).logicalSrcIdx = 15;
+	  section.data(16).dtTransOffset = 4591;
 	
 	  ;% Teach_Pendant_Task_Space_P.Stepend_time_Y0
-	  section.data(16).logicalSrcIdx = 15;
-	  section.data(16).dtTransOffset = 6016;
+	  section.data(17).logicalSrcIdx = 16;
+	  section.data(17).dtTransOffset = 4592;
 	
 	  ;% Teach_Pendant_Task_Space_P.Stepend_time_YFinal
-	  section.data(17).logicalSrcIdx = 16;
-	  section.data(17).dtTransOffset = 6017;
-	
-	  ;% Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition_o
 	  section.data(18).logicalSrcIdx = 17;
-	  section.data(18).dtTransOffset = 6018;
+	  section.data(18).dtTransOffset = 4593;
 	
-	  ;% Teach_Pendant_Task_Space_P.firstpoint_Value
+	  ;% Teach_Pendant_Task_Space_P.Constant1_Value
 	  section.data(19).logicalSrcIdx = 18;
-	  section.data(19).dtTransOffset = 6019;
-	
-	  ;% Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition_g
-	  section.data(20).logicalSrcIdx = 19;
-	  section.data(20).dtTransOffset = 6022;
-	
-	  ;% Teach_Pendant_Task_Space_P.EncoderOffsets_Bias
-	  section.data(21).logicalSrcIdx = 20;
-	  section.data(21).dtTransOffset = 6023;
-	
-	  ;% Teach_Pendant_Task_Space_P.Bias1_Bias
-	  section.data(22).logicalSrcIdx = 21;
-	  section.data(22).dtTransOffset = 6029;
-	
-	  ;% Teach_Pendant_Task_Space_P.Encoder_Gain
-	  section.data(23).logicalSrcIdx = 22;
-	  section.data(23).dtTransOffset = 6032;
-	
-	  ;% Teach_Pendant_Task_Space_P.GearRatio_Gain
-	  section.data(24).logicalSrcIdx = 23;
-	  section.data(24).dtTransOffset = 6033;
-	
-	  ;% Teach_Pendant_Task_Space_P.ConverttoPositiveRotationConven
-	  section.data(25).logicalSrcIdx = 24;
-	  section.data(25).dtTransOffset = 6036;
-	
-	  ;% Teach_Pendant_Task_Space_P.JointOffsets_Bias
-	  section.data(26).logicalSrcIdx = 25;
-	  section.data(26).dtTransOffset = 6039;
-	
-	  ;% Teach_Pendant_Task_Space_P.FixPtUnitDelay1_InitialConditio
-	  section.data(27).logicalSrcIdx = 26;
-	  section.data(27).dtTransOffset = 6042;
-	
-	  ;% Teach_Pendant_Task_Space_P.speed_Value
-	  section.data(28).logicalSrcIdx = 27;
-	  section.data(28).dtTransOffset = 6043;
+	  section.data(19).dtTransOffset = 4594;
 	
 	  ;% Teach_Pendant_Task_Space_P.Constant2_Value
+	  section.data(20).logicalSrcIdx = 19;
+	  section.data(20).dtTransOffset = 4595;
+	
+	  ;% Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition_o
+	  section.data(21).logicalSrcIdx = 20;
+	  section.data(21).dtTransOffset = 4596;
+	
+	  ;% Teach_Pendant_Task_Space_P.firstpoint_Value
+	  section.data(22).logicalSrcIdx = 21;
+	  section.data(22).dtTransOffset = 4597;
+	
+	  ;% Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition_g
+	  section.data(23).logicalSrcIdx = 22;
+	  section.data(23).dtTransOffset = 4600;
+	
+	  ;% Teach_Pendant_Task_Space_P.EncoderOffsets_Bias
+	  section.data(24).logicalSrcIdx = 23;
+	  section.data(24).dtTransOffset = 4601;
+	
+	  ;% Teach_Pendant_Task_Space_P.Bias1_Bias
+	  section.data(25).logicalSrcIdx = 24;
+	  section.data(25).dtTransOffset = 4607;
+	
+	  ;% Teach_Pendant_Task_Space_P.Encoder_Gain
+	  section.data(26).logicalSrcIdx = 25;
+	  section.data(26).dtTransOffset = 4610;
+	
+	  ;% Teach_Pendant_Task_Space_P.GearRatio_Gain
+	  section.data(27).logicalSrcIdx = 26;
+	  section.data(27).dtTransOffset = 4611;
+	
+	  ;% Teach_Pendant_Task_Space_P.ConverttoPositiveRotationConven
+	  section.data(28).logicalSrcIdx = 27;
+	  section.data(28).dtTransOffset = 4614;
+	
+	  ;% Teach_Pendant_Task_Space_P.JointOffsets_Bias
 	  section.data(29).logicalSrcIdx = 28;
-	  section.data(29).dtTransOffset = 6044;
+	  section.data(29).dtTransOffset = 4617;
+	
+	  ;% Teach_Pendant_Task_Space_P.FixPtUnitDelay1_InitialConditio
+	  section.data(30).logicalSrcIdx = 29;
+	  section.data(30).dtTransOffset = 4620;
+	
+	  ;% Teach_Pendant_Task_Space_P.speed_Value
+	  section.data(31).logicalSrcIdx = 30;
+	  section.data(31).dtTransOffset = 4621;
+	
+	  ;% Teach_Pendant_Task_Space_P.Constant2_Value_a
+	  section.data(32).logicalSrcIdx = 31;
+	  section.data(32).dtTransOffset = 4622;
 	
 	  ;% Teach_Pendant_Task_Space_P.Constant3_Value
-	  section.data(30).logicalSrcIdx = 29;
-	  section.data(30).dtTransOffset = 6045;
+	  section.data(33).logicalSrcIdx = 32;
+	  section.data(33).dtTransOffset = 4623;
 	
 	  ;% Teach_Pendant_Task_Space_P.Constant2_Value_h
-	  section.data(31).logicalSrcIdx = 30;
-	  section.data(31).dtTransOffset = 6046;
+	  section.data(34).logicalSrcIdx = 33;
+	  section.data(34).dtTransOffset = 4624;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation1_UpperSat
-	  section.data(32).logicalSrcIdx = 31;
-	  section.data(32).dtTransOffset = 6047;
+	  section.data(35).logicalSrcIdx = 34;
+	  section.data(35).dtTransOffset = 4625;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation1_LowerSat
-	  section.data(33).logicalSrcIdx = 32;
-	  section.data(33).dtTransOffset = 6050;
+	  section.data(36).logicalSrcIdx = 35;
+	  section.data(36).dtTransOffset = 4628;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation2_UpperSat
-	  section.data(34).logicalSrcIdx = 33;
-	  section.data(34).dtTransOffset = 6053;
+	  section.data(37).logicalSrcIdx = 36;
+	  section.data(37).dtTransOffset = 4631;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation2_LowerSat
-	  section.data(35).logicalSrcIdx = 34;
-	  section.data(35).dtTransOffset = 6056;
+	  section.data(38).logicalSrcIdx = 37;
+	  section.data(38).dtTransOffset = 4634;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation_UpperSat
-	  section.data(36).logicalSrcIdx = 35;
-	  section.data(36).dtTransOffset = 6059;
+	  section.data(39).logicalSrcIdx = 38;
+	  section.data(39).dtTransOffset = 4637;
 	
 	  ;% Teach_Pendant_Task_Space_P.Saturation_LowerSat
-	  section.data(37).logicalSrcIdx = 36;
-	  section.data(37).dtTransOffset = 6062;
+	  section.data(40).logicalSrcIdx = 39;
+	  section.data(40).dtTransOffset = 4640;
 	
 	  ;% Teach_Pendant_Task_Space_P.Integrator_IC
-	  section.data(38).logicalSrcIdx = 37;
-	  section.data(38).dtTransOffset = 6065;
+	  section.data(41).logicalSrcIdx = 40;
+	  section.data(41).dtTransOffset = 4643;
 	
 	  ;% Teach_Pendant_Task_Space_P.Integrator2_IC
-	  section.data(39).logicalSrcIdx = 38;
-	  section.data(39).dtTransOffset = 6066;
+	  section.data(42).logicalSrcIdx = 41;
+	  section.data(42).dtTransOffset = 4644;
 	
 	  ;% Teach_Pendant_Task_Space_P.ConverttoPositiveRotationConv_g
-	  section.data(40).logicalSrcIdx = 39;
-	  section.data(40).dtTransOffset = 6067;
+	  section.data(43).logicalSrcIdx = 42;
+	  section.data(43).dtTransOffset = 4645;
 	
 	  ;% Teach_Pendant_Task_Space_P.Constant_Value
-	  section.data(41).logicalSrcIdx = 40;
-	  section.data(41).dtTransOffset = 6070;
+	  section.data(44).logicalSrcIdx = 43;
+	  section.data(44).dtTransOffset = 4648;
 	
 	  ;% Teach_Pendant_Task_Space_P.x0_Value
-	  section.data(42).logicalSrcIdx = 41;
-	  section.data(42).dtTransOffset = 6071;
+	  section.data(45).logicalSrcIdx = 44;
+	  section.data(45).dtTransOffset = 4649;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(1) = section;
@@ -207,11 +219,11 @@
       section.data(2)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_P.FixPtUnitDelay2_InitialConditio
-	  section.data(1).logicalSrcIdx = 42;
+	  section.data(1).logicalSrcIdx = 45;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% Teach_Pendant_Task_Space_P.FixPtConstant_Value
-	  section.data(2).logicalSrcIdx = 43;
+	  section.data(2).logicalSrcIdx = 46;
 	  section.data(2).dtTransOffset = 1;
 	
       nTotData = nTotData + section.nData;
@@ -429,8 +441,8 @@
     ;%
     ;% Auto data (Teach_Pendant_Task_Space_DW)
     ;%
-      section.nData     = 16;
-      section.data(16)  = dumData; %prealloc
+      section.nData     = 18;
+      section.data(18)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE
 	  section.data(1).logicalSrcIdx = 0;
@@ -492,9 +504,17 @@
 	  section.data(15).logicalSrcIdx = 14;
 	  section.data(15).dtTransOffset = 403;
 	
-	  ;% Teach_Pendant_Task_Space_DW.cost_sum
+	  ;% Teach_Pendant_Task_Space_DW.hold_count
 	  section.data(16).logicalSrcIdx = 15;
 	  section.data(16).dtTransOffset = 404;
+	
+	  ;% Teach_Pendant_Task_Space_DW.hold_steps
+	  section.data(17).logicalSrcIdx = 16;
+	  section.data(17).dtTransOffset = 405;
+	
+	  ;% Teach_Pendant_Task_Space_DW.cost_sum
+	  section.data(18).logicalSrcIdx = 17;
+	  section.data(18).dtTransOffset = 406;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(1) = section;
@@ -504,7 +524,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.Phantom_Phantom
-	  section.data(1).logicalSrcIdx = 16;
+	  section.data(1).logicalSrcIdx = 18;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -515,11 +535,11 @@
       section.data(2)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.Scope_PWORK.LoggedData
-	  section.data(1).logicalSrcIdx = 17;
+	  section.data(1).logicalSrcIdx = 19;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% Teach_Pendant_Task_Space_DW.ToWorkspace_PWORK.LoggedData
-	  section.data(2).logicalSrcIdx = 18;
+	  section.data(2).logicalSrcIdx = 20;
 	  section.data(2).dtTransOffset = 4;
 	
       nTotData = nTotData + section.nData;
@@ -530,19 +550,19 @@
       section.data(4)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.method
-	  section.data(1).logicalSrcIdx = 19;
+	  section.data(1).logicalSrcIdx = 21;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% Teach_Pendant_Task_Space_DW.state
-	  section.data(2).logicalSrcIdx = 20;
+	  section.data(2).logicalSrcIdx = 22;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% Teach_Pendant_Task_Space_DW.state_k
-	  section.data(3).logicalSrcIdx = 21;
+	  section.data(3).logicalSrcIdx = 23;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% Teach_Pendant_Task_Space_DW.state_j
-	  section.data(4).logicalSrcIdx = 22;
+	  section.data(4).logicalSrcIdx = 24;
 	  section.data(4).dtTransOffset = 4;
 	
       nTotData = nTotData + section.nData;
@@ -553,7 +573,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.Integrator1_IWORK
-	  section.data(1).logicalSrcIdx = 23;
+	  section.data(1).logicalSrcIdx = 25;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -564,7 +584,7 @@
       section.data(1)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.FixPtUnitDelay2_DSTATE
-	  section.data(1).logicalSrcIdx = 24;
+	  section.data(1).logicalSrcIdx = 26;
 	  section.data(1).dtTransOffset = 0;
 	
       nTotData = nTotData + section.nData;
@@ -575,55 +595,59 @@
       section.data(6)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.Traject_SubsysRanBC
-	  section.data(1).logicalSrcIdx = 25;
+	  section.data(1).logicalSrcIdx = 27;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% Teach_Pendant_Task_Space_DW.SwitchCase_ActiveSubsystem
-	  section.data(2).logicalSrcIdx = 26;
+	  section.data(2).logicalSrcIdx = 28;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% Teach_Pendant_Task_Space_DW.SwitchCaseActionSubsystem2_Subs
-	  section.data(3).logicalSrcIdx = 27;
+	  section.data(3).logicalSrcIdx = 29;
 	  section.data(3).dtTransOffset = 2;
 	
 	  ;% Teach_Pendant_Task_Space_DW.SwitchCaseActionSubsystem1_Subs
-	  section.data(4).logicalSrcIdx = 28;
+	  section.data(4).logicalSrcIdx = 30;
 	  section.data(4).dtTransOffset = 3;
 	
 	  ;% Teach_Pendant_Task_Space_DW.SwitchCaseActionSubsystem_Subsy
-	  section.data(5).logicalSrcIdx = 29;
+	  section.data(5).logicalSrcIdx = 31;
 	  section.data(5).dtTransOffset = 4;
 	
 	  ;% Teach_Pendant_Task_Space_DW.EnabledMovingAverage_SubsysRanB
-	  section.data(6).logicalSrcIdx = 30;
+	  section.data(6).logicalSrcIdx = 32;
 	  section.data(6).dtTransOffset = 5;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(7) = section;
       clear section
       
-      section.nData     = 5;
-      section.data(5)  = dumData; %prealloc
+      section.nData     = 6;
+      section.data(6)  = dumData; %prealloc
       
 	  ;% Teach_Pendant_Task_Space_DW.initialized_not_empty
-	  section.data(1).logicalSrcIdx = 31;
+	  section.data(1).logicalSrcIdx = 33;
 	  section.data(1).dtTransOffset = 0;
 	
 	  ;% Teach_Pendant_Task_Space_DW.in_zone_prev
-	  section.data(2).logicalSrcIdx = 32;
+	  section.data(2).logicalSrcIdx = 34;
 	  section.data(2).dtTransOffset = 1;
 	
 	  ;% Teach_Pendant_Task_Space_DW.state_not_empty
-	  section.data(3).logicalSrcIdx = 33;
+	  section.data(3).logicalSrcIdx = 35;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% Teach_Pendant_Task_Space_DW.Traject_MODE
-	  section.data(4).logicalSrcIdx = 34;
+	  ;% Teach_Pendant_Task_Space_DW.idx_not_empty
+	  section.data(4).logicalSrcIdx = 36;
 	  section.data(4).dtTransOffset = 3;
 	
-	  ;% Teach_Pendant_Task_Space_DW.EnabledMovingAverage_MODE
-	  section.data(5).logicalSrcIdx = 35;
+	  ;% Teach_Pendant_Task_Space_DW.Traject_MODE
+	  section.data(5).logicalSrcIdx = 37;
 	  section.data(5).dtTransOffset = 4;
+	
+	  ;% Teach_Pendant_Task_Space_DW.EnabledMovingAverage_MODE
+	  section.data(6).logicalSrcIdx = 38;
+	  section.data(6).dtTransOffset = 5;
 	
       nTotData = nTotData + section.nData;
       dworkMap.sections(8) = section;
@@ -655,8 +679,8 @@
   ;%
 
 
-  targMap.checksum0 = 4200602517;
-  targMap.checksum1 = 3286302902;
-  targMap.checksum2 = 2135106923;
-  targMap.checksum3 = 3174512592;
+  targMap.checksum0 = 610101918;
+  targMap.checksum1 = 2605428220;
+  targMap.checksum2 = 1944804666;
+  targMap.checksum3 = 2980733707;
 

@@ -1,62 +1,57 @@
-% ================================
-% NON-UNIFORM TRAJECTORY GENERATOR
-% (dense ends, uniform middle)
-% ================================
+% NON UNIFORM TRAJECTORY GENERATOR
+% smooth dynamic speed profile (slow ends, fast middle)
+% zone = 1 only at waypoints
 
 pos_dot = [0.2 0.15 0.12];
 sampling_time = 0.001;
 
-nonuniform_alpha = 2;
+slow_factor = 0.4;   % speed at ends (0–1)
+shape_power = 2;     % >1 sharper mid-speed peak
 
-clear traj;
 traj_pos = [];
-
-starting_point = pos(1,:);
+traj_zone = [];
 
 for i = 1:size(pos,1)
 
     pos_current = pos(i,:);
-    
     if i < size(pos,1)
         pos_next = pos(i+1,:);
     else
         pos_next = pos(1,:);
     end
-    
-    delta = abs(pos_next - pos_current);
-    time = delta ./ pos_dot;
+
+    delta_vec = pos_next - pos_current;
+    delta = abs(delta_vec);
+
+    % -------- estimate segment time using avg speed --------
+    avg_speed_factor = slow_factor + (1-slow_factor)*0.5;
+    effective_pos_dot = pos_dot * avg_speed_factor;
+
+    time = delta ./ effective_pos_dot;
     max_time = max(time);
 
     N = max(2, ceil(max_time / sampling_time));
-
-    % ===== Non-uniform: dense ends, uniform middle =====
     t = linspace(0,1,N)';
 
-    if nonuniform_alpha == 0
-        s = t;
-    else
-        a = 0.2;  % 20% segment at each end
+    % -------- smooth bell velocity profile --------
+    bell = (sin(pi*t)).^shape_power;     % 0→1→0 smooth
+    v = slow_factor + (1-slow_factor)*bell;
 
-        s = zeros(size(t));
+    % -------- integrate velocity to get position scaling --------
+    s = cumtrapz(t, v);
+    s = s / s(end);   % normalize 0→1
 
-        % start dense
-        idx1 = t <= a;
-        u1 = t(idx1)/a;
-        s(idx1) = a * (u1.^nonuniform_alpha);
+    traj = pos_current + delta_vec .* s;
 
-        % middle uniform
-        idx2 = t > a & t < (1-a);
-        s(idx2) = t(idx2);
+    % -------- zone --------
+    zone = zeros(N,1);
+    zone(1) = 1;
 
-        % end dense
-        idx3 = t >= (1-a);
-        u3 = (t(idx3)-(1-a))/a;
-        s(idx3) = (1-a) + a*(1 - (1-u3).^nonuniform_alpha);
-    end
-
-    traj = pos_current + (pos_next - pos_current).*s;
-    traj_pos = cat(1, traj_pos, traj);
+    traj_pos = [traj_pos; traj];
+    traj_zone = [traj_zone; zone];
 
 end
 
-traj_pos = cat(1, pos(1,:), traj_pos);
+% add starting waypoint
+traj_pos = [pos(1,:); traj_pos];
+traj_zone = [1; traj_zone];

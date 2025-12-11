@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.482"
+    ComputedModelVersion    "1.512"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -47,71 +47,6 @@ Model {
     OrderedModelArguments   1
   }
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE boost_serialization>\n<"
-  "boost_serialization signature=\"serialization::archive\" version=\"17\">\n<DiagnosticSuppressor class_id=\"0\" track"
-  "ing_level=\"0\" version=\"6\">\n	<Table class_id=\"1\" tracking_level=\"0\" version=\"0\">\n		<count>3</count>\n		<b"
-  "ucket_count>8</bucket_count>\n		<item_version>0</item_version>\n		<item class_id=\"2\" tracking_level=\"0\" version="
-  "\"0\">\n			<first class_id=\"3\" tracking_level=\"0\" version=\"6\">\n				<Source class_id=\"4\" tracking_level=\"0\""
-  " version=\"0\">\n					<count>1</count>\n					<item_version>0</item_version>\n					<item>Teach_Pendant_Task_Space/Tra"
-  "jectory Planning/Traject/Trajectory Joint 3/LimitedCounter</item>\n				</Source>\n			</first>\n			<second class_id=\""
-  "5\" tracking_level=\"0\" version=\"6\">\n				<SuppressedData class_id=\"6\" tracking_level=\"0\" version=\"0\">\n			"
-  "		<count>2</count>\n					<bucket_count>8</bucket_count>\n					<item_version>0</item_version>\n					<item class_id=\""
-  "7\" tracking_level=\"0\" version=\"0\">\n						<first class_id=\"8\" tracking_level=\"0\" version=\"6\">\n							<ID"
-  ">Simulink:DataType:WarningOverFlowDetected</ID>\n							<Cause>\n								<Source>\n									<count>0</count>\n						"
-  "			<item_version>0</item_version>\n								</Source>\n							</Cause>\n						</first>\n						<second class_id=\"9\" "
-  "tracking_level=\"0\" version=\"6\">\n							<Comment></Comment>\n							<User></User>\n							<LastModified class_id"
-  "=\"10\" tracking_level=\"0\" version=\"0\">\n								<ptime_date class_id=\"11\" tracking_level=\"0\" version=\"0\">"
-  "\n									<date>20160608</date>\n								</ptime_date>\n								<ptime_time_duration class_id=\"12\" tracking_level"
-  "=\"0\" version=\"1\">\n									<is_special>0</is_special>\n									<time_duration_hours>15</time_duration_hours>\n"
-  "									<time_duration_minutes>23</time_duration_minutes>\n									<time_duration_seconds>17</time_duration_second"
-  "s>\n									<time_duration_fractional_seconds>0</time_duration_fractional_seconds>\n								</ptime_time_duration>\n"
-  "							</LastModified>\n							<SuppressionType>1</SuppressionType>\n						</second>\n					</item>\n					<item>\n			"
-  "			<first>\n							<ID>SimulinkFixedPoint:util:Overflowoccurred</ID>\n							<Cause>\n								<Source>\n									<co"
-  "unt>0</count>\n									<item_version>0</item_version>\n								</Source>\n							</Cause>\n						</first>\n						<s"
-  "econd>\n							<Comment></Comment>\n							<User></User>\n							<LastModified>\n								<ptime_date>\n									<dat"
-  "e>20160608</date>\n								</ptime_date>\n								<ptime_time_duration>\n									<is_special>0</is_special>\n						"
-  "			<time_duration_hours>15</time_duration_hours>\n									<time_duration_minutes>23</time_duration_minutes>\n						"
-  "			<time_duration_seconds>17</time_duration_seconds>\n									<time_duration_fractional_seconds>0</time_duration_fr"
-  "actional_seconds>\n								</ptime_time_duration>\n							</LastModified>\n							<SuppressionType>1</SuppressionTyp"
-  "e>\n						</second>\n					</item>\n				</SuppressedData>\n			</second>\n		</item>\n		<item>\n			<first>\n				<Source"
-  ">\n					<count>1</count>\n					<item_version>0</item_version>\n					<item>Teach_Pendant_Task_Space/Trajectory Planni"
-  "ng/Traject/Trajectory Joint 2/LimitedCounter</item>\n				</Source>\n			</first>\n			<second>\n				<SuppressedData>\n"
-  "					<count>2</count>\n					<bucket_count>8</bucket_count>\n					<item_version>0</item_version>\n					<item>\n						"
-  "<first>\n							<ID>Simulink:DataType:WarningOverFlowDetected</ID>\n							<Cause>\n								<Source>\n									<coun"
-  "t>0</count>\n									<item_version>0</item_version>\n								</Source>\n							</Cause>\n						</first>\n						<sec"
-  "ond>\n							<Comment></Comment>\n							<User></User>\n							<LastModified>\n								<ptime_date>\n									<date>"
-  "20160608</date>\n								</ptime_date>\n								<ptime_time_duration>\n									<is_special>0</is_special>\n								"
-  "	<time_duration_hours>15</time_duration_hours>\n									<time_duration_minutes>23</time_duration_minutes>\n								"
-  "	<time_duration_seconds>17</time_duration_seconds>\n									<time_duration_fractional_seconds>0</time_duration_frac"
-  "tional_seconds>\n								</ptime_time_duration>\n							</LastModified>\n							<SuppressionType>1</SuppressionType>"
-  "\n						</second>\n					</item>\n					<item>\n						<first>\n							<ID>SimulinkFixedPoint:util:Overflowoccurred</ID"
-  ">\n							<Cause>\n								<Source>\n									<count>0</count>\n									<item_version>0</item_version>\n								</S"
-  "ource>\n							</Cause>\n						</first>\n						<second>\n							<Comment></Comment>\n							<User></User>\n							<L"
-  "astModified>\n								<ptime_date>\n									<date>20160608</date>\n								</ptime_date>\n								<ptime_time_durat"
-  "ion>\n									<is_special>0</is_special>\n									<time_duration_hours>15</time_duration_hours>\n									<time_du"
-  "ration_minutes>23</time_duration_minutes>\n									<time_duration_seconds>17</time_duration_seconds>\n									<tim"
-  "e_duration_fractional_seconds>0</time_duration_fractional_seconds>\n								</ptime_time_duration>\n							</LastMod"
-  "ified>\n							<SuppressionType>1</SuppressionType>\n						</second>\n					</item>\n				</SuppressedData>\n			</seco"
-  "nd>\n		</item>\n		<item>\n			<first>\n				<Source>\n					<count>1</count>\n					<item_version>0</item_version>\n				"
-  "	<item>Teach_Pendant_Task_Space/Trajectory Planning/Traject/Trajectory Joint 1/LimitedCounter</item>\n				</Source>\n"
-  "			</first>\n			<second>\n				<SuppressedData>\n					<count>2</count>\n					<bucket_count>8</bucket_count>\n					<it"
-  "em_version>0</item_version>\n					<item>\n						<first>\n							<ID>Simulink:DataType:WarningOverFlowDetected</ID>\n"
-  "							<Cause>\n								<Source>\n									<count>0</count>\n									<item_version>0</item_version>\n								</Sour"
-  "ce>\n							</Cause>\n						</first>\n						<second>\n							<Comment></Comment>\n							<User></User>\n							<Last"
-  "Modified>\n								<ptime_date>\n									<date>20160608</date>\n								</ptime_date>\n								<ptime_time_duration"
-  ">\n									<is_special>0</is_special>\n									<time_duration_hours>15</time_duration_hours>\n									<time_durat"
-  "ion_minutes>23</time_duration_minutes>\n									<time_duration_seconds>17</time_duration_seconds>\n									<time_d"
-  "uration_fractional_seconds>0</time_duration_fractional_seconds>\n								</ptime_time_duration>\n							</LastModifi"
-  "ed>\n							<SuppressionType>1</SuppressionType>\n						</second>\n					</item>\n					<item>\n						<first>\n							"
-  "<ID>SimulinkFixedPoint:util:Overflowoccurred</ID>\n							<Cause>\n								<Source>\n									<count>0</count>\n				"
-  "					<item_version>0</item_version>\n								</Source>\n							</Cause>\n						</first>\n						<second>\n							<Com"
-  "ment></Comment>\n							<User></User>\n							<LastModified>\n								<ptime_date>\n									<date>20160608</date>\n"
-  "								</ptime_date>\n								<ptime_time_duration>\n									<is_special>0</is_special>\n									<time_duration_h"
-  "ours>15</time_duration_hours>\n									<time_duration_minutes>23</time_duration_minutes>\n									<time_duration_s"
-  "econds>17</time_duration_seconds>\n									<time_duration_fractional_seconds>0</time_duration_fractional_seconds>\n"
-  "								</ptime_time_duration>\n							</LastModified>\n							<SuppressionType>1</SuppressionType>\n						</second>"
-  "\n					</item>\n				</SuppressedData>\n			</second>\n		</item>\n	</Table>\n</DiagnosticSuppressor>\n\n</boost_serial"
-  "ization>\n\n</boost_serialization>\n\n"
   LogicAnalyzerPlugin	  "on"
   WebScopes_FoundationPlugin "on"
   NotesPlugin		  "on"
@@ -163,23 +98,23 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "159"
-	  Extents		  [1882.0, 791.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [249.536039414449, -0.3372992851120461]
-	  SceneRectInView	  [249.536039414449, -0.3372992851120461, 1254.6666666666667, 527.33333333333337]
-	}
-	Object {
-	  $ObjectID		  6
-	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1882.0, 791.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [482.57885432192552, -193.77802824450146]
-	  SceneRectInView	  [482.57885432192552, -193.77802824450146, 1882.0, 791.0]
+	  Offset		  [-913.82147099768383, 108.82638936861]
+	  SceneRectInView	  [-913.82147099768383, 108.82638936861, 1882.0, 791.0]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "159"
+	  Extents		  [1882.0, 791.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [44.333333333333371, -96.6960330130442]
+	  SceneRectInView	  [44.333333333333371, -96.6960330130442, 1254.6666666666667, 527.33333333333337]
 	}
 	Object {
 	  $ObjectID		  7
@@ -189,8 +124,8 @@ Model {
 	  LoadSaveID		  "168"
 	  Extents		  [1882.0, 791.0]
 	  ZoomFactor		  [1.75]
-	  Offset		  [-267.47707099843075, -43.874310767087188]
-	  SceneRectInView	  [-267.47707099843075, -43.874310767087188, 1075.4285714285713, 452.0]
+	  Offset		  [-224.55322099083998, -12.24309777179343]
+	  SceneRectInView	  [-224.55322099083998, -12.24309777179343, 1075.4285714285713, 452.0]
 	}
 	Object {
 	  $ObjectID		  8
@@ -264,9 +199,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "EE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 11 03:12:21 2025"
-  RTWModifiedTimeStamp	  687323540
-  ModelVersionFormat	  "1.%<AutoIncrement:482>"
+  LastModifiedDate	  "Thu Dec 11 06:10:38 2025"
+  RTWModifiedTimeStamp	  687328760
+  ModelVersionFormat	  "1.%<AutoIncrement:512>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1648,7 +1583,7 @@ Model {
   System {
     Name		    "Teach_Pendant_Task_Space"
     Location		    [-8, -8, 1928, 1048]
-    Open		    off
+    Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1664,7 +1599,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "317"
+    SIDHighWatermark	    "322"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Constant
@@ -1693,9 +1628,9 @@ Model {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "296"
-      Position		      [1425, 300, 1455, 330]
+      Position		      [1415, 300, 1455, 330]
       ZOrder		      54
-      Value		      "0.01"
+      Value		      "0.01/2"
     }
     Block {
       BlockType		      Demux
@@ -4644,14 +4579,6 @@ Model {
 	  OutDataTypeStr	  "boolean"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Planned Traj determines the path"
-	  SID			  "312"
-	  Position		  [1025, -1, 1090, 41]
-	  ZOrder		  190
-	  Value			  "[0.1971; -0.01485; -0.09938]"
-	}
-	Block {
 	  BlockType		  RelationalOperator
 	  Name			  "Relational\nOperator"
 	  SID			  "165"
@@ -4710,7 +4637,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "Inport"
 	      SID		      "315"
-	      Position		      [320, 273, 350, 287]
+	      Position		      [25, 233, 55, 247]
 	      ZOrder		      176
 	    }
 	    Block {
@@ -4726,16 +4653,40 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Constant"
 	      SID		      "314"
-	      Position		      [305, 165, 355, 195]
+	      Position		      [40, 90, 90, 120]
 	      ZOrder		      2
 	      Value		      "traj_pos"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant1"
+	      SID		      "321"
+	      Position		      [105, 285, 135, 315]
+	      ZOrder		      180
+	      Value		      "0.001"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant2"
+	      SID		      "322"
+	      Position		      [15, 275, 45, 305]
+	      ZOrder		      181
+	      Value		      "5"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      SID		      "320"
+	      Position		      [40, 170, 100, 200]
+	      ZOrder		      179
+	      Value		      "traj_zone"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "MATLAB Function"
 	      SID		      "313"
-	      Ports		      [2, 1]
-	      Position		      [405, 146, 500, 219]
+	      Ports		      [5, 1]
+	      Position		      [155, 126, 330, 254]
 	      ZOrder		      1
 	      ErrorFcn		      "Stateflow.Translate.translate"
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -4761,7 +4712,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"27"
+		SIDHighWatermark	"34"
 		SimulinkSubDomain	"Simulink"
 		Block {
 		  BlockType		  Inport
@@ -4772,11 +4723,35 @@ Model {
 		}
 		Block {
 		  BlockType		  Inport
+		  Name			  "traj_zone"
+		  SID			  "313::32"
+		  Position		  [20, 136, 40, 154]
+		  ZOrder		  23
+		  Port			  "2"
+		}
+		Block {
+		  BlockType		  Inport
 		  Name			  "enable"
 		  SID			  "313::27"
-		  Position		  [20, 136, 40, 154]
+		  Position		  [20, 171, 40, 189]
 		  ZOrder		  18
-		  Port			  "2"
+		  Port			  "3"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "max_time"
+		  SID			  "313::33"
+		  Position		  [20, 206, 40, 224]
+		  ZOrder		  24
+		  Port			  "4"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Ts"
+		  SID			  "313::34"
+		  Position		  [20, 246, 40, 264]
+		  ZOrder		  25
+		  Port			  "5"
 		}
 		Block {
 		  BlockType		  Demux
@@ -4792,11 +4767,11 @@ Model {
 		  Name			  " SFunction "
 		  SID			  "313::22"
 		  Tag			  "Stateflow S-Function 13"
-		  Ports			  [2, 2]
-		  Position		  [180, 100, 230, 160]
+		  Ports			  [5, 2]
+		  Position		  [180, 120, 230, 240]
 		  ZOrder		  13
 		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[2 2]"
+		  PortCounts		  "[5 2]"
 		  SFunctionDeploymentMode off
 		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
@@ -4820,178 +4795,81 @@ Model {
 		  ZOrder		  -5
 		}
 		Line {
-		  ZOrder		  21
+		  ZOrder		  123
 		  SrcBlock		  "traj_pos"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  22
-		  SrcBlock		  "enable"
+		  ZOrder		  124
+		  SrcBlock		  "traj_zone"
 		  SrcPort		  1
+		  Points		  [71, 0; 0, 10]
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
+		  ZOrder		  125
+		  SrcBlock		  "enable"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
+		  ZOrder		  126
+		  SrcBlock		  "max_time"
+		  SrcPort		  1
+		  Points		  [60, 0; 0, -10]
+		  DstBlock		  " SFunction "
+		  DstPort		  4
+		}
+		Line {
+		  ZOrder		  127
+		  SrcBlock		  "Ts"
+		  SrcPort		  1
+		  Points		  [70, 0; 0, -25]
+		  DstBlock		  " SFunction "
+		  DstPort		  5
+		}
+		Line {
 		  Name			  "q"
-		  ZOrder		  23
+		  ZOrder		  128
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
+		  Points		  [121, 0; 0, -100]
 		  DstBlock		  "q"
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  24
+		  ZOrder		  129
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  25
+		  ZOrder		  130
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
+		  Points		  [16, 0; 0, 100]
 		  DstBlock		  " Demux "
 		  DstPort		  1
 		}
 	      }
 	    }
 	    Block {
-	      BlockType		      Mux
-	      Name		      "Mux"
-	      SID		      "170"
-	      Ports		      [3, 1]
-	      Position		      [340, 41, 345, 79]
-	      ZOrder		      -2
-	      ShowName		      off
-	      Commented		      "on"
-	      Inputs		      "3"
-	      DisplayOption	      "bar"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Trajectory Joint 1"
-	      SID		      "171"
-	      Ports		      [0, 1]
-	      Position		      [25, 28, 120, 72]
-	      ZOrder		      -3
-	      Commented		      "on"
-	      LibraryVersion	      "1.466"
-	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
-	      SourceType	      "Repeating Sequence Stair"
-	      SourceProductBaseCode   "SL"
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
-	      ContentPreviewEnabled   off
-	      OutValues		      "traj_pos(:,1)"
-	      tsamp		      "-1"
-	      OutMin		      "[]"
-	      OutMax		      "[]"
-	      OutDataTypeStr	      "float('double')"
-	      OutputDataTypeScalingMode	"Specify via dialog"
-	      OutDataType	      "float('double')"
-	      ConRadixGroup	      "Best Precision: Vector-wise"
-	      OutScaling	      "2^-12"
-	      LockScale		      off
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Trajectory Joint 2"
-	      SID		      "172"
-	      Ports		      [0, 1]
-	      Position		      [25, 143, 120, 187]
-	      ZOrder		      -4
-	      Commented		      "on"
-	      LibraryVersion	      "1.466"
-	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
-	      SourceType	      "Repeating Sequence Stair"
-	      SourceProductBaseCode   "SL"
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
-	      ContentPreviewEnabled   off
-	      OutValues		      "traj_pos(:,2)"
-	      tsamp		      "-1"
-	      OutMin		      "[]"
-	      OutMax		      "[]"
-	      OutDataTypeStr	      "float('double')"
-	      OutputDataTypeScalingMode	"Specify via dialog"
-	      OutDataType	      "float('double')"
-	      ConRadixGroup	      "Best Precision: Vector-wise"
-	      OutScaling	      "2^-12"
-	      LockScale		      off
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Trajectory Joint 3"
-	      SID		      "173"
-	      Ports		      [0, 1]
-	      Position		      [25, 293, 120, 337]
-	      ZOrder		      -5
-	      Commented		      "on"
-	      LibraryVersion	      "1.466"
-	      SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
-	      SourceType	      "Repeating Sequence Stair"
-	      SourceProductBaseCode   "SL"
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
-	      ContentPreviewEnabled   off
-	      OutValues		      "traj_pos(:,3)"
-	      tsamp		      "-1"
-	      OutMin		      "[]"
-	      OutMax		      "[]"
-	      OutDataTypeStr	      "float('double')"
-	      OutputDataTypeScalingMode	"Specify via dialog"
-	      OutDataType	      "float('double')"
-	      ConRadixGroup	      "Best Precision: Vector-wise"
-	      OutScaling	      "2^-12"
-	      LockScale		      off
-	    }
-	    Block {
 	      BlockType		      Outport
 	      Name		      "Planned Trajectory"
 	      SID		      "174"
-	      Position		      [550, 173, 580, 187]
+	      Position		      [385, 183, 415, 197]
 	      ZOrder		      -6
-	    }
-	    Line {
-	      ZOrder		      1
-	      SrcBlock		      "Trajectory Joint 1"
-	      SrcPort		      1
-	      DstBlock		      "Mux"
-	      DstPort		      1
-	    }
-	    Line {
-	      ZOrder		      2
-	      SrcBlock		      "Trajectory Joint 2"
-	      SrcPort		      1
-	      Points		      [70, 0; 0, -105]
-	      DstBlock		      "Mux"
-	      DstPort		      2
-	    }
-	    Line {
-	      ZOrder		      3
-	      SrcBlock		      "Trajectory Joint 3"
-	      SrcPort		      1
-	      Points		      [140, 0; 0, -245]
-	      DstBlock		      "Mux"
-	      DstPort		      3
 	    }
 	    Line {
 	      ZOrder		      5
 	      SrcBlock		      "MATLAB Function"
 	      SrcPort		      1
-	      Points		      [15, 0; 0, -5]
 	      DstBlock		      "Planned Trajectory"
 	      DstPort		      1
 	    }
@@ -4999,7 +4877,7 @@ Model {
 	      ZOrder		      6
 	      SrcBlock		      "Constant"
 	      SrcPort		      1
-	      Points		      [20, 0; 0, -15]
+	      Points		      [28, 0; 0, 35]
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      1
 	    }
@@ -5007,9 +4885,32 @@ Model {
 	      ZOrder		      7
 	      SrcBlock		      "Inport"
 	      SrcPort		      1
-	      Points		      [23, 0; 0, -80]
+	      Points		      [67, 0; 0, -50]
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      12
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      Points		      [13, 0; 0, -20]
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      13
+	      SrcBlock		      "Constant1"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      ZOrder		      14
+	      SrcBlock		      "Constant2"
+	      SrcPort		      1
+	      Points		      [30, 0; 0, -75]
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      4
 	    }
 	  }
 	}
@@ -6011,7 +5912,7 @@ Stateflow {
     id			    1
     name		    "Teach_Pendant_Task_Space"
     sfVersion		    80000033
-    firstTarget		    118
+    firstTarget		    121
   }
   chart {
     id			    2
@@ -6347,9 +6248,6 @@ Stateflow {
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 19 0 0]
     viewObj		    18
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7628,9 +7526,6 @@ Stateflow {
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 82 0 0]
     viewObj		    81
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -8111,11 +8006,10 @@ Stateflow {
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_BOOLEAN_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -8123,7 +8017,7 @@ Stateflow {
 	name			"inherit"
       }
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "boolean"
     linkNode		    [101 103 105]
   }
   data {
@@ -8224,10 +8118,7 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 111 0 0]
     viewObj		    110
-    visible		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    7
+    ssIdHighWaterMark	    14
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     chartFileNumber	    13
@@ -8236,8 +8127,8 @@ Stateflow {
       name		      "traj_generator"
     }
     firstData		    112
-    firstTransition	    116
-    firstJunction	    115
+    firstTransition	    119
+    firstJunction	    118
   }
   state {
     id			    111
@@ -8253,10 +8144,15 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function q = traj_generator(traj_pos, enable)\n% traj_pos : Nx3 trajectory matrix\n% enable   : 0"
-      " = hold, 1 = advance\n% q        : 3x1 current joint vector\n\npersistent idx N\n\nif isempty(idx)\n    idx = 1;"
-      "\n    N = size(traj_pos,1);\nend\n\n% Output current point\nq = traj_pos(idx,:)';\n\n% Advance only if enable = "
-      "1\nif enable == 1\n    if idx < N\n        idx = idx + 1;\n    end\nend"
+      script		      "function q = traj_generator(traj_pos, traj_zone, enable, max_time, Ts)\n\npersistent idx N hold_c"
+      "ount hold_steps\n\nif isempty(idx)\n    idx = 1;\n    N = size(traj_pos,1);\n    hold_count = 0;\n    hold_steps"
+      " = round(max_time / Ts);\nend\n\nq = traj_pos(idx,:)';\n\nis_waypoint = traj_zone(idx) == 1;\n\nif is_waypoint ="
+      "= 1\n    \n    if enable == 1\n        % reached -> advance immediately\n        idx = idx + 1;\n        if idx "
+      "> N\n            idx = 1;\n        end\n        hold_count = 0;\n        \n    else\n        % not reached -> wa"
+      "it up to max_time\n        if hold_count < hold_steps\n            hold_count = hold_count + 1;\n        else\n "
+      "           % timeout -> advance anyway\n            idx = idx + 1;\n            if idx > N\n                idx "
+      "= 1;\n            end\n            hold_count = 0;\n        end\n    end\n    \nelse\n    % not waypoint -> alwa"
+      "ys advance\n    idx = idx + 1;\n    if idx > N\n        idx = 1;\n    end\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -8310,6 +8206,31 @@ Stateflow {
   }
   data {
     id			    114
+    ssIdNumber		    12
+    name		    "traj_zone"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 113 115]
+  }
+  data {
+    id			    115
     ssIdNumber		    7
     name		    "enable"
     scope		    INPUT_DATA
@@ -8331,10 +8252,60 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [110 113 0]
+    linkNode		    [110 114 116]
+  }
+  data {
+    id			    116
+    ssIdNumber		    13
+    name		    "max_time"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 115 117]
+  }
+  data {
+    id			    117
+    ssIdNumber		    14
+    name		    "Ts"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [110 116 0]
   }
   junction {
-    id			    115
+    id			    118
     position		    [23.5747 49.5747 7]
     chart		    110
     subviewer		    110
@@ -8343,7 +8314,7 @@ Stateflow {
     linkNode		    [110 0 0]
   }
   transition {
-    id			    116
+    id			    119
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [28.125 13.875 102.544 14.964]
     fontSize		    12
@@ -8351,7 +8322,7 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      115
+      id		      118
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
@@ -8367,24 +8338,24 @@ Stateflow {
     linkNode		    [110 0 0]
   }
   instance {
-    id			    117
+    id			    120
     machine		    1
     name		    "Trajectory Planning/Traject/MATLAB Function"
     chart		    110
   }
   target {
-    id			    118
+    id			    121
     machine		    1
     name		    "sfun"
     codeFlags		    ""
-    linkNode		    [1 0 119]
+    linkNode		    [1 0 122]
   }
   target {
-    id			    119
+    id			    122
     machine		    1
     name		    "rtw"
     codeFlags		    " comments=1 statebitsets=1 databitsets=1 emitlogicalops=1 elseifdetection=1 constantfolding=1 redu"
     "ndantloadelimination=0 preservenames=0 preservenameswithparent=0 exportcharts=0"
-    linkNode		    [1 118 0]
+    linkNode		    [1 121 0]
   }
 }
