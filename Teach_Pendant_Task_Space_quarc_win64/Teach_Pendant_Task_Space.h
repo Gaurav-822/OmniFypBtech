@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.512
+ * Model version              : 1.516
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Dec 11 06:12:59 2025
+ * C source code generated on : Thu Dec 11 09:30:12 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -288,10 +288,10 @@ struct P_Teach_Pendant_Task_Space_T_ {
                                         *   '<Root>/Constant'
                                         *   '<Root>/Constant1'
                                         */
-  real_T traj_pos[3432];               /* Variable: traj_pos
+  real_T traj_pos[13128];              /* Variable: traj_pos
                                         * Referenced by: '<S24>/Constant'
                                         */
-  real_T traj_zone[1144];              /* Variable: traj_zone
+  real_T traj_zone[4376];              /* Variable: traj_zone
                                         * Referenced by: '<S24>/Constant3'
                                         */
   real_T BiasRemoval_end_time;         /* Mask Parameter: BiasRemoval_end_time
@@ -383,7 +383,7 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T Constant2_Value_a;            /* Expression: qc_get_step_size
                                         * Referenced by: '<S23>/Constant2'
                                         */
-  real_T Constant3_Value;              /* Expression: 0.01/2
+  real_T Constant3_Value;              /* Expression: 0.01
                                         * Referenced by: '<Root>/Constant3'
                                         */
   real_T Constant2_Value_h;            /* Expression: 1

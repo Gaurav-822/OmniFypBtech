@@ -7,9 +7,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.512
+ * Model version              : 1.516
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Thu Dec 11 06:12:59 2025
+ * C source code generated on : Thu Dec 11 09:30:12 2025
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -2089,7 +2089,7 @@ void Teach_Pendant_Task_Space_step(void)
           /* SystemReset for MATLAB Function: '<S24>/MATLAB Function' */
           Teach_Pendant_Task_Space_DW.idx_not_empty = false;
           Teach_Pendant_Task_Space_DW.idx = 1.0;
-          Teach_Pendant_Task_Space_DW.N = 1144.0;
+          Teach_Pendant_Task_Space_DW.N = 4376.0;
           Teach_Pendant_Task_Space_DW.hold_count = 0.0;
           Teach_Pendant_Task_Space_DW.Traject_MODE = true;
         }
@@ -2123,9 +2123,9 @@ void Teach_Pendant_Task_Space_step(void)
       Teach_Pendant_Task_Space_B.q[0] = Teach_Pendant_Task_Space_P.traj_pos[i -
         1];
       Teach_Pendant_Task_Space_B.q[1] = Teach_Pendant_Task_Space_P.traj_pos[i +
-        1143];
+        4375];
       Teach_Pendant_Task_Space_B.q[2] = Teach_Pendant_Task_Space_P.traj_pos[i +
-        2287];
+        8751];
 
       /* '<S27>:1:14' */
       if (Teach_Pendant_Task_Space_P.traj_zone[(int32_T)
@@ -2383,10 +2383,10 @@ void Teach_Pendant_Task_Space_initialize(void)
   rtmSetFirstInitCond(Teach_Pendant_Task_Space_M, 1);
 
   /* External mode info */
-  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (610101918U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (2605428220U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (1944804666U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (2980733707U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (1543050146U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (1174776518U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (2279594532U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (1927618570U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -2761,7 +2761,7 @@ void Teach_Pendant_Task_Space_initialize(void)
     /* SystemInitialize for MATLAB Function: '<S24>/MATLAB Function' */
     Teach_Pendant_Task_Space_DW.idx_not_empty = false;
     Teach_Pendant_Task_Space_DW.idx = 1.0;
-    Teach_Pendant_Task_Space_DW.N = 1144.0;
+    Teach_Pendant_Task_Space_DW.N = 4376.0;
     Teach_Pendant_Task_Space_DW.hold_count = 0.0;
 
     /* End of SystemInitialize for SubSystem: '<S8>/Traject' */

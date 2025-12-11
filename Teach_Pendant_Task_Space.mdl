@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.512"
+    ComputedModelVersion    "1.516"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -96,17 +96,6 @@ Model {
 	Dimension		6
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
-	  IsTabbed		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1882.0, 791.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-913.82147099768383, 108.82638936861]
-	  SceneRectInView	  [-913.82147099768383, 108.82638936861, 1882.0, 791.0]
-	}
-	Object {
-	  $ObjectID		  6
 	  IsActive		  [0]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
@@ -115,6 +104,17 @@ Model {
 	  ZoomFactor		  [1.5]
 	  Offset		  [44.333333333333371, -96.6960330130442]
 	  SceneRectInView	  [44.333333333333371, -96.6960330130442, 1254.6666666666667, 527.33333333333337]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [1]
+	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1882.0, 791.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [428.44384421748242, -38.910818200753077]
+	  SceneRectInView	  [428.44384421748242, -38.910818200753077, 1505.6, 632.8]
 	}
 	Object {
 	  $ObjectID		  7
@@ -199,9 +199,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "EE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 11 06:10:38 2025"
-  RTWModifiedTimeStamp	  687328760
-  ModelVersionFormat	  "1.%<AutoIncrement:512>"
+  LastModifiedDate	  "Thu Dec 11 09:21:54 2025"
+  RTWModifiedTimeStamp	  687345713
+  ModelVersionFormat	  "1.%<AutoIncrement:516>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -322,7 +322,7 @@ Model {
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
-	  StopTime		  "10"
+	  StopTime		  "100"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "0.001"
@@ -1597,7 +1597,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "322"
     SimulinkSubDomain	    "Simulink"
@@ -1630,7 +1630,7 @@ Model {
       SID		      "296"
       Position		      [1415, 300, 1455, 330]
       ZOrder		      54
-      Value		      "0.01/2"
+      Value		      "0.01"
     }
     Block {
       BlockType		      Demux
@@ -7943,6 +7943,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 102 0 0]
     viewObj		    101
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -8118,6 +8121,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 111 0 0]
     viewObj		    110
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    14
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
