@@ -3,9 +3,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.477
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Thu Feb 26 18:02:59 2026
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -56,17 +56,19 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&Teach_Pendant_Task_Space_B.UnitDelay[0]), 0, 0, 89 },
+  { (char_T *)(&Teach_Pendant_Task_Space_B.UnitDelay[0]), 0, 0, 90 },
 
-  { (char_T *)(&Teach_Pendant_Task_Space_B.Phantom_o1), 6, 0, 2 }
+  { (char_T *)(&Teach_Pendant_Task_Space_B.Add), 6, 0, 3 }
   ,
 
-  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 400 },
+  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0]), 0, 0, 401 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Phantom_Phantom), 14, 0, 1 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.Scope_PWORK.LoggedData[0]), 11, 0, 5
   },
+
+  { (char_T *)(&Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_d), 6, 0, 1 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_DW.method), 7, 0, 629 },
 
@@ -83,17 +85,19 @@ static DataTypeTransition rtBTransitions[] = {
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  11U,
+  12U,
   rtBTransitions
 };
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&Teach_Pendant_Task_Space_P.starting_point[0]), 0, 0, 5990 },
+  { (char_T *)(&Teach_Pendant_Task_Space_P.segment_lengths[0]), 0, 0, 3812 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_P.LimitedCounter_uplimit), 5, 0, 3 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_P.unity_Value), 0, 0, 62 },
+
+  { (char_T *)(&Teach_Pendant_Task_Space_P.Constant4_Value), 6, 0, 2 },
 
   { (char_T *)(&Teach_Pendant_Task_Space_P.Constant_Value_h), 5, 0, 9 },
 
@@ -103,7 +107,7 @@ static DataTypeTransition rtPTransitions[] = {
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  5U,
+  6U,
   rtPTransitions
 };
 

@@ -3,9 +3,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.477
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Thu Feb 26 18:02:59 2026
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -188,9 +188,11 @@ typedef struct {
   real_T Out_p;                        /* '<S28>/Out' */
   real_T inter[3];                     /* '<S22>/Embedded MATLAB Function' */
   real_T div[3];                       /* '<S14>/div' */
-  real_T out[9];                       /* '<Root>/MATLAB Function2' */
+  real_T current_seg;                  /* '<Root>/MATLAB Function1' */
   real_T total_cost;                   /* '<Root>/MATLAB Function' */
   real_T pos[3];                       /* '<Root>/Forward Kinematics' */
+  real_T out[9];                       /* '<Root>/1 to out 1st signal' */
+  int32_T Add;                         /* '<Root>/Add' */
   int32_T Phantom_o1;                  /* '<S6>/Phantom' */
   int32_T Phantom_o3;                  /* '<S6>/Phantom' */
 } B_Teach_Pendant_Task_Space_T;
@@ -209,6 +211,7 @@ typedef struct {
   real_T gbest_cost;                   /* '<Root>/pid auto tuner' */
   real_T current_particle;             /* '<Root>/pid auto tuner' */
   real_T eval_count;                   /* '<Root>/pid auto tuner' */
+  real_T last_seg;                     /* '<Root>/MATLAB Function1' */
   real_T cost_sum;                     /* '<Root>/MATLAB Function' */
   t_phantom_properties Phantom_Phantom;/* '<S6>/Phantom' */
   struct {
@@ -219,6 +222,7 @@ typedef struct {
     void *LoggedData;
   } ToWorkspace_PWORK;                 /* '<Root>/To Workspace' */
 
+  int32_T UnitDelay_DSTATE_d;          /* '<Root>/Unit Delay' */
   uint32_T method;                     /* '<Root>/pid auto tuner' */
   uint32_T state;                      /* '<Root>/pid auto tuner' */
   uint32_T state_g[2];                 /* '<Root>/pid auto tuner' */
@@ -277,20 +281,23 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_Teach_Pendant_Task_Space_T_ {
+  real_T segment_lengths[3];           /* Variable: segment_lengths
+                                        * Referenced by: '<Root>/Constant3'
+                                        */
   real_T starting_point[3];            /* Variable: starting_point
                                         * Referenced by:
                                         *   '<Root>/Constant'
                                         *   '<Root>/Constant1'
                                         */
-  real_T TrajectoryJoint1_OutValues[1994];
+  real_T TrajectoryJoint1_OutValues[1267];
                                    /* Mask Parameter: TrajectoryJoint1_OutValues
                                     * Referenced by: '<S26>/Vector'
                                     */
-  real_T TrajectoryJoint2_OutValues[1994];
+  real_T TrajectoryJoint2_OutValues[1267];
                                    /* Mask Parameter: TrajectoryJoint2_OutValues
                                     * Referenced by: '<S27>/Vector'
                                     */
-  real_T TrajectoryJoint3_OutValues[1994];
+  real_T TrajectoryJoint3_OutValues[1267];
                                    /* Mask Parameter: TrajectoryJoint3_OutValues
                                     * Referenced by: '<S28>/Vector'
                                     */
@@ -419,6 +426,13 @@ struct P_Teach_Pendant_Task_Space_T_ {
   real_T x0_Value;                     /* Expression: input_init
                                         * Referenced by: '<S20>/x0'
                                         */
+  int32_T Constant4_Value;             /* Computed Parameter: Constant4_Value
+                                        * Referenced by: '<Root>/Constant4'
+                                        */
+  int32_T UnitDelay_InitialCondition_j;
+                             /* Computed Parameter: UnitDelay_InitialCondition_j
+                              * Referenced by: '<Root>/Unit Delay'
+                              */
   uint16_T Constant_Value_h;           /* Computed Parameter: Constant_Value_h
                                         * Referenced by: '<S31>/Constant'
                                         */
@@ -551,11 +565,11 @@ extern RT_MODEL_Teach_Pendant_Task_S_T *const Teach_Pendant_Task_Space_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Teach_Pendant_Task_Space'
- * '<S1>'   : 'Teach_Pendant_Task_Space/Forward Kinematics'
- * '<S2>'   : 'Teach_Pendant_Task_Space/Inverse Kinematics'
- * '<S3>'   : 'Teach_Pendant_Task_Space/MATLAB Function'
- * '<S4>'   : 'Teach_Pendant_Task_Space/MATLAB Function1'
- * '<S5>'   : 'Teach_Pendant_Task_Space/MATLAB Function2'
+ * '<S1>'   : 'Teach_Pendant_Task_Space/1 to out 1st signal'
+ * '<S2>'   : 'Teach_Pendant_Task_Space/Forward Kinematics'
+ * '<S3>'   : 'Teach_Pendant_Task_Space/Inverse Kinematics'
+ * '<S4>'   : 'Teach_Pendant_Task_Space/MATLAB Function'
+ * '<S5>'   : 'Teach_Pendant_Task_Space/MATLAB Function1'
  * '<S6>'   : 'Teach_Pendant_Task_Space/PID Control'
  * '<S7>'   : 'Teach_Pendant_Task_Space/Trajectory Planning'
  * '<S8>'   : 'Teach_Pendant_Task_Space/cost function'

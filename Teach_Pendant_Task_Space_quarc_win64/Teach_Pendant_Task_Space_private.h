@@ -3,9 +3,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.477
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Thu Feb 26 18:02:59 2026
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -46,6 +46,8 @@
 
 /* A global buffer for storing error messages (defined in quanser_common library) */
 EXTERN char _rt_error_message[512];
+extern real_T rt_roundd_snf(real_T u);
+extern int32_T div_s32_floor(int32_T numerator, int32_T denominator);
 
 /* private model entry point functions */
 extern void Teach_Pendant_Task_Space_derivatives(void);

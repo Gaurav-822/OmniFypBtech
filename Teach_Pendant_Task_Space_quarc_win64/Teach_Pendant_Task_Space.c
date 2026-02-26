@@ -3,9 +3,9 @@
  *
  * Code generation for model "Teach_Pendant_Task_Space".
  *
- * Model version              : 1.464
+ * Model version              : 1.477
  * Simulink Coder version : 9.3 (R2020a) 18-Nov-2019
- * C source code generated on : Wed Feb 25 17:34:48 2026
+ * C source code generated on : Thu Feb 26 18:02:59 2026
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -37,6 +37,37 @@ static real_T Teach_Pendan_eml_rand_mt19937ar(uint32_T state[625]);
 static real_T Teach_Pendant_eml_rand_mcg16807(uint32_T *state);
 static void Teach_Pendant_Task_Space_rand(real_T r[120]);
 static void Teach_Pendant_Task_Space_rand_l(real_T r[6]);
+int32_T div_s32_floor(int32_T numerator, int32_T denominator)
+{
+  int32_T quotient;
+  uint32_T absNumerator;
+  uint32_T absDenominator;
+  uint32_T tempAbsQuotient;
+  boolean_T quotientNeedsNegation;
+  if (denominator == 0) {
+    quotient = numerator >= 0 ? MAX_int32_T : MIN_int32_T;
+
+    /* Divide by zero handler */
+  } else {
+    absNumerator = numerator < 0 ? ~(uint32_T)numerator + 1U : (uint32_T)
+      numerator;
+    absDenominator = denominator < 0 ? ~(uint32_T)denominator + 1U : (uint32_T)
+      denominator;
+    quotientNeedsNegation = ((numerator < 0) != (denominator < 0));
+    tempAbsQuotient = absNumerator / absDenominator;
+    if (quotientNeedsNegation) {
+      absNumerator %= absDenominator;
+      if (absNumerator > 0U) {
+        tempAbsQuotient++;
+      }
+    }
+
+    quotient = quotientNeedsNegation ? -(int32_T)tempAbsQuotient : (int32_T)
+      tempAbsQuotient;
+  }
+
+  return quotient;
+}
 
 /*
  * This function updates continuous states using the ODE1 fixed-step
@@ -60,6 +91,24 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   }
 
   rtsiSetSimTimeStep(si,MAJOR_TIME_STEP);
+}
+
+real_T rt_roundd_snf(real_T u)
+{
+  real_T y;
+  if (fabs(u) < 4.503599627370496E+15) {
+    if (u >= 0.5) {
+      y = floor(u + 0.5);
+    } else if (u > -0.5) {
+      y = u * 0.0;
+    } else {
+      y = ceil(u - 0.5);
+    }
+  } else {
+    y = u;
+  }
+
+  return y;
 }
 
 /* Function for MATLAB Function: '<Root>/pid auto tuner' */
@@ -304,23 +353,23 @@ static void Teach_Pendant_Task_Space_rand_l(real_T r[6])
 /* Model step function */
 void Teach_Pendant_Task_Space_step(void)
 {
+  real_T total_length;
+  int32_T eff_iteration;
+  int32_T yi;
+  boolean_T rEQ0;
+  real_T q;
   real_T tool[12];
-  int32_T iy;
-  int32_T j;
   int8_T catArgs_f2[4];
   real_T T_tool[16];
   real_T r2[6];
   boolean_T trigger;
   real_T scale;
-  real_T absxk;
   real_T t;
   real_T x;
   real_T rtb_GearRatio[3];
   real_T rtb_q[3];
-  boolean_T rtb_LogicalOperator;
   real_T rtb_EncoderOffsets[6];
   int8_T rtAction;
-  real_T rtb_Count;
   real_T rtb_tool_offset[16];
   uint16_T rtb_FixPtSum1;
   uint16_T rtb_FixPtSwitch;
@@ -394,11 +443,129 @@ void Teach_Pendant_Task_Space_step(void)
   /* Reset subsysRan breadcrumbs */
   srClearBC(Teach_Pendant_Task_Space_DW.Traject_SubsysRanBC);
   if (rtmIsMajorTimeStep(Teach_Pendant_Task_Space_M)) {
+    /* Sum: '<Root>/Add' incorporates:
+     *  Constant: '<Root>/Constant4'
+     *  UnitDelay: '<Root>/Unit Delay'
+     */
+    Teach_Pendant_Task_Space_B.Add = Teach_Pendant_Task_Space_P.Constant4_Value
+      + Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_d;
+
+    /* MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+     *  Constant: '<Root>/Constant3'
+     */
+    /* MATLAB Function 'MATLAB Function1': '<S5>:1' */
+    /* '<S5>:1:13' */
+    t = Teach_Pendant_Task_Space_P.segment_lengths[0] +
+      Teach_Pendant_Task_Space_P.segment_lengths[1];
+    total_length = t + Teach_Pendant_Task_Space_P.segment_lengths[2];
+
+    /* '<S5>:1:16' */
+    if (Teach_Pendant_Task_Space_B.Add < -2147483647) {
+      eff_iteration = MIN_int32_T;
+    } else {
+      eff_iteration = Teach_Pendant_Task_Space_B.Add - 1;
+    }
+
+    scale = rt_roundd_snf(total_length);
+    if (scale < 2.147483648E+9) {
+      if (scale >= -2.147483648E+9) {
+        i = (int32_T)scale;
+      } else {
+        i = MIN_int32_T;
+      }
+    } else {
+      i = MAX_int32_T;
+    }
+
+    if (i == total_length) {
+      if (i != 0) {
+        eff_iteration -= div_s32_floor(eff_iteration, i) * i;
+      }
+    } else {
+      scale = eff_iteration;
+      if (total_length == 0.0) {
+        if (eff_iteration == 0) {
+          scale = total_length;
+        }
+      } else if (rtIsNaN(total_length)) {
+        scale = (rtNaN);
+      } else if (eff_iteration == 0) {
+        scale = 0.0 / total_length;
+      } else if (rtIsInf(total_length)) {
+        if ((total_length < 0.0) != (eff_iteration < 0)) {
+          scale = total_length;
+        }
+      } else {
+        scale = fmod(eff_iteration, total_length);
+        rEQ0 = (scale == 0.0);
+        if ((!rEQ0) && (total_length > floor(total_length))) {
+          q = fabs((real_T)eff_iteration / total_length);
+          rEQ0 = !(fabs(q - floor(q + 0.5)) > 2.2204460492503131E-16 * q);
+        }
+
+        if (rEQ0) {
+          scale = total_length * 0.0;
+        } else {
+          if ((eff_iteration < 0) != (total_length < 0.0)) {
+            scale += total_length;
+          }
+        }
+      }
+
+      scale = rt_roundd_snf(scale);
+      if (scale < 2.147483648E+9) {
+        if (scale >= -2.147483648E+9) {
+          eff_iteration = (int32_T)scale;
+        } else {
+          eff_iteration = MIN_int32_T;
+        }
+      } else {
+        eff_iteration = MAX_int32_T;
+      }
+    }
+
+    if (eff_iteration > 2147483646) {
+      i = MAX_int32_T;
+    } else {
+      i = eff_iteration + 1;
+    }
+
+    /* '<S5>:1:19' */
+    /* '<S5>:1:20' */
+    if (i <= Teach_Pendant_Task_Space_P.segment_lengths[0]) {
+      /* '<S5>:1:23' */
+      /* '<S5>:1:24' */
+      eff_iteration = 1;
+
+      /* '<S5>:1:25' */
+      /* '<S5>:1:26' */
+      /* '<S5>:1:27' */
+    } else if (i <= t) {
+      /* '<S5>:1:29' */
+      /* '<S5>:1:30' */
+      eff_iteration = 2;
+
+      /* '<S5>:1:31' */
+      /* '<S5>:1:32' */
+      /* '<S5>:1:33' */
+    } else {
+      /* '<S5>:1:37' */
+      eff_iteration = 3;
+
+      /* '<S5>:1:38' */
+      /* '<S5>:1:39' */
+      /* '<S5>:1:40' */
+    }
+
+    if (eff_iteration != Teach_Pendant_Task_Space_DW.last_seg) {
+      /* '<S5>:1:45' */
+      /* '<S5>:1:51' */
+      Teach_Pendant_Task_Space_DW.last_seg = eff_iteration;
+    }
+
+    Teach_Pendant_Task_Space_B.current_seg = eff_iteration;
+
     /* UnitDelay: '<S6>/Unit Delay' */
-    /* MATLAB Function 'MATLAB Function1': '<S4>:1' */
-    /* '<S4>:1:5' */
-    /* '<S4>:1:6' */
-    /* '<S4>:1:7' */
     Teach_Pendant_Task_Space_B.UnitDelay[0] =
       Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE[0];
     Teach_Pendant_Task_Space_B.UnitDelay[1] =
@@ -479,22 +646,22 @@ void Teach_Pendant_Task_Space_step(void)
     /* Step: '<S10>/Step: start_time' incorporates:
      *  Step: '<S10>/Step: end_time'
      */
-    rtb_Count = (((Teach_Pendant_Task_Space_M->Timing.clockTick1+
-                   Teach_Pendant_Task_Space_M->Timing.clockTickH1* 4294967296.0))
-                 * 0.001);
-    if (rtb_Count < Teach_Pendant_Task_Space_P.BiasRemoval_start_time) {
-      scale = Teach_Pendant_Task_Space_P.Stepstart_time_Y0;
+    scale = (((Teach_Pendant_Task_Space_M->Timing.clockTick1+
+               Teach_Pendant_Task_Space_M->Timing.clockTickH1* 4294967296.0)) *
+             0.001);
+    if (scale < Teach_Pendant_Task_Space_P.BiasRemoval_start_time) {
+      total_length = Teach_Pendant_Task_Space_P.Stepstart_time_Y0;
     } else {
-      scale = Teach_Pendant_Task_Space_P.Stepstart_time_YFinal;
+      total_length = Teach_Pendant_Task_Space_P.Stepstart_time_YFinal;
     }
 
     /* End of Step: '<S10>/Step: start_time' */
 
     /* Step: '<S10>/Step: end_time' */
-    if (rtb_Count < Teach_Pendant_Task_Space_P.BiasRemoval_end_time) {
-      rtb_Count = Teach_Pendant_Task_Space_P.Stepend_time_Y0;
+    if (scale < Teach_Pendant_Task_Space_P.BiasRemoval_end_time) {
+      scale = Teach_Pendant_Task_Space_P.Stepend_time_Y0;
     } else {
-      rtb_Count = Teach_Pendant_Task_Space_P.Stepend_time_YFinal;
+      scale = Teach_Pendant_Task_Space_P.Stepend_time_YFinal;
     }
 
     /* Outputs for Enabled SubSystem: '<S10>/Enabled Moving Average' incorporates:
@@ -503,7 +670,7 @@ void Teach_Pendant_Task_Space_step(void)
     /* Logic: '<S10>/Logical Operator' incorporates:
      *  Logic: '<S10>/Logical Operator1'
      */
-    if ((scale != 0.0) && (!(rtb_Count != 0.0))) {
+    if ((total_length != 0.0) && (!(scale != 0.0))) {
       if (!Teach_Pendant_Task_Space_DW.EnabledMovingAverage_MODE) {
         /* InitializeConditions for UnitDelay: '<S18>/Unit Delay' */
         Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_h =
@@ -523,11 +690,11 @@ void Teach_Pendant_Task_Space_step(void)
        *  Constant: '<S18>/unity'
        *  UnitDelay: '<S18>/Unit Delay'
        */
-      rtb_Count = Teach_Pendant_Task_Space_P.unity_Value +
+      total_length = Teach_Pendant_Task_Space_P.unity_Value +
         Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_h;
 
       /* Update for UnitDelay: '<S18>/Unit Delay' */
-      Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_h = rtb_Count;
+      Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_h = total_length;
 
       /* Sum: '<S14>/Sum' incorporates:
        *  UnitDelay: '<S14>/Sum( k=1,n-1, x(k) )'
@@ -536,7 +703,7 @@ void Teach_Pendant_Task_Space_step(void)
         Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[0];
 
       /* Product: '<S14>/div' */
-      Teach_Pendant_Task_Space_B.div[0] = x / rtb_Count;
+      Teach_Pendant_Task_Space_B.div[0] = x / total_length;
 
       /* Update for UnitDelay: '<S14>/Sum( k=1,n-1, x(k) )' */
       Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[0] = x;
@@ -548,7 +715,7 @@ void Teach_Pendant_Task_Space_step(void)
         Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[1];
 
       /* Product: '<S14>/div' */
-      Teach_Pendant_Task_Space_B.div[1] = x / rtb_Count;
+      Teach_Pendant_Task_Space_B.div[1] = x / total_length;
 
       /* Update for UnitDelay: '<S14>/Sum( k=1,n-1, x(k) )' */
       Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[1] = x;
@@ -560,7 +727,7 @@ void Teach_Pendant_Task_Space_step(void)
         Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[2];
 
       /* Product: '<S14>/div' */
-      Teach_Pendant_Task_Space_B.div[2] = x / rtb_Count;
+      Teach_Pendant_Task_Space_B.div[2] = x / total_length;
 
       /* Update for UnitDelay: '<S14>/Sum( k=1,n-1, x(k) )' */
       Teach_Pendant_Task_Space_DW.Sumk1n1xk_DSTATE[2] = x;
@@ -575,19 +742,19 @@ void Teach_Pendant_Task_Space_step(void)
     /* SwitchCase: '<S10>/Switch Case' */
     rtAction = -1;
     if (Teach_Pendant_Task_Space_P.BiasRemoval_switch_id < 0.0) {
-      rtb_Count = ceil(Teach_Pendant_Task_Space_P.BiasRemoval_switch_id);
+      scale = ceil(Teach_Pendant_Task_Space_P.BiasRemoval_switch_id);
     } else {
-      rtb_Count = floor(Teach_Pendant_Task_Space_P.BiasRemoval_switch_id);
+      scale = floor(Teach_Pendant_Task_Space_P.BiasRemoval_switch_id);
     }
 
-    if (rtIsNaN(rtb_Count) || rtIsInf(rtb_Count)) {
-      rtb_Count = 0.0;
+    if (rtIsNaN(scale) || rtIsInf(scale)) {
+      scale = 0.0;
     } else {
-      rtb_Count = fmod(rtb_Count, 4.294967296E+9);
+      scale = fmod(scale, 4.294967296E+9);
     }
 
-    switch (rtb_Count < 0.0 ? -(int32_T)(uint32_T)-rtb_Count : (int32_T)
-            (uint32_T)rtb_Count) {
+    switch (scale < 0.0 ? -(int32_T)(uint32_T)-scale : (int32_T)(uint32_T)scale)
+    {
      case 1:
       rtAction = 0;
       break;
@@ -652,20 +819,20 @@ void Teach_Pendant_Task_Space_step(void)
     /* '<S13>:1:21' */
     /* '<S13>:1:22' */
     /* '<S13>:1:26' */
-    rtb_Count = sin(rtb_GearRatio[0]);
+    total_length = sin(rtb_GearRatio[0]);
     scale = cos(rtb_GearRatio[0]);
-    absxk = sin(rtb_GearRatio[1]);
+    q = sin(rtb_GearRatio[1]);
     t = cos(rtb_GearRatio[1]);
     d[1] = 0.0;
     d[4] = scale;
-    d[7] = -rtb_Count;
+    d[7] = -total_length;
     d[2] = 0.0;
-    d[5] = rtb_Count;
+    d[5] = total_length;
     d[8] = scale;
     t_0[0] = t;
-    t_0[3] = -absxk;
+    t_0[3] = -q;
     t_0[6] = 0.0;
-    t_0[1] = absxk;
+    t_0[1] = q;
     t_0[4] = t;
     t_0[7] = 0.0;
     d[0] = 1.0;
@@ -676,29 +843,29 @@ void Teach_Pendant_Task_Space_step(void)
     t_0[8] = 1.0;
     for (i = 0; i < 3; i++) {
       rtb_GearRatio[i] = 0.0;
-      for (j = 0; j < 3; j++) {
-        iy = i + 3 * j;
-        d_0[iy] = 0.0;
-        d_0[iy] += t_0[3 * j] * d[i];
-        d_0[iy] += t_0[3 * j + 1] * d[i + 3];
-        d_0[iy] += t_0[3 * j + 2] * d[i + 6];
-        rtb_GearRatio[i] += d_0[iy] * b[j];
+      for (yi = 0; yi < 3; yi++) {
+        eff_iteration = i + 3 * yi;
+        d_0[eff_iteration] = 0.0;
+        d_0[eff_iteration] += t_0[3 * yi] * d[i];
+        d_0[eff_iteration] += t_0[3 * yi + 1] * d[i + 3];
+        d_0[eff_iteration] += t_0[3 * yi + 2] * d[i + 6];
+        rtb_GearRatio[i] += d_0[eff_iteration] * b[yi];
       }
     }
 
     /* '<S13>:1:32' */
-    iy = -1;
-    for (j = 0; j < 9; j++) {
-      iy++;
-      tool[iy] = c[j];
+    eff_iteration = -1;
+    for (yi = 0; yi < 9; yi++) {
+      eff_iteration++;
+      tool[eff_iteration] = c[yi];
     }
 
-    iy++;
-    tool[iy] = rtb_GearRatio[0];
-    iy++;
-    tool[iy] = rtb_GearRatio[1];
-    iy++;
-    tool[iy] = rtb_GearRatio[2];
+    eff_iteration++;
+    tool[eff_iteration] = rtb_GearRatio[0];
+    eff_iteration++;
+    tool[eff_iteration] = rtb_GearRatio[1];
+    eff_iteration++;
+    tool[eff_iteration] = rtb_GearRatio[2];
 
     /* Switch: '<S25>/Init' incorporates:
      *  UnitDelay: '<S25>/FixPt Unit Delay2'
@@ -737,68 +904,70 @@ void Teach_Pendant_Task_Space_step(void)
     /* '<S21>:1:21' */
     /* '<S21>:1:22' */
     /* '<S21>:1:23' */
-    rtb_LogicalOperator = (Teach_Pendant_Task_Space_DW.FixPtUnitDelay2_DSTATE !=
-      0);
+    rEQ0 = (Teach_Pendant_Task_Space_DW.FixPtUnitDelay2_DSTATE != 0);
 
     /* MATLAB Function: '<S7>/Forward Kinematics' */
-    rtb_Count = cos(Teach_Pendant_Task_Space_B.div[0]);
-    scale_0[0] = rtb_Count;
-    scale = sin(Teach_Pendant_Task_Space_B.div[0]);
-    scale_0[4] = -scale;
+    scale = cos(Teach_Pendant_Task_Space_B.div[0]);
+    scale_0[0] = scale;
+    total_length = sin(Teach_Pendant_Task_Space_B.div[0]);
+    scale_0[4] = -total_length;
     scale_0[8] = 0.0;
     scale_0[12] = 0.0;
-    scale_0[1] = scale;
-    scale_0[5] = rtb_Count;
+    scale_0[1] = total_length;
+    scale_0[5] = scale;
     scale_0[9] = 0.0;
     scale_0[13] = 0.0;
-    for (j = 0; j < 4; j++) {
+    for (yi = 0; yi < 4; yi++) {
       /* MATLAB Function: '<S6>/Tool Offset' incorporates:
        *  MATLAB Function: '<S7>/Forward Kinematics'
        */
-      i = j << 2;
-      rtb_tool_offset[i] = tool[3 * j];
-      rtb_tool_offset[i + 1] = tool[3 * j + 1];
-      iy = i + 2;
-      rtb_tool_offset[iy] = tool[3 * j + 2];
+      i = yi << 2;
+      rtb_tool_offset[i] = tool[3 * yi];
+      rtb_tool_offset[i + 1] = tool[3 * yi + 1];
+      eff_iteration = i + 2;
+      rtb_tool_offset[eff_iteration] = tool[3 * yi + 2];
       i += 3;
-      rtb_tool_offset[i] = varargin_2[j];
+      rtb_tool_offset[i] = varargin_2[yi];
 
       /* MATLAB Function: '<S7>/Forward Kinematics' */
-      scale_0[iy] = b_0[j];
-      scale_0[i] = varargin_2[j];
+      scale_0[eff_iteration] = b_0[yi];
+      scale_0[i] = varargin_2[yi];
     }
 
     /* MATLAB Function: '<S7>/Forward Kinematics' */
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool[scale_tmp] = 0.0;
-        T_tool[scale_tmp] += (real_T)A_T_z[iy] * scale_0[i];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 1] * scale_0[i + 4];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 2] * scale_0[i + 8];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 3] * scale_0[i + 12];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_0[i];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 1] * scale_0[i + 4];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 2] * scale_0[i + 8];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 3] * scale_0[i + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool_tmp_3[scale_tmp] = 0.0;
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy] * T_tool[i];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 1] * T_tool[i + 4];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 2] * T_tool[i + 8];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 3] * T_tool[i + 12];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration] * T_tool[i];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 1] * T_tool[i +
+          4];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 2] * T_tool[i +
+          8];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 3] * T_tool[i +
+          12];
       }
     }
 
-    rtb_Count = cos(Teach_Pendant_Task_Space_B.div[1]);
-    scale_0[0] = rtb_Count;
-    scale = sin(Teach_Pendant_Task_Space_B.div[1]);
-    scale_0[4] = -scale;
+    scale = cos(Teach_Pendant_Task_Space_B.div[1]);
+    scale_0[0] = scale;
+    total_length = sin(Teach_Pendant_Task_Space_B.div[1]);
+    scale_0[4] = -total_length;
     scale_0[8] = 0.0;
     scale_0[12] = 0.0;
-    scale_0[1] = scale;
-    scale_0[5] = rtb_Count;
+    scale_0[1] = total_length;
+    scale_0[5] = scale;
     scale_0[9] = 0.0;
     scale_0[13] = 0.0;
     scale_0[2] = 0.0;
@@ -810,122 +979,125 @@ void Teach_Pendant_Task_Space_step(void)
     scale_0[14] = 0.0;
     scale_0[15] = 1.0;
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool[scale_tmp] = 0.0;
-        T_tool[scale_tmp] += (real_T)A_T_z[iy] * scale_0[i];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 1] * scale_0[i + 4];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 2] * scale_0[i + 8];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy + 3] * scale_0[i + 12];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_0[i];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 1] * scale_0[i + 4];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 2] * scale_0[i + 8];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration + 3] * scale_0[i + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_1[scale_tmp] = 0.0;
-        scale_1[scale_tmp] += A_T_x[iy] * T_tool[i];
-        scale_1[scale_tmp] += A_T_x[iy + 1] * T_tool[i + 4];
-        scale_1[scale_tmp] += A_T_x[iy + 2] * T_tool[i + 8];
-        scale_1[scale_tmp] += A_T_x[iy + 3] * T_tool[i + 12];
+        scale_1[scale_tmp] += A_T_x[eff_iteration] * T_tool[i];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 1] * T_tool[i + 4];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 2] * T_tool[i + 8];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 3] * T_tool[i + 12];
       }
     }
 
-    rtb_Count = cos(Teach_Pendant_Task_Space_B.div[2] - 1.5707963267948966);
-    scale_2[0] = rtb_Count;
-    scale = sin(Teach_Pendant_Task_Space_B.div[2] - 1.5707963267948966);
-    scale_2[4] = -scale;
+    scale = cos(Teach_Pendant_Task_Space_B.div[2] - 1.5707963267948966);
+    scale_2[0] = scale;
+    total_length = sin(Teach_Pendant_Task_Space_B.div[2] - 1.5707963267948966);
+    scale_2[4] = -total_length;
     scale_2[8] = 0.0;
     scale_2[12] = 0.0;
-    scale_2[1] = scale;
-    scale_2[5] = rtb_Count;
+    scale_2[1] = total_length;
+    scale_2[5] = scale;
     scale_2[9] = 0.0;
     scale_2[13] = 0.0;
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_0[scale_tmp] = 0.0;
         T_tool[scale_tmp] = 0.0;
-        scale_0[scale_tmp] += A_R_x[iy] * T_tool_tmp_3[i];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy] * scale_1[i];
-        scale_tmp_0 = iy + 1;
+        scale_0[scale_tmp] += A_R_x[eff_iteration] * T_tool_tmp_3[i];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_1[i];
+        scale_tmp_0 = eff_iteration + 1;
         scale_0[scale_tmp] += A_R_x[scale_tmp_0] * T_tool_tmp_3[i + 4];
         T_tool[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[i + 4];
-        scale_tmp_0 = iy + 2;
+        scale_tmp_0 = eff_iteration + 2;
         scale_0[scale_tmp] += A_R_x[scale_tmp_0] * T_tool_tmp_3[i + 8];
         T_tool[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[i + 8];
-        iy += 3;
-        scale_0[scale_tmp] += A_R_x[iy] * T_tool_tmp_3[i + 12];
-        T_tool[scale_tmp] += (real_T)A_T_z[iy] * scale_1[i + 12];
+        eff_iteration += 3;
+        scale_0[scale_tmp] += A_R_x[eff_iteration] * T_tool_tmp_3[i + 12];
+        T_tool[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_1[i + 12];
       }
 
-      j = i << 2;
-      scale_2[j + 2] = b_0[i];
-      scale_2[j + 3] = varargin_2[i];
+      yi = i << 2;
+      scale_2[yi + 2] = b_0[i];
+      scale_2[yi + 3] = varargin_2[i];
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool_tmp_3[scale_tmp] = 0.0;
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy] * scale_2[i];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 1] * scale_2[i + 4];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 2] * scale_2[i + 8];
-        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[iy + 3] * scale_2[i + 12];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_2[i];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 1] * scale_2[i
+          + 4];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 2] * scale_2[i
+          + 8];
+        T_tool_tmp_3[scale_tmp] += (real_T)A_T_z[eff_iteration + 3] * scale_2[i
+          + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_1[scale_tmp] = 0.0;
-        scale_1[scale_tmp] += A_T_x[iy] * T_tool_tmp_3[i];
-        scale_1[scale_tmp] += A_T_x[iy + 1] * T_tool_tmp_3[i + 4];
-        scale_1[scale_tmp] += A_T_x[iy + 2] * T_tool_tmp_3[i + 8];
-        scale_1[scale_tmp] += A_T_x[iy + 3] * T_tool_tmp_3[i + 12];
+        scale_1[scale_tmp] += A_T_x[eff_iteration] * T_tool_tmp_3[i];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 1] * T_tool_tmp_3[i + 4];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 2] * T_tool_tmp_3[i + 8];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 3] * T_tool_tmp_3[i + 12];
       }
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = i << 2;
-        scale_tmp = j + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = i << 2;
+        scale_tmp = yi + eff_iteration;
         T_tool_tmp_3[scale_tmp] = 0.0;
         scale_2[scale_tmp] = 0.0;
-        T_tool_tmp_3[scale_tmp] += T_tool[iy] * scale_0[j];
-        scale_2[scale_tmp] += (real_T)A_T_z[iy] * scale_1[j];
-        scale_tmp_0 = iy + 1;
-        T_tool_tmp_3[scale_tmp] += T_tool[scale_tmp_0] * scale_0[j + 4];
-        scale_2[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[j + 4];
-        scale_tmp_0 = iy + 2;
-        T_tool_tmp_3[scale_tmp] += T_tool[scale_tmp_0] * scale_0[j + 8];
-        scale_2[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[j + 8];
-        iy += 3;
-        T_tool_tmp_3[scale_tmp] += T_tool[iy] * scale_0[j + 12];
-        scale_2[scale_tmp] += (real_T)A_T_z[iy] * scale_1[j + 12];
+        T_tool_tmp_3[scale_tmp] += T_tool[eff_iteration] * scale_0[yi];
+        scale_2[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_1[yi];
+        scale_tmp_0 = eff_iteration + 1;
+        T_tool_tmp_3[scale_tmp] += T_tool[scale_tmp_0] * scale_0[yi + 4];
+        scale_2[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[yi + 4];
+        scale_tmp_0 = eff_iteration + 2;
+        T_tool_tmp_3[scale_tmp] += T_tool[scale_tmp_0] * scale_0[yi + 8];
+        scale_2[scale_tmp] += (real_T)A_T_z[scale_tmp_0] * scale_1[yi + 8];
+        eff_iteration += 3;
+        T_tool_tmp_3[scale_tmp] += T_tool[eff_iteration] * scale_0[yi + 12];
+        scale_2[scale_tmp] += (real_T)A_T_z[eff_iteration] * scale_1[yi + 12];
       }
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_0[scale_tmp] = 0.0;
-        scale_0[scale_tmp] += scale_2[iy] * T_tool_tmp_3[i];
-        scale_0[scale_tmp] += scale_2[iy + 1] * T_tool_tmp_3[i + 4];
-        scale_0[scale_tmp] += scale_2[iy + 2] * T_tool_tmp_3[i + 8];
-        scale_0[scale_tmp] += scale_2[iy + 3] * T_tool_tmp_3[i + 12];
+        scale_0[scale_tmp] += scale_2[eff_iteration] * T_tool_tmp_3[i];
+        scale_0[scale_tmp] += scale_2[eff_iteration + 1] * T_tool_tmp_3[i + 4];
+        scale_0[scale_tmp] += scale_2[eff_iteration + 2] * T_tool_tmp_3[i + 8];
+        scale_0[scale_tmp] += scale_2[eff_iteration + 3] * T_tool_tmp_3[i + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool[scale_tmp] = 0.0;
-        T_tool[scale_tmp] += rtb_tool_offset[iy] * scale_0[i];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 1] * scale_0[i + 4];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 2] * scale_0[i + 8];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 3] * scale_0[i + 12];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration] * scale_0[i];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 1] * scale_0[i + 4];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 2] * scale_0[i + 8];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 3] * scale_0[i + 12];
       }
     }
 
@@ -935,7 +1107,7 @@ void Teach_Pendant_Task_Space_step(void)
      */
     /* MATLAB Function 'Trajectory Planning/Linear Trajectory/Embedded MATLAB Function': '<S24>:1' */
     /* '<S24>:1:3' */
-    rtb_Count = Teach_Pendant_Task_Space_P.speed_Value *
+    total_length = Teach_Pendant_Task_Space_P.speed_Value *
       Teach_Pendant_Task_Space_P.Constant2_Value_a;
 
     /* Switch: '<S25>/Init' incorporates:
@@ -944,7 +1116,7 @@ void Teach_Pendant_Task_Space_step(void)
      */
     /* '<S24>:1:4' */
     /* '<S24>:1:7' */
-    if (rtb_LogicalOperator) {
+    if (rEQ0) {
       x = T_tool[12];
     } else {
       x = Teach_Pendant_Task_Space_DW.FixPtUnitDelay1_DSTATE[0];
@@ -966,10 +1138,10 @@ void Teach_Pendant_Task_Space_step(void)
     }
 
     Teach_Pendant_Task_Space_B.inter[0] = Teach_Pendant_Task_Space_B.inter[0] *
-      rtb_Count + x;
+      total_length + x;
 
     /* '<S24>:1:7' */
-    if (fabs(scale) < rtb_Count) {
+    if (fabs(scale) < total_length) {
       /* '<S24>:1:8' */
       /* '<S24>:1:9' */
       Teach_Pendant_Task_Space_B.inter[0] =
@@ -980,7 +1152,7 @@ void Teach_Pendant_Task_Space_step(void)
      *  MATLAB Function: '<S7>/Forward Kinematics'
      *  UnitDelay: '<S25>/FixPt Unit Delay1'
      */
-    if (rtb_LogicalOperator) {
+    if (rEQ0) {
       x = T_tool[13];
     } else {
       x = Teach_Pendant_Task_Space_DW.FixPtUnitDelay1_DSTATE[1];
@@ -1002,10 +1174,10 @@ void Teach_Pendant_Task_Space_step(void)
     }
 
     Teach_Pendant_Task_Space_B.inter[1] = Teach_Pendant_Task_Space_B.inter[1] *
-      rtb_Count + x;
+      total_length + x;
 
     /* '<S24>:1:7' */
-    if (fabs(scale) < rtb_Count) {
+    if (fabs(scale) < total_length) {
       /* '<S24>:1:8' */
       /* '<S24>:1:9' */
       Teach_Pendant_Task_Space_B.inter[1] =
@@ -1016,7 +1188,7 @@ void Teach_Pendant_Task_Space_step(void)
      *  MATLAB Function: '<S7>/Forward Kinematics'
      *  UnitDelay: '<S25>/FixPt Unit Delay1'
      */
-    if (rtb_LogicalOperator) {
+    if (rEQ0) {
       x = T_tool[14];
     } else {
       x = Teach_Pendant_Task_Space_DW.FixPtUnitDelay1_DSTATE[2];
@@ -1038,10 +1210,10 @@ void Teach_Pendant_Task_Space_step(void)
     }
 
     Teach_Pendant_Task_Space_B.inter[2] = Teach_Pendant_Task_Space_B.inter[2] *
-      rtb_Count + x;
+      total_length + x;
 
     /* '<S24>:1:7' */
-    if (fabs(scale) < rtb_Count) {
+    if (fabs(scale) < total_length) {
       /* '<S24>:1:8' */
       /* '<S24>:1:9' */
       Teach_Pendant_Task_Space_B.inter[2] =
@@ -1052,18 +1224,18 @@ void Teach_Pendant_Task_Space_step(void)
      *  Constant: '<S7>/first point'
      *  RelationalOperator: '<S7>/Relational Operator'
      */
-    rtb_LogicalOperator = ((Teach_Pendant_Task_Space_P.firstpoint_Value[0] ==
-      Teach_Pendant_Task_Space_B.inter[0]) &&
-      (Teach_Pendant_Task_Space_P.firstpoint_Value[1] ==
-       Teach_Pendant_Task_Space_B.inter[1]) &&
-      (Teach_Pendant_Task_Space_P.firstpoint_Value[2] ==
-       Teach_Pendant_Task_Space_B.inter[2]));
+    rEQ0 = ((Teach_Pendant_Task_Space_P.firstpoint_Value[0] ==
+             Teach_Pendant_Task_Space_B.inter[0]) &&
+            (Teach_Pendant_Task_Space_P.firstpoint_Value[1] ==
+             Teach_Pendant_Task_Space_B.inter[1]) &&
+            (Teach_Pendant_Task_Space_P.firstpoint_Value[2] ==
+             Teach_Pendant_Task_Space_B.inter[2]));
 
     /* Outputs for Enabled SubSystem: '<S7>/Traject' incorporates:
      *  EnablePort: '<S23>/Enable'
      */
     if (rtmIsMajorTimeStep(Teach_Pendant_Task_Space_M)) {
-      if (rtb_LogicalOperator) {
+      if (rEQ0) {
         if (!Teach_Pendant_Task_Space_DW.Traject_MODE) {
           /* InitializeConditions for UnitDelay: '<S29>/Output' */
           Teach_Pendant_Task_Space_DW.Output_DSTATE =
@@ -1181,7 +1353,7 @@ void Teach_Pendant_Task_Space_step(void)
     /* End of Outputs for SubSystem: '<S7>/Traject' */
 
     /* Switch: '<S7>/Switch' */
-    if (rtb_LogicalOperator) {
+    if (rEQ0) {
       Teach_Pendant_Task_Space_B.Switch[0] = Teach_Pendant_Task_Space_B.Out;
       Teach_Pendant_Task_Space_B.Switch[1] = Teach_Pendant_Task_Space_B.Out_i;
       Teach_Pendant_Task_Space_B.Switch[2] = Teach_Pendant_Task_Space_B.Out_p;
@@ -1194,40 +1366,40 @@ void Teach_Pendant_Task_Space_step(void)
     /* End of Switch: '<S7>/Switch' */
 
     /* MATLAB Function: '<Root>/Forward Kinematics' */
-    /* MATLAB Function 'Forward Kinematics': '<S1>:1' */
-    /* '<S1>:1:11' */
-    /* '<S1>:1:32' */
-    /* '<S1>:1:33' */
-    /* '<S1>:1:35' */
-    /* '<S1>:1:36' */
-    /* '<S1>:1:30' */
-    /* '<S1>:1:42' */
-    /* '<S1>:1:47' */
-    /* '<S1>:1:52' */
-    /* '<S1>:1:12' */
-    /* '<S1>:1:32' */
-    /* '<S1>:1:33' */
-    /* '<S1>:1:35' */
-    /* '<S1>:1:36' */
-    /* '<S1>:1:30' */
-    /* '<S1>:1:42' */
-    /* '<S1>:1:47' */
-    /* '<S1>:1:52' */
-    /* '<S1>:1:13' */
-    /* '<S1>:1:32' */
-    /* '<S1>:1:33' */
-    /* '<S1>:1:35' */
-    /* '<S1>:1:36' */
-    /* '<S1>:1:30' */
-    /* '<S1>:1:42' */
-    /* '<S1>:1:47' */
-    /* '<S1>:1:52' */
-    /* '<S1>:1:17' */
-    /* '<S1>:1:18' */
-    /* '<S1>:1:21' */
-    rtb_Count = sin(Teach_Pendant_Task_Space_B.JointOffsets[0]);
+    /* MATLAB Function 'Forward Kinematics': '<S2>:1' */
+    /* '<S2>:1:11' */
+    /* '<S2>:1:32' */
+    /* '<S2>:1:33' */
+    /* '<S2>:1:35' */
+    /* '<S2>:1:36' */
+    /* '<S2>:1:30' */
+    /* '<S2>:1:42' */
+    /* '<S2>:1:47' */
+    /* '<S2>:1:52' */
+    /* '<S2>:1:12' */
+    /* '<S2>:1:32' */
+    /* '<S2>:1:33' */
+    /* '<S2>:1:35' */
+    /* '<S2>:1:36' */
+    /* '<S2>:1:30' */
+    /* '<S2>:1:42' */
+    /* '<S2>:1:47' */
+    /* '<S2>:1:52' */
+    /* '<S2>:1:13' */
+    /* '<S2>:1:32' */
+    /* '<S2>:1:33' */
+    /* '<S2>:1:35' */
+    /* '<S2>:1:36' */
+    /* '<S2>:1:30' */
+    /* '<S2>:1:42' */
+    /* '<S2>:1:47' */
+    /* '<S2>:1:52' */
+    /* '<S2>:1:17' */
+    /* '<S2>:1:18' */
+    /* '<S2>:1:21' */
+    total_length = sin(Teach_Pendant_Task_Space_B.JointOffsets[0]);
     scale = cos(Teach_Pendant_Task_Space_B.JointOffsets[0]);
-    absxk = sin(Teach_Pendant_Task_Space_B.JointOffsets[1]);
+    q = sin(Teach_Pendant_Task_Space_B.JointOffsets[1]);
     t = cos(Teach_Pendant_Task_Space_B.JointOffsets[1]);
     catArgs_f2[0] = 0;
     T_tool_tmp_0[0] = 0;
@@ -1246,10 +1418,10 @@ void Teach_Pendant_Task_Space_step(void)
     }
 
     scale_0[0] = scale;
-    scale_0[4] = -rtb_Count;
+    scale_0[4] = -total_length;
     scale_0[8] = 0.0;
     scale_0[12] = 0.0;
-    scale_0[1] = rtb_Count;
+    scale_0[1] = total_length;
     scale_0[5] = scale;
     scale_0[9] = 0.0;
     scale_0[13] = 0.0;
@@ -1262,32 +1434,38 @@ void Teach_Pendant_Task_Space_step(void)
     scale_0[14] = 0.0;
     scale_0[15] = 1.0;
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_1[scale_tmp] = 0.0;
-        scale_1[scale_tmp] += (real_T)T_tool_tmp[iy] * scale_0[i];
-        scale_1[scale_tmp] += (real_T)T_tool_tmp[iy + 1] * scale_0[i + 4];
-        scale_1[scale_tmp] += (real_T)T_tool_tmp[iy + 2] * scale_0[i + 8];
-        scale_1[scale_tmp] += (real_T)T_tool_tmp[iy + 3] * scale_0[i + 12];
+        scale_1[scale_tmp] += (real_T)T_tool_tmp[eff_iteration] * scale_0[i];
+        scale_1[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 1] * scale_0[i
+          + 4];
+        scale_1[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 2] * scale_0[i
+          + 8];
+        scale_1[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 3] * scale_0[i
+          + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_2[scale_tmp] = 0.0;
-        scale_2[scale_tmp] += (real_T)T_tool_tmp[iy] * scale_1[i];
-        scale_2[scale_tmp] += (real_T)T_tool_tmp[iy + 1] * scale_1[i + 4];
-        scale_2[scale_tmp] += (real_T)T_tool_tmp[iy + 2] * scale_1[i + 8];
-        scale_2[scale_tmp] += (real_T)T_tool_tmp[iy + 3] * scale_1[i + 12];
+        scale_2[scale_tmp] += (real_T)T_tool_tmp[eff_iteration] * scale_1[i];
+        scale_2[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 1] * scale_1[i
+          + 4];
+        scale_2[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 2] * scale_1[i
+          + 8];
+        scale_2[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 3] * scale_1[i
+          + 12];
       }
     }
 
     T_tool[0] = t;
-    T_tool[4] = -absxk;
+    T_tool[4] = -q;
     T_tool[8] = 0.0;
     T_tool[12] = 0.0;
-    T_tool[1] = absxk;
+    T_tool[1] = q;
     T_tool[5] = t;
     T_tool[9] = 0.0;
     T_tool[13] = 0.0;
@@ -1300,24 +1478,27 @@ void Teach_Pendant_Task_Space_step(void)
     T_tool[14] = 0.0;
     T_tool[15] = 1.0;
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_0[scale_tmp] = 0.0;
-        scale_0[scale_tmp] += (real_T)T_tool_tmp[iy] * T_tool[i];
-        scale_0[scale_tmp] += (real_T)T_tool_tmp[iy + 1] * T_tool[i + 4];
-        scale_0[scale_tmp] += (real_T)T_tool_tmp[iy + 2] * T_tool[i + 8];
-        scale_0[scale_tmp] += (real_T)T_tool_tmp[iy + 3] * T_tool[i + 12];
+        scale_0[scale_tmp] += (real_T)T_tool_tmp[eff_iteration] * T_tool[i];
+        scale_0[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 1] * T_tool[i +
+          4];
+        scale_0[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 2] * T_tool[i +
+          8];
+        scale_0[scale_tmp] += (real_T)T_tool_tmp[eff_iteration + 3] * T_tool[i +
+          12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_1[scale_tmp] = 0.0;
-        scale_1[scale_tmp] += A_T_x[iy] * scale_0[i];
-        scale_1[scale_tmp] += A_T_x[iy + 1] * scale_0[i + 4];
-        scale_1[scale_tmp] += A_T_x[iy + 2] * scale_0[i + 8];
-        scale_1[scale_tmp] += A_T_x[iy + 3] * scale_0[i + 12];
+        scale_1[scale_tmp] += A_T_x[eff_iteration] * scale_0[i];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 1] * scale_0[i + 4];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 2] * scale_0[i + 8];
+        scale_1[scale_tmp] += A_T_x[eff_iteration + 3] * scale_0[i + 12];
       }
     }
 
@@ -1330,104 +1511,108 @@ void Teach_Pendant_Task_Space_step(void)
     T_tool_tmp_3[9] = 0.0;
     T_tool_tmp_3[13] = 0.0;
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_0[scale_tmp] = 0.0;
         T_tool[scale_tmp] = 0.0;
-        scale_0[scale_tmp] += A_R_x[iy] * scale_2[i];
-        T_tool[scale_tmp] += (real_T)T_tool_tmp_2[iy] * scale_1[i];
-        scale_tmp_0 = iy + 1;
+        scale_0[scale_tmp] += A_R_x[eff_iteration] * scale_2[i];
+        T_tool[scale_tmp] += (real_T)T_tool_tmp_2[eff_iteration] * scale_1[i];
+        scale_tmp_0 = eff_iteration + 1;
         scale_0[scale_tmp] += A_R_x[scale_tmp_0] * scale_2[i + 4];
         T_tool[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_1[i + 4];
-        scale_tmp_0 = iy + 2;
+        scale_tmp_0 = eff_iteration + 2;
         scale_0[scale_tmp] += A_R_x[scale_tmp_0] * scale_2[i + 8];
         T_tool[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_1[i + 8];
-        scale_tmp_0 = iy + 3;
+        scale_tmp_0 = eff_iteration + 3;
         scale_0[scale_tmp] += A_R_x[scale_tmp_0] * scale_2[i + 12];
         T_tool[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_1[i + 12];
       }
 
-      iy = i << 2;
-      T_tool_tmp_3[iy + 2] = catArgs_f2[i];
-      T_tool_tmp_3[iy + 3] = T_tool_tmp_0[i];
+      eff_iteration = i << 2;
+      T_tool_tmp_3[eff_iteration + 2] = catArgs_f2[i];
+      T_tool_tmp_3[eff_iteration + 3] = T_tool_tmp_0[i];
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        scale_tmp = j << 2;
-        iy = i + scale_tmp;
-        scale_1[iy] = 0.0;
-        scale_1[iy] += (real_T)T_tool_tmp[scale_tmp] * T_tool_tmp_3[i];
-        scale_1[iy] += (real_T)T_tool_tmp[scale_tmp + 1] * T_tool_tmp_3[i + 4];
-        scale_1[iy] += (real_T)T_tool_tmp[scale_tmp + 2] * T_tool_tmp_3[i + 8];
-        scale_1[iy] += (real_T)T_tool_tmp[scale_tmp + 3] * T_tool_tmp_3[i + 12];
+      for (yi = 0; yi < 4; yi++) {
+        scale_tmp = yi << 2;
+        eff_iteration = i + scale_tmp;
+        scale_1[eff_iteration] = 0.0;
+        scale_1[eff_iteration] += (real_T)T_tool_tmp[scale_tmp] * T_tool_tmp_3[i];
+        scale_1[eff_iteration] += (real_T)T_tool_tmp[scale_tmp + 1] *
+          T_tool_tmp_3[i + 4];
+        scale_1[eff_iteration] += (real_T)T_tool_tmp[scale_tmp + 2] *
+          T_tool_tmp_3[i + 8];
+        scale_1[eff_iteration] += (real_T)T_tool_tmp[scale_tmp + 3] *
+          T_tool_tmp_3[i + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        scale_tmp = j << 2;
-        iy = i + scale_tmp;
-        scale_2[iy] = 0.0;
-        scale_2[iy] += A_T_x[scale_tmp] * scale_1[i];
-        scale_2[iy] += A_T_x[scale_tmp + 1] * scale_1[i + 4];
-        scale_2[iy] += A_T_x[scale_tmp + 2] * scale_1[i + 8];
-        scale_2[iy] += A_T_x[scale_tmp + 3] * scale_1[i + 12];
+      for (yi = 0; yi < 4; yi++) {
+        scale_tmp = yi << 2;
+        eff_iteration = i + scale_tmp;
+        scale_2[eff_iteration] = 0.0;
+        scale_2[eff_iteration] += A_T_x[scale_tmp] * scale_1[i];
+        scale_2[eff_iteration] += A_T_x[scale_tmp + 1] * scale_1[i + 4];
+        scale_2[eff_iteration] += A_T_x[scale_tmp + 2] * scale_1[i + 8];
+        scale_2[eff_iteration] += A_T_x[scale_tmp + 3] * scale_1[i + 12];
       }
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = i << 2;
-        scale_tmp = j + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = i << 2;
+        scale_tmp = yi + eff_iteration;
         scale_1[scale_tmp] = 0.0;
         T_tool_tmp_3[scale_tmp] = 0.0;
-        scale_1[scale_tmp] += T_tool[iy] * scale_0[j];
-        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[iy] * scale_2[j];
-        scale_tmp_0 = iy + 1;
-        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[j + 4];
-        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_2[j
-          + 4];
-        scale_tmp_0 = iy + 2;
-        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[j + 8];
-        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_2[j
-          + 8];
-        scale_tmp_0 = iy + 3;
-        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[j + 12];
-        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] * scale_2[j
-          + 12];
+        scale_1[scale_tmp] += T_tool[eff_iteration] * scale_0[yi];
+        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[eff_iteration] *
+          scale_2[yi];
+        scale_tmp_0 = eff_iteration + 1;
+        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[yi + 4];
+        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] *
+          scale_2[yi + 4];
+        scale_tmp_0 = eff_iteration + 2;
+        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[yi + 8];
+        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] *
+          scale_2[yi + 8];
+        scale_tmp_0 = eff_iteration + 3;
+        scale_1[scale_tmp] += T_tool[scale_tmp_0] * scale_0[yi + 12];
+        T_tool_tmp_3[scale_tmp] += (real_T)T_tool_tmp_2[scale_tmp_0] *
+          scale_2[yi + 12];
       }
     }
 
     for (i = 0; i < 4; i++) {
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         scale_0[scale_tmp] = 0.0;
-        scale_0[scale_tmp] += T_tool_tmp_3[iy] * scale_1[i];
-        scale_0[scale_tmp] += T_tool_tmp_3[iy + 1] * scale_1[i + 4];
-        scale_0[scale_tmp] += T_tool_tmp_3[iy + 2] * scale_1[i + 8];
-        scale_0[scale_tmp] += T_tool_tmp_3[iy + 3] * scale_1[i + 12];
+        scale_0[scale_tmp] += T_tool_tmp_3[eff_iteration] * scale_1[i];
+        scale_0[scale_tmp] += T_tool_tmp_3[eff_iteration + 1] * scale_1[i + 4];
+        scale_0[scale_tmp] += T_tool_tmp_3[eff_iteration + 2] * scale_1[i + 8];
+        scale_0[scale_tmp] += T_tool_tmp_3[eff_iteration + 3] * scale_1[i + 12];
       }
 
-      for (j = 0; j < 4; j++) {
-        iy = j << 2;
-        scale_tmp = i + iy;
+      for (yi = 0; yi < 4; yi++) {
+        eff_iteration = yi << 2;
+        scale_tmp = i + eff_iteration;
         T_tool[scale_tmp] = 0.0;
-        T_tool[scale_tmp] += rtb_tool_offset[iy] * scale_0[i];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 1] * scale_0[i + 4];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 2] * scale_0[i + 8];
-        T_tool[scale_tmp] += rtb_tool_offset[iy + 3] * scale_0[i + 12];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration] * scale_0[i];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 1] * scale_0[i + 4];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 2] * scale_0[i + 8];
+        T_tool[scale_tmp] += rtb_tool_offset[eff_iteration + 3] * scale_0[i + 12];
       }
     }
 
-    /* '<S1>:1:22' */
-    /* '<S1>:1:23' */
+    /* '<S2>:1:22' */
+    /* '<S2>:1:23' */
     /* MATLAB Function 'cost function': '<S8>:1' */
     /* '<S8>:1:5' */
     /* '<S8>:1:6' */
     /* '<S8>:1:7' */
     /* '<S8>:1:10' */
-    /* MATLAB Function 'MATLAB Function': '<S3>:1' */
+    /* MATLAB Function 'MATLAB Function': '<S4>:1' */
     Teach_Pendant_Task_Space_B.pos[0] = T_tool[12];
 
     /* Sum: '<Root>/Subtract' */
@@ -1473,24 +1658,24 @@ void Teach_Pendant_Task_Space_step(void)
     T_tool_tmp_1 = fabs(Teach_Pendant_Task_Space_B.Switch[2] -
                         Teach_Pendant_Task_Space_P.starting_point[2]);
     rtb_q[2] = T_tool_tmp_1;
-    rtb_LogicalOperator = true;
-    iy = 0;
+    rEQ0 = true;
+    eff_iteration = 0;
     exitg1 = false;
-    while ((!exitg1) && (iy < 3)) {
-      if (!(rtb_q[iy] < 1.0E-6)) {
-        rtb_LogicalOperator = false;
+    while ((!exitg1) && (eff_iteration < 3)) {
+      if (!(rtb_q[eff_iteration] < 1.0E-6)) {
+        rEQ0 = false;
         exitg1 = true;
       } else {
-        iy++;
+        eff_iteration++;
       }
     }
 
-    if (rtb_LogicalOperator) {
-      /* '<S3>:1:8' */
-      /* '<S3>:1:9' */
+    if (rEQ0) {
+      /* '<S4>:1:8' */
+      /* '<S4>:1:9' */
       Teach_Pendant_Task_Space_DW.cost_sum = 0.0;
     } else {
-      /* '<S3>:1:11' */
+      /* '<S4>:1:11' */
       Teach_Pendant_Task_Space_DW.cost_sum +=
         (Teach_Pendant_Task_Space_B.Subtract[0] *
          Teach_Pendant_Task_Space_B.Subtract[0] +
@@ -1500,7 +1685,7 @@ void Teach_Pendant_Task_Space_step(void)
         Teach_Pendant_Task_Space_B.Subtract[2];
     }
 
-    /* '<S3>:1:14' */
+    /* '<S4>:1:14' */
     Teach_Pendant_Task_Space_B.total_cost = Teach_Pendant_Task_Space_DW.cost_sum;
 
     /* MATLAB Function: '<Root>/pid auto tuner' */
@@ -1531,72 +1716,72 @@ void Teach_Pendant_Task_Space_step(void)
     /* '<S9>:1:35' */
     /* '<S9>:1:105' */
     /* '<S9>:1:118' */
-    j = (int32_T)Teach_Pendant_Task_Space_DW.current_particle;
-    i = j - 1;
+    yi = (int32_T)Teach_Pendant_Task_Space_DW.current_particle;
+    i = yi - 1;
     Teach_Pendant_Task_Space_B.Ki[0] = Teach_Pendant_Task_Space_DW.particles[i] *
       2.0;
 
     /* '<S9>:1:106' */
     /* '<S9>:1:118' */
-    Teach_Pendant_Task_Space_B.Ki[1] = Teach_Pendant_Task_Space_DW.particles[j +
-      19] * 2.0;
+    Teach_Pendant_Task_Space_B.Ki[1] = Teach_Pendant_Task_Space_DW.particles[yi
+      + 19] * 2.0;
 
     /* '<S9>:1:107' */
     /* '<S9>:1:118' */
-    Teach_Pendant_Task_Space_B.Ki[2] = Teach_Pendant_Task_Space_DW.particles[j +
-      39] * 3.0;
+    Teach_Pendant_Task_Space_B.Ki[2] = Teach_Pendant_Task_Space_DW.particles[yi
+      + 39] * 3.0;
 
     /* '<S9>:1:110' */
     /* '<S9>:1:118' */
-    Teach_Pendant_Task_Space_B.Kd[0] = Teach_Pendant_Task_Space_DW.particles[j +
-      59] * 0.08 + 0.02;
+    Teach_Pendant_Task_Space_B.Kd[0] = Teach_Pendant_Task_Space_DW.particles[yi
+      + 59] * 0.08 + 0.02;
 
     /* '<S9>:1:111' */
     /* '<S9>:1:118' */
-    Teach_Pendant_Task_Space_B.Kd[1] = Teach_Pendant_Task_Space_DW.particles[j +
-      79] * 0.08 + 0.02;
+    Teach_Pendant_Task_Space_B.Kd[1] = Teach_Pendant_Task_Space_DW.particles[yi
+      + 79] * 0.08 + 0.02;
 
     /* '<S9>:1:112' */
     /* '<S9>:1:118' */
-    Teach_Pendant_Task_Space_B.Kd[2] = Teach_Pendant_Task_Space_DW.particles[j +
-      99] * 0.025;
+    Teach_Pendant_Task_Space_B.Kd[2] = Teach_Pendant_Task_Space_DW.particles[yi
+      + 99] * 0.025;
 
     /* '<S9>:1:36' */
     /* '<S9>:1:37' */
     /* '<S9>:1:38' */
     /* '<S9>:1:41' */
     scale = 3.3121686421112381E-170;
-    absxk = fabs(rtb_GearRatio[0]);
-    if (absxk > 3.3121686421112381E-170) {
-      rtb_Count = 1.0;
-      scale = absxk;
+    q = fabs(rtb_GearRatio[0]);
+    if (q > 3.3121686421112381E-170) {
+      total_length = 1.0;
+      scale = q;
     } else {
-      t = absxk / 3.3121686421112381E-170;
-      rtb_Count = t * t;
+      t = q / 3.3121686421112381E-170;
+      total_length = t * t;
     }
 
-    absxk = fabs(x);
-    if (absxk > scale) {
-      t = scale / absxk;
-      rtb_Count = rtb_Count * t * t + 1.0;
-      scale = absxk;
+    q = fabs(x);
+    if (q > scale) {
+      t = scale / q;
+      total_length = total_length * t * t + 1.0;
+      scale = q;
     } else {
-      t = absxk / scale;
-      rtb_Count += t * t;
+      t = q / scale;
+      total_length += t * t;
     }
 
     if (T_tool_tmp_1 > scale) {
       t = scale / T_tool_tmp_1;
-      rtb_Count = rtb_Count * t * t + 1.0;
+      total_length = total_length * t * t + 1.0;
       scale = T_tool_tmp_1;
     } else {
       t = T_tool_tmp_1 / scale;
-      rtb_Count += t * t;
+      total_length += t * t;
     }
 
-    rtb_Count = scale * sqrt(rtb_Count);
-    rtb_LogicalOperator = (rtb_Count < 0.05);
-    if (rtb_LogicalOperator && (!Teach_Pendant_Task_Space_DW.in_zone_prev)) {
+    total_length = scale * sqrt(total_length);
+    rEQ0 = (total_length < 0.05);
+    if (rEQ0 && (!Teach_Pendant_Task_Space_DW.in_zone_prev)) {
       /* '<S9>:1:42' */
       trigger = true;
     } else {
@@ -1604,7 +1789,7 @@ void Teach_Pendant_Task_Space_step(void)
     }
 
     /* '<S9>:1:43' */
-    Teach_Pendant_Task_Space_DW.in_zone_prev = rtb_LogicalOperator;
+    Teach_Pendant_Task_Space_DW.in_zone_prev = rEQ0;
     if (trigger) {
       if (Teach_Pendant_Task_Space_B.total_cost <
           Teach_Pendant_Task_Space_DW.pbest_cost[i]) {
@@ -1615,8 +1800,8 @@ void Teach_Pendant_Task_Space_step(void)
 
         /* '<S9>:1:50' */
         for (i = 0; i < 6; i++) {
-          Teach_Pendant_Task_Space_DW.pbest[(j + 20 * i) - 1] =
-            Teach_Pendant_Task_Space_DW.particles[(20 * i + j) - 1];
+          Teach_Pendant_Task_Space_DW.pbest[(yi + 20 * i) - 1] =
+            Teach_Pendant_Task_Space_DW.particles[(20 * i + yi) - 1];
         }
       }
 
@@ -1629,9 +1814,9 @@ void Teach_Pendant_Task_Space_step(void)
 
         /* '<S9>:1:55' */
         i = (int32_T)Teach_Pendant_Task_Space_DW.current_particle;
-        for (j = 0; j < 6; j++) {
-          Teach_Pendant_Task_Space_DW.gbest[j] =
-            Teach_Pendant_Task_Space_DW.particles[(20 * j + i) - 1];
+        for (yi = 0; yi < 6; yi++) {
+          Teach_Pendant_Task_Space_DW.gbest[yi] =
+            Teach_Pendant_Task_Space_DW.particles[(20 * yi + i) - 1];
         }
       }
 
@@ -1649,7 +1834,7 @@ void Teach_Pendant_Task_Space_step(void)
       if (Teach_Pendant_Task_Space_DW.eval_count >= 20.0) {
         /* '<S9>:1:67' */
         /* '<S9>:1:68' */
-        for (j = 0; j < 20; j++) {
+        for (yi = 0; yi < 20; yi++) {
           /* '<S9>:1:68' */
           /* '<S9>:1:70' */
           Teach_Pendant_Task_Space_rand_l(rtb_EncoderOffsets);
@@ -1660,33 +1845,34 @@ void Teach_Pendant_Task_Space_step(void)
           /* '<S9>:1:73' */
           /* '<S9>:1:78' */
           /* '<S9>:1:79' */
-          for (iy = 0; iy < 6; iy++) {
-            i = 20 * iy + j;
+          for (eff_iteration = 0; eff_iteration < 6; eff_iteration++) {
+            i = 20 * eff_iteration + yi;
             Teach_Pendant_Task_Space_DW.velocities[i] =
               ((Teach_Pendant_Task_Space_DW.pbest[i] -
                 Teach_Pendant_Task_Space_DW.particles[i]) * (1.5 *
-                rtb_EncoderOffsets[iy]) +
+                rtb_EncoderOffsets[eff_iteration]) +
                Teach_Pendant_Task_Space_DW.velocities[i] * 0.7) +
-              (Teach_Pendant_Task_Space_DW.gbest[iy] -
-               Teach_Pendant_Task_Space_DW.particles[i]) * (3.0 * r2[iy]);
+              (Teach_Pendant_Task_Space_DW.gbest[eff_iteration] -
+               Teach_Pendant_Task_Space_DW.particles[i]) * (3.0 *
+              r2[eff_iteration]);
             Teach_Pendant_Task_Space_DW.particles[i] +=
               Teach_Pendant_Task_Space_DW.velocities[i];
             if ((1.0 < Teach_Pendant_Task_Space_DW.particles[i]) || rtIsNaN
                 (Teach_Pendant_Task_Space_DW.particles[i])) {
-              rtb_Count = 1.0;
+              total_length = 1.0;
             } else {
-              rtb_Count = Teach_Pendant_Task_Space_DW.particles[i];
+              total_length = Teach_Pendant_Task_Space_DW.particles[i];
             }
 
-            if ((0.0 > rtb_Count) || rtIsNaN(rtb_Count)) {
+            if ((0.0 > total_length) || rtIsNaN(total_length)) {
               scale = 0.0;
             } else {
-              scale = rtb_Count;
+              scale = total_length;
             }
 
             Teach_Pendant_Task_Space_DW.particles[i] = scale;
-            rtb_EncoderOffsets[iy] = rtb_Count;
-            r2[iy] = scale;
+            rtb_EncoderOffsets[eff_iteration] = total_length;
+            r2[eff_iteration] = scale;
           }
         }
 
@@ -1711,29 +1897,29 @@ void Teach_Pendant_Task_Space_step(void)
     /* '<S9>:1:88' */
     /* '<S9>:1:91' */
     if (!rtIsNaN(Teach_Pendant_Task_Space_DW.pbest_cost[0])) {
-      iy = 0;
+      eff_iteration = 0;
     } else {
-      iy = -1;
-      j = 2;
+      eff_iteration = -1;
+      yi = 2;
       exitg1 = false;
-      while ((!exitg1) && (j < 21)) {
-        if (!rtIsNaN(Teach_Pendant_Task_Space_DW.pbest_cost[j - 1])) {
-          iy = j - 1;
+      while ((!exitg1) && (yi < 21)) {
+        if (!rtIsNaN(Teach_Pendant_Task_Space_DW.pbest_cost[yi - 1])) {
+          eff_iteration = yi - 1;
           exitg1 = true;
         } else {
-          j++;
+          yi++;
         }
       }
     }
 
-    if (iy + 1 == 0) {
-      iy = 0;
+    if (eff_iteration + 1 == 0) {
+      eff_iteration = 0;
     } else {
-      rtb_Count = Teach_Pendant_Task_Space_DW.pbest_cost[iy];
-      for (j = iy + 1; j < 20; j++) {
-        if (rtb_Count < Teach_Pendant_Task_Space_DW.pbest_cost[j]) {
-          rtb_Count = Teach_Pendant_Task_Space_DW.pbest_cost[j];
-          iy = j;
+      total_length = Teach_Pendant_Task_Space_DW.pbest_cost[eff_iteration];
+      for (yi = eff_iteration + 1; yi < 20; yi++) {
+        if (total_length < Teach_Pendant_Task_Space_DW.pbest_cost[yi]) {
+          total_length = Teach_Pendant_Task_Space_DW.pbest_cost[yi];
+          eff_iteration = yi;
         }
       }
     }
@@ -1759,9 +1945,9 @@ void Teach_Pendant_Task_Space_step(void)
       * 0.08 + 0.02;
     Teach_Pendant_Task_Space_B.worst_PID[0] = 1.79;
     Teach_Pendant_Task_Space_B.worst_PID[3] =
-      Teach_Pendant_Task_Space_DW.pbest[iy] * 2.0;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration] * 2.0;
     Teach_Pendant_Task_Space_B.worst_PID[6] =
-      Teach_Pendant_Task_Space_DW.pbest[iy + 60] * 0.08 + 0.02;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration + 60] * 0.08 + 0.02;
     Teach_Pendant_Task_Space_B.best_PID[1] = 1.46;
     Teach_Pendant_Task_Space_B.best_PID[4] = Teach_Pendant_Task_Space_DW.gbest[1]
       * 2.0;
@@ -1769,9 +1955,9 @@ void Teach_Pendant_Task_Space_step(void)
       * 0.08 + 0.02;
     Teach_Pendant_Task_Space_B.worst_PID[1] = 1.46;
     Teach_Pendant_Task_Space_B.worst_PID[4] =
-      Teach_Pendant_Task_Space_DW.pbest[iy + 20] * 2.0;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration + 20] * 2.0;
     Teach_Pendant_Task_Space_B.worst_PID[7] =
-      Teach_Pendant_Task_Space_DW.pbest[iy + 80] * 0.08 + 0.02;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration + 80] * 0.08 + 0.02;
     Teach_Pendant_Task_Space_B.best_PID[2] = 0.6;
     Teach_Pendant_Task_Space_B.best_PID[5] = Teach_Pendant_Task_Space_DW.gbest[2]
       * 3.0;
@@ -1779,30 +1965,30 @@ void Teach_Pendant_Task_Space_step(void)
       * 0.025;
     Teach_Pendant_Task_Space_B.worst_PID[2] = 0.6;
     Teach_Pendant_Task_Space_B.worst_PID[5] =
-      Teach_Pendant_Task_Space_DW.pbest[iy + 40] * 3.0;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration + 40] * 3.0;
     Teach_Pendant_Task_Space_B.worst_PID[8] =
-      Teach_Pendant_Task_Space_DW.pbest[iy + 100] * 0.025;
+      Teach_Pendant_Task_Space_DW.pbest[eff_iteration + 100] * 0.025;
 
-    /* MATLAB Function: '<Root>/MATLAB Function2' incorporates:
+    /* MATLAB Function: '<Root>/1 to out 1st signal' incorporates:
      *  Constant: '<Root>/Constant2'
      *  MATLAB Function: '<Root>/MATLAB Function1'
-     *  SignalConversion generated from: '<S5>/ SFunction '
+     *  SignalConversion generated from: '<S1>/ SFunction '
      */
-    /* MATLAB Function 'MATLAB Function2': '<S5>:1' */
+    /* MATLAB Function '1 to out 1st signal': '<S1>:1' */
     if (Teach_Pendant_Task_Space_P.Constant2_Value == 1.0) {
-      /* '<S5>:1:4' */
-      /* '<S5>:1:5' */
+      /* '<S1>:1:4' */
+      /* '<S1>:1:5' */
       Teach_Pendant_Task_Space_B.out[0] = 1.79;
-      Teach_Pendant_Task_Space_B.out[3] = 1.0;
-      Teach_Pendant_Task_Space_B.out[6] = 0.03;
+      Teach_Pendant_Task_Space_B.out[3] = 1.629;
+      Teach_Pendant_Task_Space_B.out[6] = 0.0801;
       Teach_Pendant_Task_Space_B.out[1] = 1.46;
-      Teach_Pendant_Task_Space_B.out[4] = 1.7;
-      Teach_Pendant_Task_Space_B.out[7] = 0.045;
+      Teach_Pendant_Task_Space_B.out[4] = 1.311;
+      Teach_Pendant_Task_Space_B.out[7] = 0.04813;
       Teach_Pendant_Task_Space_B.out[2] = 0.6;
-      Teach_Pendant_Task_Space_B.out[5] = 2.9;
-      Teach_Pendant_Task_Space_B.out[8] = 0.001;
+      Teach_Pendant_Task_Space_B.out[5] = 1.316;
+      Teach_Pendant_Task_Space_B.out[8] = 0.004055;
     } else {
-      /* '<S5>:1:7' */
+      /* '<S1>:1:7' */
       Teach_Pendant_Task_Space_B.out[0] = 1.79;
       Teach_Pendant_Task_Space_B.out[3] = Teach_Pendant_Task_Space_B.Ki[0];
       Teach_Pendant_Task_Space_B.out[6] = Teach_Pendant_Task_Space_B.Kd[0];
@@ -1814,7 +2000,7 @@ void Teach_Pendant_Task_Space_step(void)
       Teach_Pendant_Task_Space_B.out[8] = Teach_Pendant_Task_Space_B.Kd[2];
     }
 
-    /* End of MATLAB Function: '<Root>/MATLAB Function2' */
+    /* End of MATLAB Function: '<Root>/1 to out 1st signal' */
 
     /* Saturate: '<S6>/Saturation1' */
     if (Teach_Pendant_Task_Space_B.out[6] >
@@ -1945,52 +2131,52 @@ void Teach_Pendant_Task_Space_step(void)
     /* MATLAB Function: '<Root>/Inverse Kinematics' incorporates:
      *  MATLAB Function: '<Root>/Forward Kinematics'
      */
-    /* MATLAB Function 'Inverse Kinematics': '<S2>:1' */
-    /* '<S2>:1:19' */
-    /* '<S2>:1:22' */
+    /* MATLAB Function 'Inverse Kinematics': '<S3>:1' */
+    /* '<S3>:1:19' */
+    /* '<S3>:1:22' */
     for (i = 0; i < 3; i++) {
       rtb_GearRatio[i] = T_tool[i + 8] * rtb_tool_offset[14] + (T_tool[i + 4] *
         rtb_tool_offset[13] + T_tool[i] * rtb_tool_offset[12]);
     }
 
-    /* '<S2>:1:26' */
+    /* '<S3>:1:26' */
     x = Teach_Pendant_Task_Space_B.Switch[0] - rtb_GearRatio[0];
 
-    /* '<S2>:1:27' */
-    rtb_Count = Teach_Pendant_Task_Space_B.Switch[1] - rtb_GearRatio[1];
+    /* '<S3>:1:27' */
+    total_length = Teach_Pendant_Task_Space_B.Switch[1] - rtb_GearRatio[1];
 
-    /* '<S2>:1:28' */
-    absxk = Teach_Pendant_Task_Space_B.Switch[2] - rtb_GearRatio[2];
+    /* '<S3>:1:28' */
+    q = Teach_Pendant_Task_Space_B.Switch[2] - rtb_GearRatio[2];
 
-    /* '<S2>:1:32' */
-    t = sqrt(x * x + rtb_Count * rtb_Count);
+    /* '<S3>:1:32' */
+    t = sqrt(x * x + total_length * total_length);
 
-    /* '<S2>:1:35' */
-    scale = sqrt(t * t + absxk * absxk);
+    /* '<S3>:1:35' */
+    scale = sqrt(t * t + q * q);
 
-    /* '<S2>:1:38' */
-    rtb_Count = atan(rtb_Count / x);
+    /* '<S3>:1:38' */
+    total_length = atan(total_length / x);
 
-    /* '<S2>:1:41' */
+    /* '<S3>:1:41' */
     x = acos((0.034848000000000004 - scale * scale) / 0.034848000000000004);
-    if (absxk < 0.0) {
-      /* '<S2>:1:44' */
-      /* '<S2>:1:45' */
-      absxk = acos(t / scale);
+    if (q < 0.0) {
+      /* '<S3>:1:44' */
+      /* '<S3>:1:45' */
+      q = acos(t / scale);
     } else {
-      /* '<S2>:1:47' */
-      absxk = -acos(t / scale);
+      /* '<S3>:1:47' */
+      q = -acos(t / scale);
     }
 
-    /* '<S2>:1:51' */
-    /* '<S2>:1:52' */
-    scale = absxk - asin(sin(4.71238898038469 - (4.71238898038469 - x)) * 0.132 /
-                         scale);
+    /* '<S3>:1:51' */
+    /* '<S3>:1:52' */
+    scale = q - asin(sin(4.71238898038469 - (4.71238898038469 - x)) * 0.132 /
+                     scale);
 
     /* Sum: '<S12>/Sum1' incorporates:
      *  MATLAB Function: '<Root>/Inverse Kinematics'
      */
-    Teach_Pendant_Task_Space_B.Sum1[0] = rtb_Count -
+    Teach_Pendant_Task_Space_B.Sum1[0] = total_length -
       Teach_Pendant_Task_Space_B.JointOffsets[0];
     Teach_Pendant_Task_Space_B.Sum1[1] = scale -
       Teach_Pendant_Task_Space_B.JointOffsets[1];
@@ -2121,6 +2307,10 @@ void Teach_Pendant_Task_Space_step(void)
     Teach_Pendant_Task_Space_P.SecondOrderLowPassFilter_input_;
   if (rtmIsMajorTimeStep(Teach_Pendant_Task_Space_M)) {
     if (rtmIsMajorTimeStep(Teach_Pendant_Task_Space_M)) {
+      /* Update for UnitDelay: '<Root>/Unit Delay' */
+      Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_d =
+        Teach_Pendant_Task_Space_B.Add;
+
       /* Update for UnitDelay: '<S25>/FixPt Unit Delay2' incorporates:
        *  Constant: '<S25>/FixPt Constant'
        */
@@ -2311,10 +2501,10 @@ void Teach_Pendant_Task_Space_initialize(void)
   rtmSetFirstInitCond(Teach_Pendant_Task_Space_M, 1);
 
   /* External mode info */
-  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (1807107332U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (3848122483U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (3956050579U);
-  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (2853076223U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[0] = (1294955862U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[1] = (296217366U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[2] = (221351703U);
+  Teach_Pendant_Task_Space_M->Sizes.checksums[3] = (128393835U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -2433,6 +2623,7 @@ void Teach_Pendant_Task_Space_initialize(void)
     Teach_Pendant_Task_Space_B.div[0] = 0.0;
     Teach_Pendant_Task_Space_B.div[1] = 0.0;
     Teach_Pendant_Task_Space_B.div[2] = 0.0;
+    Teach_Pendant_Task_Space_B.current_seg = 0.0;
     Teach_Pendant_Task_Space_B.total_cost = 0.0;
     Teach_Pendant_Task_Space_B.pos[0] = 0.0;
     Teach_Pendant_Task_Space_B.pos[1] = 0.0;
@@ -2497,6 +2688,7 @@ void Teach_Pendant_Task_Space_initialize(void)
   Teach_Pendant_Task_Space_DW.gbest_cost = 0.0;
   Teach_Pendant_Task_Space_DW.current_particle = 0.0;
   Teach_Pendant_Task_Space_DW.eval_count = 0.0;
+  Teach_Pendant_Task_Space_DW.last_seg = 0.0;
   Teach_Pendant_Task_Space_DW.cost_sum = 0.0;
 
   /* data type transition information */
@@ -2565,6 +2757,10 @@ void Teach_Pendant_Task_Space_initialize(void)
   {
     int32_T i;
 
+    /* InitializeConditions for UnitDelay: '<Root>/Unit Delay' */
+    Teach_Pendant_Task_Space_DW.UnitDelay_DSTATE_d =
+      Teach_Pendant_Task_Space_P.UnitDelay_InitialCondition_j;
+
     /* InitializeConditions for UnitDelay: '<S25>/FixPt Unit Delay2' */
     Teach_Pendant_Task_Space_DW.FixPtUnitDelay2_DSTATE =
       Teach_Pendant_Task_Space_P.FixPtUnitDelay2_InitialConditio;
@@ -2627,6 +2823,9 @@ void Teach_Pendant_Task_Space_initialize(void)
     Teach_Pendant_Task_Space_DW.Integrator1_IWORK = 1;
 
     /* End of InitializeConditions for Integrator: '<S20>/Integrator1' */
+
+    /* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function1' */
+    Teach_Pendant_Task_Space_DW.last_seg = 0.0;
 
     /* SystemInitialize for Atomic SubSystem: '<S6>/Bias Removal' */
     /* SystemInitialize for Enabled SubSystem: '<S10>/Enabled Moving Average' */
